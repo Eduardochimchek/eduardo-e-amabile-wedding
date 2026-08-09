@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { weddingConfig } from "@/config/wedding";
 import { getFamilyDescriptionFromConfig } from "@/lib/family";
+import { FamilyMotion } from "@/components/FamilyMotion";
 import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 
@@ -16,30 +17,37 @@ export function Family() {
       aria-labelledby="familia-title"
     >
       <div className="section-shell">
-        <SectionHeading
-          id="familia-title"
-          eyebrow={weddingConfig.copy.familyEyebrow}
-          title="Nossa família"
-          description={description}
-        />
+        <FamilyMotion>
+          <div data-m="up" className="w-full">
+            <SectionHeading
+              id="familia-title"
+              eyebrow={weddingConfig.copy.familyEyebrow}
+              title="Nossa família"
+              description={description}
+            />
+          </div>
 
-        <div className="mx-auto mt-14 grid max-w-4xl gap-10 md:mt-16">
-          <div className="grid gap-6 sm:grid-cols-2">
+          <div
+            data-m="fade"
+            className="mt-14 grid w-full max-w-4xl gap-6 self-center sm:grid-cols-2 md:mt-16"
+          >
             {partners.map((member) => (
               <figure key={member.id} className="text-center">
-                {member.imageSrc ? (
-                  <div className="relative aspect-[3/4] overflow-hidden">
-                    <Image
-                      src={member.imageSrc}
-                      alt={member.imageAlt ?? member.name}
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 640px) 100vw, 320px"
-                    />
-                  </div>
-                ) : (
-                  <ImagePlaceholder label={`Foto de ${member.name}`} />
-                )}
+                <div className="m-image overflow-hidden">
+                  {member.imageSrc ? (
+                    <div className="relative aspect-[3/4]">
+                      <Image
+                        src={member.imageSrc}
+                        alt={member.imageAlt ?? member.name}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 640px) 100vw, 320px"
+                      />
+                    </div>
+                  ) : (
+                    <ImagePlaceholder label={`Foto de ${member.name}`} />
+                  )}
+                </div>
                 <figcaption className="mt-4 font-display text-2xl text-deep">
                   {member.name}
                 </figcaption>
@@ -47,13 +55,20 @@ export function Family() {
             ))}
           </div>
 
-          <div className="flex items-center justify-center gap-4 py-2" aria-hidden="true">
+          <div
+            data-m="fade"
+            className="flex items-center justify-center gap-4 py-2"
+            aria-hidden="true"
+          >
             <span className="h-px w-10 bg-line" />
             <span className="font-display text-3xl text-gold">+</span>
             <span className="h-px w-10 bg-line" />
           </div>
 
-          <div className="grid gap-6 sm:mx-auto sm:max-w-xl sm:grid-cols-2">
+          <div
+            data-m="image"
+            className="grid w-full max-w-xl gap-6 self-center sm:grid-cols-2"
+          >
             {children.map((member) => (
               <figure key={member.id} className="text-center">
                 {member.imageSrc ? (
@@ -78,8 +93,9 @@ export function Family() {
               </figure>
             ))}
           </div>
-        </div>
+        </FamilyMotion>
       </div>
+      <div className="section-divider mt-16 opacity-70" aria-hidden="true" />
     </section>
   );
 }

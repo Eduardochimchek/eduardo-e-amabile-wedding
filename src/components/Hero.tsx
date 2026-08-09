@@ -1,17 +1,61 @@
+"use client";
+
+import { useEffect, useRef } from "react";
 import { weddingConfig } from "@/config/wedding";
 import { BotanicalAccent } from "@/components/ui/BotanicalAccent";
+import { usePrefersReducedMotion } from "@/hooks/useInView";
 
 export function Hero() {
   const { couple, date, copy } = weddingConfig;
+  const sectionRef = useRef<HTMLElement>(null);
+  const reduced = usePrefersReducedMotion();
+
+  useEffect(() => {
+    if (reduced) return;
+    const section = sectionRef.current;
+    if (!section) return;
+
+    const isMobile = () => window.matchMedia("(max-width: 767px)").matches;
+    let frame = 0;
+
+    const update = () => {
+      frame = 0;
+      if (isMobile()) {
+        section.style.setProperty("--hero-shift", "0");
+        return;
+      }
+      const rect = section.getBoundingClientRect();
+      const shift = Math.max(0, -rect.top);
+      section.style.setProperty("--hero-shift", `${Math.min(shift, 420)}`);
+    };
+
+    const onScroll = () => {
+      if (frame) return;
+      frame = window.requestAnimationFrame(update);
+    };
+
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      if (frame) window.cancelAnimationFrame(frame);
+    };
+  }, [reduced]);
 
   return (
     <section
+      ref={sectionRef}
       id="topo"
-      className="relative flex min-h-[100svh] items-end overflow-hidden md:items-center"
+      className="hero-enter relative flex min-h-[100svh] items-end overflow-hidden md:items-center"
       aria-label="Abertura"
     >
-      {/* Full-bleed atmospheric plane — replace with couple photo when available */}
-      <div className="absolute inset-0 hero-wash" aria-hidden="true">
+      <div
+        className="absolute inset-0 hero-wash hero-parallax-bg"
+        data-hero="bg"
+        aria-hidden="true"
+      >
         <div className="absolute inset-0 bg-gradient-to-t from-deep/70 via-deep/25 to-transparent" />
       </div>
 
@@ -25,30 +69,53 @@ export function Hero() {
       />
 
       <div className="section-shell relative z-10 w-full pb-16 pt-28 md:pb-24 md:pt-32">
-        <div className="mx-auto max-w-3xl text-center text-warm">
-          <p className="mb-8 text-[0.7rem] font-medium uppercase tracking-[0.28em] text-champagne">
+        <div className="hero-parallax-content mx-auto max-w-3xl text-center text-warm">
+          <p
+            data-hero="eyebrow"
+            className="mb-8 text-[0.7rem] font-medium uppercase tracking-[0.28em] text-champagne"
+          >
             Nosso casamento
           </p>
 
           <h1 className="font-display text-[clamp(3.4rem,12vw,6.5rem)] font-medium leading-[0.95] tracking-wide">
-            <span className="block">{couple.partnerOne.firstName}</span>
-            <span className="my-2 block font-display text-[clamp(2rem,6vw,3rem)] font-normal text-gold">
+            <span data-hero="name-1" className="block">
+              {couple.partnerOne.firstName}
+            </span>
+            <span
+              data-hero="amp"
+              className="my-2 block font-display text-[clamp(2rem,6vw,3rem)] font-normal text-gold"
+            >
               &
             </span>
-            <span className="block">{couple.partnerTwo.firstName}</span>
+            <span data-hero="name-2" className="block">
+              {couple.partnerTwo.firstName}
+            </span>
           </h1>
 
-          <p className="mt-8 font-display text-2xl tracking-[0.35em] text-warm sm:text-3xl">
+          <p
+            data-hero="date"
+            className="mt-8 font-display text-2xl tracking-[0.35em] text-warm sm:text-3xl"
+          >
             {date.displayCompact}
           </p>
 
-          <div className="gold-rule mx-auto mt-8 opacity-80" aria-hidden="true" />
+          <div
+            data-hero="rule"
+            className="gold-rule mx-auto mt-8 opacity-80"
+            aria-hidden="true"
+          />
 
-          <p className="mx-auto mt-8 max-w-md text-sm leading-relaxed text-warm/90 sm:text-base">
+          <p
+            data-hero="tagline"
+            className="mx-auto mt-8 max-w-md text-sm leading-relaxed text-warm/90 sm:text-base"
+          >
             {copy.heroTagline}
           </p>
 
-          <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
+          <div
+            data-hero="cta"
+            className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row"
+          >
             <a href="#rsvp" className="btn-primary min-w-[12rem]">
               Confirmar presença
             </a>

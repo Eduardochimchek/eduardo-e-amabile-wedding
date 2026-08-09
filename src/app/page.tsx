@@ -1,4 +1,5 @@
 import { Navigation } from "@/components/Navigation";
+import { ScrollProgress } from "@/components/ScrollProgress";
 import { Hero } from "@/components/Hero";
 import { Story } from "@/components/Story";
 import { Timeline } from "@/components/Timeline";
@@ -13,6 +14,7 @@ import { Footer } from "@/components/Footer";
 export default function HomePage() {
   return (
     <>
+      <ScrollProgress />
       <Navigation />
       <main id="conteudo">
         <Hero />

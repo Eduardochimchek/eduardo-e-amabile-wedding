@@ -13,8 +13,8 @@ export function GiftCard({ gift, onSelect }: GiftCardProps) {
   const ctaLabel = weddingConfig.payment.enabled ? "Presentear" : "Contribuir";
 
   return (
-    <article className="flex h-full flex-col overflow-hidden rounded-md bg-warm shadow-soft ring-1 ring-line/70 transition-[transform,box-shadow] duration-300 hover:-translate-y-0.5 hover:shadow-lift focus-within:shadow-lift">
-      <div className="relative aspect-square w-full overflow-hidden bg-warm">
+    <article className="gift-card flex h-full flex-col overflow-hidden rounded-md bg-warm shadow-soft ring-1 ring-line/70">
+      <div className="gift-card__media relative aspect-square w-full overflow-hidden bg-warm">
         {gift.imageSrc ? (
           <Image
             src={gift.imageSrc}

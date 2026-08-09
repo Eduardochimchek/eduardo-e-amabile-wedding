@@ -6,6 +6,7 @@ import { weddingConfig } from "@/config/wedding";
 import { getEnabledGifts } from "@/data/gifts";
 import { GiftCard } from "@/components/GiftCard";
 import { PaymentModal } from "@/components/PaymentModal";
+import { MotionGroup } from "@/components/motion/Motion";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 
 export function Gifts() {
@@ -20,16 +21,24 @@ export function Gifts() {
       aria-labelledby="presentes-title"
     >
       <div className="section-shell">
-        <SectionHeading
-          id="presentes-title"
-          eyebrow={weddingConfig.copy.giftsEyebrow}
-          title="Presentes"
-          description={weddingConfig.copy.giftsIntro}
-        />
+        <MotionGroup>
+          <div data-m="up">
+            <SectionHeading
+              id="presentes-title"
+              eyebrow={weddingConfig.copy.giftsEyebrow}
+              title="Presentes"
+              description={weddingConfig.copy.giftsIntro}
+            />
+          </div>
+        </MotionGroup>
 
-        <ul className="mx-auto mt-14 grid max-w-6xl gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <MotionGroup
+          as="ul"
+          stagger
+          className="mx-auto mt-14 grid max-w-6xl gap-6 sm:grid-cols-2 lg:grid-cols-3"
+        >
           {gifts.map((gift) => (
-            <li key={gift.id} className="h-full">
+            <li key={gift.id} data-m="scale" className="h-full">
               <GiftCard
                 gift={gift}
                 onSelect={(item, trigger) => {
@@ -39,7 +48,7 @@ export function Gifts() {
               />
             </li>
           ))}
-        </ul>
+        </MotionGroup>
       </div>
 
       <PaymentModal

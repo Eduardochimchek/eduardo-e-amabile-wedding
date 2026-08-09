@@ -24,10 +24,40 @@ export function PaymentModal({
   const panelRef = useRef<HTMLDivElement>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
   const [copied, setCopied] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  const [visible, setVisible] = useState(false);
+  const [displayGift, setDisplayGift] = useState<GiftItem | null>(gift);
   const { payment } = weddingConfig;
+
+  // Keep last gift while the exit transition plays (gift becomes null on close).
+  if (gift && gift !== displayGift) {
+    setDisplayGift(gift);
+  }
+
+  const current = displayGift;
   const pixKey = payment.pix.key?.trim();
   const qrCodeSrc = payment.pix.qrCodeSrc?.trim();
   const hasPaymentInfo = payment.enabled && Boolean(pixKey);
+
+  useEffect(() => {
+    let openFrame = 0;
+    let closeTimer = 0;
+
+    if (open) {
+      openFrame = window.requestAnimationFrame(() => {
+        setMounted(true);
+        openFrame = window.requestAnimationFrame(() => setVisible(true));
+      });
+      return () => window.cancelAnimationFrame(openFrame);
+    }
+
+    openFrame = window.requestAnimationFrame(() => setVisible(false));
+    closeTimer = window.setTimeout(() => setMounted(false), 280);
+    return () => {
+      window.cancelAnimationFrame(openFrame);
+      window.clearTimeout(closeTimer);
+    };
+  }, [open]);
 
   useEffect(() => {
     if (!open) return;
@@ -71,7 +101,7 @@ export function PaymentModal({
     };
   }, [open, onClose, returnFocusRef]);
 
-  if (!open || !gift) return null;
+  if (!mounted || !current) return null;
 
   async function handleCopy() {
     if (!pixKey) return;
@@ -86,21 +116,22 @@ export function PaymentModal({
 
   return (
     <div
-      className="fixed inset-0 z-[60] flex items-end justify-center p-4 sm:items-center"
+      className="modal-root fixed inset-0 z-[60] flex items-end justify-center p-4 sm:items-center"
       role="dialog"
       aria-modal="true"
       aria-labelledby={titleId}
+      data-open={visible ? "true" : "false"}
     >
       <button
         type="button"
-        className="absolute inset-0 bg-deep/55 backdrop-blur-[2px]"
+        className="modal-overlay absolute inset-0 bg-deep/55 backdrop-blur-[2px]"
         aria-label="Fechar modal"
         onClick={handleClose}
       />
 
       <div
         ref={panelRef}
-        className="relative z-10 w-full max-w-md rounded-lg bg-warm p-6 shadow-lift sm:p-8"
+        className="modal-panel relative z-10 w-full max-w-md rounded-lg bg-warm p-6 shadow-lift sm:p-8"
       >
         <button
           ref={closeRef}
@@ -113,13 +144,13 @@ export function PaymentModal({
 
         <p className="eyebrow">Presentear</p>
         <h3 id={titleId} className="mt-3 font-display text-3xl text-deep">
-          {gift.title}
+          {current.title}
         </h3>
-        <p className="mt-3 body-copy text-sm">{gift.description}</p>
+        <p className="mt-3 body-copy text-sm">{current.description}</p>
 
-        {typeof gift.amount === "number" ? (
+        {typeof current.amount === "number" ? (
           <p className="mt-5 font-display text-xl text-royal sm:text-2xl">
-            {formatGiftAmount(gift.amount, { fromPrice: gift.fromPrice })}
+            {formatGiftAmount(current.amount, { fromPrice: current.fromPrice })}
           </p>
         ) : (
           <p className="mt-5 text-sm text-muted">

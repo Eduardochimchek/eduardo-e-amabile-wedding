@@ -2,6 +2,7 @@
 
 import { FormEvent, useState } from "react";
 import { weddingConfig } from "@/config/wedding";
+import { MotionGroup } from "@/components/motion/Motion";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { cn } from "@/lib/utils";
 import { RSVP_LIMITS } from "@/lib/rsvp";
@@ -117,21 +118,27 @@ export function RSVP() {
       aria-labelledby="rsvp-title"
     >
       <div className="section-shell">
-        <SectionHeading
-          id="rsvp-title"
-          title={weddingConfig.copy.rsvpTitle}
-          description={weddingConfig.copy.rsvpSubtitle}
-          tone="light"
-        />
+        <MotionGroup>
+          <div data-m="up">
+            <SectionHeading
+              id="rsvp-title"
+              title={weddingConfig.copy.rsvpTitle}
+              description={weddingConfig.copy.rsvpSubtitle}
+              tone="light"
+            />
+          </div>
+        </MotionGroup>
 
-        <form
-          onSubmit={handleSubmit}
-          className="relative mx-auto mt-12 max-w-xl space-y-5"
-          noValidate
-          onChange={() => {
-            if (status === "idle") setStatus("filling");
-          }}
-        >
+        <MotionGroup>
+          <form
+            data-m="up"
+            onSubmit={handleSubmit}
+            className="relative mx-auto mt-12 max-w-xl space-y-5"
+            noValidate
+            onChange={() => {
+              if (status === "idle") setStatus("filling");
+            }}
+          >
           {/* Honeypot — hidden from humans */}
           <div className="pointer-events-none absolute left-0 top-0 -z-10 h-0 w-0 overflow-hidden opacity-0" aria-hidden="true">
             <label htmlFor="website">Website</label>
@@ -249,7 +256,10 @@ export function RSVP() {
 
           <button
             type="submit"
-            className="btn-primary w-full disabled:cursor-not-allowed disabled:opacity-70"
+            className={cn(
+              "btn-primary w-full disabled:cursor-not-allowed disabled:opacity-70",
+              isBusy && "rsvp-pulse",
+            )}
             disabled={isBusy}
           >
             {isBusy ? "Enviando..." : "Confirmar presença"}
@@ -257,12 +267,12 @@ export function RSVP() {
 
           <div className="min-h-[1.5rem] text-center text-sm">
             {status === "success" ? (
-              <p role="status" className="text-serenity">
+              <p role="status" className="rsvp-feedback rsvp-feedback--ok text-serenity">
                 {message}
               </p>
             ) : null}
             {status === "error" ? (
-              <p role="alert" className="text-alert">
+              <p role="alert" className="rsvp-feedback rsvp-feedback--err text-alert">
                 {message}
               </p>
             ) : null}
@@ -272,7 +282,8 @@ export function RSVP() {
               </p>
             ) : null}
           </div>
-        </form>
+          </form>
+        </MotionGroup>
       </div>
     </section>
   );

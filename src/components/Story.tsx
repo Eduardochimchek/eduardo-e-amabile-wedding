@@ -1,5 +1,8 @@
+"use client";
+
 import { weddingConfig } from "@/config/wedding";
 import { storyChapters } from "@/data/story";
+import { Motion, MotionGroup } from "@/components/motion/Motion";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 
 export function Story() {
@@ -12,24 +15,32 @@ export function Story() {
       aria-labelledby="historia-title"
     >
       <div className="section-shell">
-        <SectionHeading
-          id="historia-title"
-          eyebrow={weddingConfig.copy.storyEyebrow}
-          title="Nossa história"
-        />
+        <MotionGroup stagger>
+          <div data-m="fade">
+            <SectionHeading
+              id="historia-title"
+              eyebrow={weddingConfig.copy.storyEyebrow}
+              title="Nossa história"
+            />
+          </div>
 
-        <div className="mx-auto mt-10 max-w-2xl text-center">
-          <p className="font-display text-2xl leading-snug text-deep sm:text-3xl">
+          <p
+            data-m="up"
+            className="mx-auto mt-10 max-w-2xl text-center font-display text-2xl leading-snug text-deep sm:text-3xl"
+          >
             {leadOne}
           </p>
-          <p className="mt-4 font-display text-2xl leading-snug text-royal sm:text-3xl">
+          <p
+            data-m="up"
+            className="mx-auto mt-4 max-w-2xl text-center font-display text-2xl leading-snug text-royal sm:text-3xl"
+          >
             {leadTwo}
           </p>
-        </div>
+        </MotionGroup>
 
         <ol className="mx-auto mt-16 max-w-3xl space-y-12 md:mt-20 md:space-y-16">
           {storyChapters.map((chapter, index) => (
-            <li key={chapter.id}>
+            <Motion as="li" key={chapter.id} variant="up" delay={Math.min(index * 40, 160)}>
               <article className="grid gap-4 md:grid-cols-[5.5rem_1fr] md:gap-8">
                 <div className="flex items-start md:justify-end">
                   <span className="font-display text-4xl text-gold/70 md:text-5xl">
@@ -51,10 +62,11 @@ export function Story() {
                   </div>
                 </div>
               </article>
-            </li>
+            </Motion>
           ))}
         </ol>
       </div>
+      <div className="section-divider mt-16 opacity-70" aria-hidden="true" />
     </section>
   );
 }

@@ -12,9 +12,12 @@ export function Navigation() {
   const toggleRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
-    onScroll();
+    const onScroll = () => {
+      const next = window.scrollY > 24;
+      setScrolled((prev) => (prev === next ? prev : next));
+    };
     window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
@@ -42,14 +45,17 @@ export function Navigation() {
   return (
     <header
       className={cn(
-        "fixed inset-x-0 top-0 z-50 transition-[background,box-shadow,backdrop-filter] duration-300",
+        "nav-shell fixed inset-x-0 top-0 z-50",
         scrolled || open
           ? "bg-warm/92 shadow-[0_1px_0_var(--color-line)] backdrop-blur-md"
           : "bg-transparent",
       )}
     >
       <nav
-        className="section-shell flex h-16 items-center justify-between md:h-[4.25rem]"
+        className={cn(
+          "section-shell flex items-center justify-between transition-[height] duration-300",
+          scrolled ? "h-14 md:h-16" : "h-16 md:h-[4.25rem]",
+        )}
         aria-label="Navegação principal"
       >
         <a
