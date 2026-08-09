@@ -1,16 +1,19 @@
 "use client";
 
+import Image from "next/image";
 import { weddingConfig } from "@/config/wedding";
 import { cn, getVisibleWeddingDetails } from "@/lib/utils";
 import { MotionGroup } from "@/components/motion/Motion";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 
 export function WeddingDetails() {
+  const { venue } = weddingConfig.details;
   const items = getVisibleWeddingDetails(
     weddingConfig.details,
     weddingConfig.date.display,
   );
   const multi = items.length > 1;
+  const hasVenueDetails = Boolean(venue.name || venue.address || venue.city);
 
   return (
     <section
@@ -29,6 +32,52 @@ export function WeddingDetails() {
             />
           </div>
         </MotionGroup>
+
+        {venue.imageSrc ? (
+          <MotionGroup className="mx-auto mt-12 max-w-4xl md:mt-14">
+            <figure data-m="image" className="w-full">
+              <div className="m-image relative aspect-[16/10] overflow-hidden sm:aspect-[21/10]">
+                <Image
+                  src={venue.imageSrc}
+                  alt={venue.imageAlt ?? venue.name ?? "Local da celebração"}
+                  fill
+                  className="object-cover object-center"
+                  sizes="(max-width: 896px) 100vw, 896px"
+                />
+              </div>
+              {venue.imageCredit ? (
+                <figcaption className="mt-3 text-center text-[0.7rem] leading-relaxed tracking-wide text-muted">
+                  Foto:{" "}
+                  {venue.imageCredit.authorUrl ? (
+                    <a
+                      href={venue.imageCredit.authorUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="underline decoration-line underline-offset-2 transition-colors hover:text-royal"
+                    >
+                      {venue.imageCredit.author}
+                    </a>
+                  ) : (
+                    venue.imageCredit.author
+                  )}
+                  {" · "}
+                  {venue.imageCredit.licenseUrl ? (
+                    <a
+                      href={venue.imageCredit.licenseUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="underline decoration-line underline-offset-2 transition-colors hover:text-royal"
+                    >
+                      {venue.imageCredit.license}
+                    </a>
+                  ) : (
+                    venue.imageCredit.license
+                  )}
+                </figcaption>
+              ) : null}
+            </figure>
+          </MotionGroup>
+        ) : null}
 
         <MotionGroup
           stagger
@@ -64,7 +113,7 @@ export function WeddingDetails() {
           ))}
         </MotionGroup>
 
-        {items.length <= 1 ? (
+        {!hasVenueDetails ? (
           <MotionGroup className="mx-auto mt-8 max-w-3xl">
             <p data-m="fade" className="text-center body-copy text-sm">
               Local, horário e demais detalhes serão publicados em breve.

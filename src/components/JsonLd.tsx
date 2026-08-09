@@ -2,7 +2,7 @@ import { weddingConfig } from "@/config/wedding";
 import { getAbsoluteUrl, getSiteUrl } from "@/lib/site";
 
 /**
- * Event structured data — only with confirmed fields.
+ * Event structured data - only with confirmed fields.
  * Does not invent year, time, venue, or address.
  */
 export function JsonLd() {

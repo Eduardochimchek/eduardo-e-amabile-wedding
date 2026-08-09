@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useRef } from "react";
 import { weddingConfig } from "@/config/wedding";
 import { BotanicalAccent } from "@/components/ui/BotanicalAccent";
@@ -9,6 +10,7 @@ export function Hero() {
   const { couple, date, copy } = weddingConfig;
   const sectionRef = useRef<HTMLElement>(null);
   const reduced = usePrefersReducedMotion();
+  const heroImage = couple.imageSrc;
 
   useEffect(() => {
     if (reduced) return;
@@ -52,11 +54,28 @@ export function Hero() {
       aria-label="Abertura"
     >
       <div
-        className="absolute inset-0 hero-wash hero-parallax-bg"
+        className="absolute inset-0 hero-parallax-bg"
         data-hero="bg"
         aria-hidden="true"
       >
-        <div className="absolute inset-0 bg-gradient-to-t from-deep/70 via-deep/25 to-transparent" />
+        {heroImage ? (
+          <>
+            <Image
+              src={heroImage}
+              alt=""
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover object-[50%_35%]"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-deep/85 via-deep/45 to-deep/25" />
+            <div className="absolute inset-0 bg-gradient-to-r from-deep/30 via-transparent to-deep/20" />
+          </>
+        ) : (
+          <div className="absolute inset-0 hero-wash">
+            <div className="absolute inset-0 bg-gradient-to-t from-deep/70 via-deep/25 to-transparent" />
+          </div>
+        )}
       </div>
 
       <BotanicalAccent

@@ -2,7 +2,7 @@ import type { WeddingConfig } from "@/types/wedding";
 
 /**
  * Central configuration for the wedding site.
- * Edit names, date, venue, payment and copy here — not inside components.
+ * Edit names, date, venue, payment and copy here - not inside components.
  *
  * Do not invent unavailable details (venue, time, PIX, year).
  * Leave optional fields undefined until confirmed.
@@ -18,6 +18,8 @@ export const weddingConfig: WeddingConfig = {
       fullName: "Amábile Lacombe Borges",
     },
     shortNames: "Eduardo & Amábile",
+    imageSrc: "/images/couple/eduardo-amabile.png",
+    imageAlt: "Eduardo e Amábile juntos em uma viagem",
   },
 
   date: {
@@ -32,10 +34,20 @@ export const weddingConfig: WeddingConfig = {
     // time: "16:00",
     // dressCode: "Traje a definir",
     venue: {
-      // name: "Nome do local",
-      // address: "Endereço completo",
-      // city: "Cidade — UF",
-      // mapUrl: "https://maps.google.com/...",
+      name: "Paróquia Nossa Senhora da Salete",
+      address: "R. Gen. Osvaldo Pinto da Veiga, 1810",
+      city: "Próspera, Criciúma/SC, 88811-700",
+      mapUrl:
+        "https://www.google.com/maps/search/?api=1&query=Par%C3%B3quia%20Nossa%20Senhora%20da%20Salete%2C%20R.%20Gen.%20Osvaldo%20Pinto%20da%20Veiga%2C%201810%20-%20Pr%C3%B3spera%2C%20Crici%C3%BAma%20-%20SC%2C%2088811-700",
+      imageSrc: "/images/wedding/venue-exterior.jpg",
+      imageAlt: "Fachada da Paróquia Nossa Senhora da Salete, em Criciúma",
+      imageCredit: {
+        author: "Alcimar Callegari",
+        authorUrl:
+          "https://commons.wikimedia.org/wiki/File:Crici%C3%BAma_SC_02.06.2014_088.JPG",
+        license: "CC BY-SA 3.0",
+        licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0/",
+      },
     },
   },
 
@@ -44,38 +56,36 @@ export const weddingConfig: WeddingConfig = {
       id: "eduardo",
       name: "Eduardo",
       role: "partner",
-      // imageSrc: "/images/couple/eduardo.jpg",
       imageAlt: "Foto de Eduardo",
     },
     {
       id: "amabile",
       name: "Amábile",
       role: "partner",
-      // imageSrc: "/images/couple/amabile.jpg",
       imageAlt: "Foto de Amábile",
     },
     {
       id: "lili",
       name: "Lili",
       role: "child",
-      // imageSrc: "/images/family/lili.jpg",
+      imageSrc: "/images/family/lili.png",
       imageAlt: "Foto de Lili",
     },
     {
       id: "mili",
       name: "Mili",
       role: "child",
-      // imageSrc: "/images/family/mili.jpg",
+      imageSrc: "/images/family/mili.png",
       imageAlt: "Foto de Mili",
     },
   ],
 
   payment: {
-    enabled: false,
+    enabled: true,
     pix: {
-      // key: "sua-chave-pix-publica",
-      // keyType: "email",
-      // beneficiaryName: "Nome do beneficiário",
+      key: "489999315541",
+      keyType: "phone",
+      beneficiaryName: "Eduardo Chimchek Jeronimo",
       // qrCodeSrc: "/images/wedding/pix-qr.png",
       instructions:
         "Após realizar o PIX, guarde o comprovante. Agradecemos de coração.",
@@ -88,8 +98,7 @@ export const weddingConfig: WeddingConfig = {
       "Um pequeno espaço para compartilhar nossa história e celebrar o nosso casamento com quem amamos.",
     // Prefer NEXT_PUBLIC_SITE_URL in Vercel. Optional static fallback:
     // siteUrl: "https://eduardo-e-amabile-wedding.vercel.app",
-    // Add file at public/images/wedding/og.jpg then uncomment:
-    // ogImage: "/images/wedding/og.jpg",
+    ogImage: "/images/wedding/og.png",
   },
 
   navigation: [
@@ -112,7 +121,7 @@ export const weddingConfig: WeddingConfig = {
     rsvpTitle: "Você faz parte da nossa história.",
     rsvpSubtitle: "E queremos celebrar esse momento ao seu lado.",
     giftsIntro:
-      "O melhor presente é ter você conosco nesse dia. Mas, se quiser contribuir, montamos uma lista mais descontraída — com humor, carinho e zero obrigação. Os valores são contribuições sugeridas, não preços de loja.",
+      "O melhor presente é ter você conosco nesse dia. Mas, se quiser contribuir, montamos uma lista mais descontraída, com humor, carinho e zero obrigação. Os valores são contribuições sugeridas, não preços de loja.",
     finalMessage:
       "Mal podemos esperar para celebrar esse dia cercados de quem amamos.",
     footerMessage: "Com amor, para sempre.",

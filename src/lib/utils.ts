@@ -4,7 +4,7 @@ export function cn(...classes: Array<string | false | null | undefined>): string
   return classes.filter(Boolean).join(" ");
 }
 
-/** Alias kept for readability — single BRL formatter for the whole site. */
+/** Alias kept for readability - single BRL formatter for the whole site. */
 export function formatCurrency(amount: number): string {
   return new Intl.NumberFormat("pt-BR", {
     style: "currency",
@@ -14,12 +14,12 @@ export function formatCurrency(amount: number): string {
   }).format(amount);
 }
 
-/** @deprecated Prefer formatCurrency — same implementation. */
+/** @deprecated Prefer formatCurrency - same implementation. */
 export function formatCurrencyBRL(amount: number): string {
   return formatCurrency(amount);
 }
 
-/** Gift contribution label — never sounds like a store price by default. */
+/** Gift contribution label - never sounds like a store price by default. */
 export function formatGiftAmount(
   amount: number,
   options?: { fromPrice?: boolean },
@@ -37,7 +37,7 @@ export type VisibleWeddingDetail = {
   href?: string;
 };
 
-/** Only returns fields that are actually configured — never invents data. */
+/** Only returns fields that are actually configured - never invents data. */
 export function getVisibleWeddingDetails(
   details: WeddingDetailsConfig,
   dateDisplay: string,
@@ -61,7 +61,7 @@ export function getVisibleWeddingDetails(
   if (addressParts.length > 0) {
     items.push({
       label: "Endereço",
-      value: addressParts.join(" — "),
+      value: addressParts.join(", "),
       href: details.venue.mapUrl?.trim() || undefined,
     });
   }

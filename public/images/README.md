@@ -13,18 +13,18 @@ Coloque aqui as fotos reais do casal, da família e do casamento.
 
 ## Como ativar no site
 
-1. Adicione o arquivo (ex.: `public/images/family/lili.jpg`)
-2. Em `src/config/wedding.ts`, descomente / preencha `imageSrc`:
+1. Adicione o arquivo (ex.: `public/images/family/lili.png`)
+2. Em `src/config/wedding.ts`, preencha `imageSrc` (casal em `couple.imageSrc`; pets em `family[]`).
 
-```ts
-{
-  id: "lili",
-  name: "Lili",
-  role: "child",
-  imageSrc: "/images/family/lili.jpg",
-  imageAlt: "Foto de Lili",
-}
-```
+Fotos atuais:
+
+| Arquivo | Uso |
+| --- | --- |
+| `couple/eduardo-amabile.png` | Hero + seção Família + Open Graph |
+| `family/lili.png` | Lili |
+| `family/mili.png` | Mili |
+| `wedding/venue-exterior.jpg` | Paróquia Nossa Senhora da Salete (CC BY-SA 3.0, Alcimar Callegari) |
+| `wedding/og.png` | Open Graph |
 
 Enquanto `imageSrc` estiver vazio, o site mostra placeholders elegantes.
 

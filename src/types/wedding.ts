@@ -4,11 +4,11 @@ export type CouplePerson = {
 };
 
 export type WeddingDate = {
-  /** Day of the month (1–31) */
+  /** Day of the month (1-31) */
   day: number;
-  /** Month (1–12) */
+  /** Month (1-12) */
   month: number;
-  /** Optional year — leave undefined until confirmed */
+  /** Optional year - leave undefined until confirmed */
   year?: number;
   /** Display label, e.g. "13/03" */
   display: string;
@@ -21,6 +21,16 @@ export type VenueInfo = {
   address?: string;
   city?: string;
   mapUrl?: string;
+  /** Path under /public */
+  imageSrc?: string;
+  imageAlt?: string;
+  /** Required when using CC-licensed venue photos */
+  imageCredit?: {
+    author: string;
+    authorUrl?: string;
+    license: string;
+    licenseUrl?: string;
+  };
 };
 
 export type WeddingDetailsConfig = {
@@ -70,7 +80,7 @@ export type GiftItem = {
 };
 
 export type PixConfig = {
-  /** Public PIX key only — never store secrets here */
+  /** Public PIX key only - never store secrets here */
   key?: string;
   keyType?: "cpf" | "cnpj" | "email" | "phone" | "random";
   beneficiaryName?: string;
@@ -102,6 +112,9 @@ export type WeddingConfig = {
     partnerOne: CouplePerson;
     partnerTwo: CouplePerson;
     shortNames: string;
+    /** Shared couple portrait under /public */
+    imageSrc?: string;
+    imageAlt?: string;
   };
   date: WeddingDate;
   details: WeddingDetailsConfig;

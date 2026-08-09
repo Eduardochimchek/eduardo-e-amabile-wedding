@@ -1,4 +1,4 @@
-# Eduardo & Amábile — Casamento
+# Eduardo & Amábile | Casamento
 
 Site oficial do casamento de **Eduardo Chimchek Jeronimo** & **Amábile Lacombe Borges**.
 
@@ -48,7 +48,7 @@ A data `13/03` está em `src/config/wedding.ts`. O **ano** só deve ser preenchi
 
 ### Local, horário e traje
 
-Campos opcionais em `weddingConfig.details`. Se estiverem vazios, o site **não inventa** informações — mostra apenas o que estiver configurado.
+Campos opcionais em `weddingConfig.details`. Se estiverem vazios, o site **não inventa** informações: mostra apenas o que estiver configurado.
 
 ### PIX / pagamento
 
@@ -160,4 +160,4 @@ public/images/   # fotos reais (quando disponíveis)
 
 ## Licença
 
-MIT — veja [LICENSE](./LICENSE).
+MIT. Veja [LICENSE](./LICENSE).

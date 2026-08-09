@@ -9,7 +9,7 @@ import { validateRsvpPayload, type RsvpInput } from "@/lib/rsvp";
  * Never put secrets in client-side code.
  *
  * Protections: honeypot, field validation/clamp, best-effort in-memory rate limit.
- * Rate limit is per serverless instance — see src/lib/rate-limit.ts.
+ * Rate limit is per serverless instance - see src/lib/rate-limit.ts.
  */
 export async function POST(request: Request) {
   const clientKey = getClientKey(request);
@@ -61,7 +61,7 @@ export async function POST(request: Request) {
         ok: false,
         code: "NOT_CONFIGURED",
         message:
-          "Recebemos seu interesse com carinho. A confirmação online ainda está sendo conectada — em breve você poderá enviar por aqui.",
+          "Recebemos seu interesse com carinho. A confirmação online ainda está sendo conectada. Em breve você poderá enviar por aqui.",
       },
       { status: 501 },
     );

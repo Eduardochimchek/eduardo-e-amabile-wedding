@@ -31,7 +31,7 @@ const variantClass: Record<MotionVariant, string> = {
   soft: "m-soft",
 };
 
-/** Single-element reveal — use sparingly; prefer MotionGroup for lists. */
+/** Single-element reveal - use sparingly; prefer MotionGroup for lists. */
 export function Motion({
   children,
   className,
@@ -61,7 +61,7 @@ type MotionGroupProps = {
   as?: "div" | "ul" | "ol";
 };
 
-/** One observer for a whole section block — children use data-m + variant classes. */
+/** One observer for a whole section block - children use data-m + variant classes. */
 export function MotionGroup({
   children,
   className,

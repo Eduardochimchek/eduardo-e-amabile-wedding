@@ -139,7 +139,7 @@ export function RSVP() {
               if (status === "idle") setStatus("filling");
             }}
           >
-          {/* Honeypot — hidden from humans */}
+          {/* Honeypot - hidden from humans */}
           <div className="pointer-events-none absolute left-0 top-0 -z-10 h-0 w-0 overflow-hidden opacity-0" aria-hidden="true">
             <label htmlFor="website">Website</label>
             <input

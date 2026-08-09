@@ -7,7 +7,7 @@ function joinNames(names: string[]): string {
   return `${names.slice(0, -1).join(", ")} & ${names[names.length - 1]}`;
 }
 
-/** Builds family blurb from configured members — no hardcoded names in UI. */
+/** Builds family blurb from configured members - no hardcoded names in UI. */
 export function getFamilyDescription(
   family: FamilyMember[],
   fallbackCoupleNames: string,
@@ -22,7 +22,7 @@ export function getFamilyDescription(
     return `${partnersLabel}, construindo uma vida juntos.`;
   }
 
-  return `${partnersLabel} — e ${joinNames(children)}, que fazem dessa história um lar.`;
+  return `${partnersLabel} e ${joinNames(children)}, que fazem dessa história um lar.`;
 }
 
 export function getFamilyDescriptionFromConfig(config: WeddingConfig): string {

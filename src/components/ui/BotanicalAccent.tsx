@@ -5,7 +5,7 @@ type BotanicalAccentProps = {
   tone?: "sage" | "gold" | "serenity";
 };
 
-/** Lightweight SVG foliage — decorative, no external assets. */
+/** Lightweight SVG foliage - decorative, no external assets. */
 export function BotanicalAccent({
   className,
   tone = "sage",

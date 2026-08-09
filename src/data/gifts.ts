@@ -1,7 +1,7 @@
 import type { GiftItem } from "@/types/wedding";
 
 /**
- * Gift registry — playful, lighthearted items (cash contributions with humor).
+ * Gift registry - playful, lighthearted items (cash contributions with humor).
  * Set `enabled: false` to hide without deleting.
  * Images live in /public/images/gifts/
  */

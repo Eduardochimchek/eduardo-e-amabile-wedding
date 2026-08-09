@@ -10,7 +10,7 @@
   --color-sage: #7d8a70;
   --color-champagne: #d8c6a5;
   --color-soft-gold: #c5a66a;
-  /* Alert on dark surfaces — warmer than champagne for WCAG contrast */
+  /* Alert on dark surfaces - warmer than champagne for WCAG contrast */
   --color-alert: #f0c9a6;
 
   /* Surfaces */
@@ -36,7 +36,7 @@
   --radius-lg: 1.25rem;
   --radius-full: 9999px;
 
-  /* Shadows — soft, never heavy */
+  /* Shadows - soft, never heavy */
   --shadow-soft: 0 10px 40px rgb(47 72 93 / 0.08);
   --shadow-lift: 0 16px 48px rgb(30 58 138 / 0.12);
 
@@ -253,7 +253,7 @@
 }
 
 
-/* Botanical atmosphere — decorative only */
+/* Botanical atmosphere - decorative only */
 .botanical-wash {
   background:
     radial-gradient(
@@ -269,7 +269,7 @@
     var(--color-warm-white);
 }
 
-/* Hero full-bleed wash — tokens only */
+/* Hero full-bleed wash - tokens only */
 .hero-wash {
   background:
     radial-gradient(
@@ -513,7 +513,7 @@
     --m-delay: 500ms;
   }
 
-  /* Hero cinematic entrance — CSS only, no JS */
+  /* Hero cinematic entrance - CSS only, no JS */
   .hero-enter [data-hero] {
     opacity: 0;
     transform: translate3d(0, 1.1rem, 0);

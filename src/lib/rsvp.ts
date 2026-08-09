@@ -5,7 +5,7 @@ export type RsvpInput = {
   attendance?: unknown;
   guests?: unknown;
   notes?: unknown;
-  /** Honeypot — must be empty when present */
+  /** Honeypot - must be empty when present */
   website?: unknown;
 };
 

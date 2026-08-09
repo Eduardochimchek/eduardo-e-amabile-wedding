@@ -154,7 +154,7 @@ export function PaymentModal({
           </p>
         ) : (
           <p className="mt-5 text-sm text-muted">
-            Contribuição livre — escolha o valor que fizer sentido para você.
+            Contribuição livre. Escolha o valor que fizer sentido para você.
           </p>
         )}
 
@@ -164,7 +164,7 @@ export function PaymentModal({
               <p className="text-sm text-muted">
                 Pagamento via PIX
                 {payment.pix.beneficiaryName
-                  ? ` — ${payment.pix.beneficiaryName}`
+                  ? ` (${payment.pix.beneficiaryName})`
                   : ""}
               </p>
 
