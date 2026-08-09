@@ -16,12 +16,19 @@ export type WeddingDate = {
   displayCompact: string;
 };
 
+export type VenueImage = {
+  src: string;
+  alt: string;
+};
+
 export type VenueInfo = {
   name?: string;
   address?: string;
   city?: string;
   mapUrl?: string;
-  /** Path under /public */
+  /** Gallery for the venue carousel (order is display order) */
+  images?: VenueImage[];
+  /** @deprecated Prefer `images` */
   imageSrc?: string;
   imageAlt?: string;
   /** Required when using CC-licensed venue photos */
