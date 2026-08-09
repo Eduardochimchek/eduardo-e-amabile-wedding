@@ -20,11 +20,11 @@ Fotos atuais:
 
 | Arquivo | Uso |
 | --- | --- |
-| `couple/eduardo-amabile.png` | Hero + seção Família + Open Graph |
-| `family/lili.png` | Lili |
-| `family/mili.png` | Mili |
+| `couple/eduardo-amabile.jpg` | Hero + seção Família |
+| `family/lili.jpg` | Lili |
+| `family/mili.jpg` | Mili |
 | `wedding/venue-exterior.jpg` | Paróquia Nossa Senhora da Salete (CC BY-SA 3.0, Alcimar Callegari) |
-| `wedding/og.png` | Open Graph |
+| `wedding/og.jpg` | Open Graph |
 
 Enquanto `imageSrc` estiver vazio, o site mostra placeholders elegantes.
 

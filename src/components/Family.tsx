@@ -36,9 +36,9 @@ export function Family() {
                   src={couplePhoto}
                   alt={couple.imageAlt ?? couple.shortNames}
                   fill
-                  className="object-cover object-[50%_30%]"
-                  sizes="(max-width: 640px) 100vw, 560px"
-                  priority={false}
+                  quality={95}
+                  className="object-cover object-[50%_28%]"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 70vw, 640px"
                 />
               </div>
               <figcaption className="mt-5 text-center font-display text-2xl text-deep sm:text-3xl">
@@ -97,8 +97,9 @@ export function Family() {
                       src={member.imageSrc}
                       alt={member.imageAlt ?? member.name}
                       fill
+                      quality={90}
                       className="object-cover"
-                      sizes="(max-width: 640px) 100vw, 240px"
+                      sizes="(max-width: 640px) 50vw, 280px"
                     />
                   </div>
                 ) : (

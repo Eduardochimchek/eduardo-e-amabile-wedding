@@ -18,7 +18,7 @@ export const weddingConfig: WeddingConfig = {
       fullName: "Amábile Lacombe Borges",
     },
     shortNames: "Eduardo & Amábile",
-    imageSrc: "/images/couple/eduardo-amabile.png",
+    imageSrc: "/images/couple/eduardo-amabile.jpg",
     imageAlt: "Eduardo e Amábile juntos em uma viagem",
   },
 
@@ -68,14 +68,14 @@ export const weddingConfig: WeddingConfig = {
       id: "lili",
       name: "Lili",
       role: "child",
-      imageSrc: "/images/family/lili.png",
+      imageSrc: "/images/family/lili.jpg",
       imageAlt: "Foto de Lili",
     },
     {
       id: "mili",
       name: "Mili",
       role: "child",
-      imageSrc: "/images/family/mili.png",
+      imageSrc: "/images/family/mili.jpg",
       imageAlt: "Foto de Mili",
     },
   ],
@@ -98,7 +98,7 @@ export const weddingConfig: WeddingConfig = {
       "Um pequeno espaço para compartilhar nossa história e celebrar o nosso casamento com quem amamos.",
     // Prefer NEXT_PUBLIC_SITE_URL in Vercel. Optional static fallback:
     // siteUrl: "https://eduardo-e-amabile-wedding.vercel.app",
-    ogImage: "/images/wedding/og.png",
+    ogImage: "/images/wedding/og.jpg",
   },
 
   navigation: [
