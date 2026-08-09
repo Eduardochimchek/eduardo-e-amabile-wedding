@@ -53,10 +53,6 @@ export const weddingConfig: WeddingConfig = {
           alt: "Interior da Paróquia Nossa Senhora da Salete",
         },
         {
-          src: "/images/wedding/venue-03.jpg",
-          alt: "Fachada e torre da Paróquia Nossa Senhora da Salete",
-        },
-        {
           src: "/images/wedding/venue-04.jpg",
           alt: "Entrada da Paróquia Nossa Senhora da Salete",
         },
