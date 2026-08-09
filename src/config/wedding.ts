@@ -65,18 +65,18 @@ export const weddingConfig: WeddingConfig = {
       imageAlt: "Foto de Eduardo",
     },
     {
-      id: "nina",
-      name: "Nina",
-      role: "child",
-      imageSrc: "/images/family/nina.jpg",
-      imageAlt: "Foto de Nina",
-    },
-    {
       id: "mili",
       name: "Mili",
       role: "child",
       imageSrc: "/images/family/mili.jpg",
       imageAlt: "Foto de Mili",
+    },
+    {
+      id: "nina",
+      name: "Nina",
+      role: "child",
+      imageSrc: "/images/family/nina.jpg",
+      imageAlt: "Foto de Nina",
     },
   ],
 

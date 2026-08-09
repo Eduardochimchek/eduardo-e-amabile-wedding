@@ -45,7 +45,7 @@ export const storyChapters: StoryChapter[] = [
     id: "familia",
     title: "Uma vida a dois e a quatro",
     paragraphs: [
-      "Ao longo de mais de seis anos, construíram uma vida juntos e formaram uma família. Nina e Mili fazem parte essencial dessa história, com carinho e presença em cada capítulo.",
+      "Ao longo de mais de seis anos, construíram uma vida juntos e formaram uma família. Mili e Nina fazem parte essencial dessa história, com carinho e presença em cada capítulo.",
     ],
   },
   {
@@ -88,8 +88,8 @@ export const timelineEvents: TimelineEvent[] = [
     description: "Uma vida construída juntos.",
   },
   {
-    id: "nina-mili",
-    label: "Nina & Mili",
+    id: "mili-nina",
+    label: "Mili & Nina",
     description: "Nossa família.",
   },
   {

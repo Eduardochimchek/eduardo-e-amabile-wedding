@@ -8,13 +8,13 @@ describe("getFamilyDescription", () => {
       [
         { id: "a", name: "Amábile", role: "partner" },
         { id: "b", name: "Eduardo", role: "partner" },
-        { id: "c", name: "Nina", role: "child" },
-        { id: "d", name: "Mili", role: "child" },
+        { id: "c", name: "Mili", role: "child" },
+        { id: "d", name: "Nina", role: "child" },
       ],
       "Amábile & Eduardo",
     );
 
     assert.match(text, /Amábile & Eduardo/);
-    assert.match(text, /Nina & Mili/);
+    assert.match(text, /Mili & Nina/);
   });
 });
