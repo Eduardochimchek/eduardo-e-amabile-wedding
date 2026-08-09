@@ -1,24 +1,35 @@
 import { NextResponse } from "next/server";
-
-type RsvpPayload = {
-  fullName?: string;
-  attendance?: "yes" | "no";
-  guests?: number;
-  notes?: string;
-};
+import { checkRateLimit, getClientKey } from "@/lib/rate-limit";
+import { validateRsvpPayload, type RsvpInput } from "@/lib/rsvp";
 
 /**
  * RSVP endpoint prepared for future integration.
  *
- * Set RSVP_WEBHOOK_URL in the environment to forward submissions
- * (e.g. to a form service, Notion, or serverless webhook).
+ * Set RSVP_WEBHOOK_URL in the environment to forward submissions.
  * Never put secrets in client-side code.
+ *
+ * Protections: honeypot, field validation/clamp, best-effort in-memory rate limit.
+ * Rate limit is per serverless instance — see src/lib/rate-limit.ts.
  */
 export async function POST(request: Request) {
-  let body: RsvpPayload;
+  const clientKey = getClientKey(request);
+  const rate = checkRateLimit(`rsvp:${clientKey}`);
+  if (!rate.allowed) {
+    return NextResponse.json(
+      {
+        ok: false,
+        message: "Muitas tentativas. Aguarde um momento e tente novamente.",
+      },
+      {
+        status: 429,
+        headers: { "Retry-After": String(rate.retryAfterSec) },
+      },
+    );
+  }
 
+  let body: RsvpInput;
   try {
-    body = (await request.json()) as RsvpPayload;
+    body = (await request.json()) as RsvpInput;
   } catch {
     return NextResponse.json(
       { ok: false, message: "Payload inválido." },
@@ -26,16 +37,22 @@ export async function POST(request: Request) {
     );
   }
 
-  const fullName = body.fullName?.trim();
-  const attendance = body.attendance;
-
-  if (!fullName || (attendance !== "yes" && attendance !== "no")) {
+  const validated = validateRsvpPayload(body);
+  if (!validated.ok) {
+    if (validated.code === "HONEYPOT") {
+      // Silent success-shaped response to avoid teaching bots.
+      return NextResponse.json({
+        ok: true,
+        message: "Presença registrada. Obrigado por celebrar conosco!",
+      });
+    }
     return NextResponse.json(
-      { ok: false, message: "Nome e confirmação são obrigatórios." },
+      { ok: false, message: validated.message },
       { status: 400 },
     );
   }
 
+  const { fullName, attendance, guests, notes } = validated.data;
   const webhookUrl = process.env.RSVP_WEBHOOK_URL?.trim();
 
   if (!webhookUrl) {
@@ -57,8 +74,8 @@ export async function POST(request: Request) {
       body: JSON.stringify({
         fullName,
         attendance,
-        guests: Number.isFinite(body.guests) ? body.guests : 0,
-        notes: body.notes?.trim() || null,
+        guests,
+        notes,
         submittedAt: new Date().toISOString(),
         source: "eduardo-e-amabile-wedding",
       }),
@@ -68,7 +85,8 @@ export async function POST(request: Request) {
       return NextResponse.json(
         {
           ok: false,
-          message: "Não foi possível registrar agora. Tente novamente em instantes.",
+          message:
+            "Não foi possível registrar agora. Tente novamente em instantes.",
         },
         { status: 502 },
       );

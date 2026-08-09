@@ -1,5 +1,4 @@
 import { weddingConfig } from "@/config/wedding";
-import { Reveal } from "@/components/ui/Reveal";
 
 export function NumberFour() {
   const { numberFourTitle, numberFourBody } = weddingConfig.copy;
@@ -7,7 +6,7 @@ export function NumberFour() {
   return (
     <section
       id="numero-04"
-      className="section-pad relative overflow-hidden bg-warm"
+      className="section-pad section-anchor section-breath relative overflow-hidden bg-warm"
       aria-labelledby="numero-04-title"
     >
       <div
@@ -20,7 +19,7 @@ export function NumberFour() {
       </div>
 
       <div className="section-shell relative z-10">
-        <Reveal className="mx-auto max-w-xl text-center">
+        <div className="mx-auto max-w-xl text-center">
           <h2
             id="numero-04-title"
             className="font-display text-7xl text-gold sm:text-8xl"
@@ -38,7 +37,7 @@ export function NumberFour() {
               </p>
             ))}
           </div>
-        </Reveal>
+        </div>
       </div>
     </section>
   );

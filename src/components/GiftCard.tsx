@@ -1,23 +1,19 @@
 import Image from "next/image";
 import type { GiftItem } from "@/types/wedding";
-import { formatCurrencyBRL } from "@/lib/utils";
+import { weddingConfig } from "@/config/wedding";
+import { formatGiftAmount } from "@/lib/utils";
 import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder";
 
 type GiftCardProps = {
   gift: GiftItem;
-  onSelect: (gift: GiftItem) => void;
+  onSelect: (gift: GiftItem, trigger: HTMLButtonElement) => void;
 };
 
 export function GiftCard({ gift, onSelect }: GiftCardProps) {
-  const priceLabel =
-    typeof gift.amount === "number"
-      ? gift.fromPrice
-        ? `A partir de ${formatCurrencyBRL(gift.amount)}`
-        : formatCurrencyBRL(gift.amount)
-      : null;
+  const ctaLabel = weddingConfig.payment.enabled ? "Presentear" : "Contribuir";
 
   return (
-    <article className="flex h-full flex-col overflow-hidden rounded-md bg-[#FBF8F2] shadow-[0_8px_28px_rgb(47_72_93_/0.06)] ring-1 ring-line/70 transition-[transform,box-shadow] duration-300 hover:-translate-y-0.5 hover:shadow-[0_14px_36px_rgb(47_72_93_/0.1)]">
+    <article className="flex h-full flex-col overflow-hidden rounded-md bg-warm shadow-soft ring-1 ring-line/70 transition-[transform,box-shadow] duration-300 hover:-translate-y-0.5 hover:shadow-lift focus-within:shadow-lift">
       <div className="relative aspect-square w-full overflow-hidden bg-warm">
         {gift.imageSrc ? (
           <Image
@@ -33,26 +29,29 @@ export function GiftCard({ gift, onSelect }: GiftCardProps) {
       </div>
 
       <div className="flex flex-1 flex-col px-5 pb-6 pt-5 text-center sm:px-6">
-        <h3 className="font-sans text-[0.95rem] font-medium leading-snug text-deep sm:text-base">
-          {gift.description}
+        <h3 className="font-display text-2xl leading-snug text-deep sm:text-[1.7rem]">
+          {gift.title}
         </h3>
+        <p className="mt-3 flex-1 font-sans text-sm leading-relaxed text-muted sm:text-[0.95rem]">
+          {gift.description}
+        </p>
 
-        {priceLabel ? (
-          <p className="mt-4 font-sans text-lg font-semibold tracking-tight text-deep sm:text-xl">
-            {priceLabel}
+        {typeof gift.amount === "number" ? (
+          <p className="mt-4 font-sans text-sm font-semibold tracking-tight text-royal sm:text-base">
+            {formatGiftAmount(gift.amount, { fromPrice: gift.fromPrice })}
           </p>
         ) : (
           <p className="mt-4 text-xs font-medium uppercase tracking-[0.16em] text-gold">
-            Valor livre
+            Contribuição livre
           </p>
         )}
 
         <button
           type="button"
-          className="mt-5 inline-flex min-h-12 w-full items-center justify-center rounded-sm bg-sage px-5 text-sm font-medium tracking-[0.04em] text-warm transition-[background,transform] duration-200 hover:bg-[color-mix(in_srgb,var(--color-sage)_88%,black)] active:translate-y-px"
-          onClick={() => onSelect(gift)}
+          className="btn-primary mt-5 w-full"
+          onClick={(event) => onSelect(gift, event.currentTarget)}
         >
-          Comprar
+          {ctaLabel}
         </button>
       </div>
     </article>

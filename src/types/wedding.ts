@@ -111,7 +111,11 @@ export type WeddingConfig = {
   navigation: NavItem[];
   copy: {
     heroTagline: string;
+    storyEyebrow: string;
     storyLead: [string, string];
+    familyEyebrow: string;
+    giftsEyebrow: string;
+    finalEyebrow: string;
     rsvpTitle: string;
     rsvpSubtitle: string;
     giftsIntro: string;

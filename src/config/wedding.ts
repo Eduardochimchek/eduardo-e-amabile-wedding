@@ -86,7 +86,9 @@ export const weddingConfig: WeddingConfig = {
     title: "Eduardo & Amábile | Nosso Casamento",
     description:
       "Um pequeno espaço para compartilhar nossa história e celebrar o nosso casamento com quem amamos.",
-    // siteUrl: "https://seu-dominio.vercel.app",
+    // Prefer NEXT_PUBLIC_SITE_URL in Vercel. Optional static fallback:
+    // siteUrl: "https://eduardo-e-amabile-wedding.vercel.app",
+    // Add file at public/images/wedding/og.jpg then uncomment:
     // ogImage: "/images/wedding/og.jpg",
   },
 
@@ -99,14 +101,18 @@ export const weddingConfig: WeddingConfig = {
 
   copy: {
     heroTagline: "Uma história que começou muito antes de imaginarmos.",
+    storyEyebrow: "Desde o começo",
     storyLead: [
       "Algumas histórias começam quando duas pessoas se conhecem.",
       "A nossa começou muito antes de imaginarmos.",
     ],
+    familyEyebrow: "Com amor",
+    giftsEyebrow: "Com carinho",
+    finalEyebrow: "Até lá",
     rsvpTitle: "Você faz parte da nossa história.",
     rsvpSubtitle: "E queremos celebrar esse momento ao seu lado.",
     giftsIntro:
-      "O melhor presente é ter você conosco nesse dia. Mas, se quiser contribuir, montamos uma lista mais descontraída — com humor, carinho e zero obrigação.",
+      "O melhor presente é ter você conosco nesse dia. Mas, se quiser contribuir, montamos uma lista mais descontraída — com humor, carinho e zero obrigação. Os valores são contribuições sugeridas, não preços de loja.",
     finalMessage:
       "Mal podemos esperar para celebrar esse dia cercados de quem amamos.",
     footerMessage: "Com amor, para sempre.",
@@ -119,15 +125,3 @@ export const weddingConfig: WeddingConfig = {
     ],
   },
 };
-
-/** Design tokens mirrored from CSS — single source for JS consumers if needed */
-export const colorTokens = {
-  royalBlue: "#1E3A8A",
-  mediumBlue: "#4F7DBA",
-  serenity: "#8FAFC5",
-  deepBlue: "#2F485D",
-  warmWhite: "#F7F4EE",
-  sage: "#7D8A70",
-  champagne: "#D8C6A5",
-  softGold: "#C5A66A",
-} as const;

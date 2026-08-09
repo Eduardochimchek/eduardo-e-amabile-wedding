@@ -14,7 +14,7 @@ export default function HomePage() {
   return (
     <>
       <Navigation />
-      <main>
+      <main id="conteudo">
         <Hero />
         <Story />
         <Timeline />

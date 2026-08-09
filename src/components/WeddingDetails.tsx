@@ -1,6 +1,5 @@
 import { weddingConfig } from "@/config/wedding";
-import { getVisibleWeddingDetails } from "@/lib/utils";
-import { Reveal } from "@/components/ui/Reveal";
+import { cn, getVisibleWeddingDetails } from "@/lib/utils";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 
 export function WeddingDetails() {
@@ -8,25 +7,31 @@ export function WeddingDetails() {
     weddingConfig.details,
     weddingConfig.date.display,
   );
+  const multi = items.length > 1;
 
   return (
     <section
       id="casamento"
-      className="section-pad botanical-wash"
+      className="section-pad section-anchor botanical-wash"
       aria-labelledby="casamento-title"
     >
       <div className="section-shell">
-        <Reveal>
-          <SectionHeading
-            id="casamento-title"
-            eyebrow="Celebração"
-            title="Nosso casamento"
-            description="As informações confirmadas do nosso grande dia. Demais detalhes serão atualizados aqui assim que estiverem definidos."
-          />
-        </Reveal>
+        <SectionHeading
+          id="casamento-title"
+          eyebrow="Celebração"
+          title="Nosso casamento"
+          description="As informações confirmadas do nosso grande dia. Demais detalhes serão atualizados aqui assim que estiverem definidos."
+        />
 
-        <Reveal className="mx-auto mt-14 max-w-3xl" delayMs={80}>
-          <dl className="grid gap-0 divide-y divide-line border-y border-line sm:grid-cols-2 sm:divide-x sm:divide-y-0 sm:border sm:border-line">
+        <div className="mx-auto mt-14 max-w-3xl">
+          <dl
+            className={cn(
+              "grid gap-0 divide-y divide-line border-y border-line",
+              multi &&
+                "sm:grid-cols-2 sm:divide-x sm:divide-y-0 sm:border sm:border-line",
+              !multi && "sm:border sm:border-line sm:divide-y-0",
+            )}
+          >
             {items.map((item) => (
               <div
                 key={item.label}
@@ -56,7 +61,7 @@ export function WeddingDetails() {
               Local, horário e demais detalhes serão publicados em breve.
             </p>
           ) : null}
-        </Reveal>
+        </div>
       </div>
     </section>
   );

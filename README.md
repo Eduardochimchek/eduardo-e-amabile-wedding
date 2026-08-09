@@ -80,6 +80,8 @@ O formulário envia para `POST /api/rsvp`.
 
 - Sem backend configurado: o site informa com clareza que a integração ainda será conectada (não finge sucesso).
 - Para ativar: configure `RSVP_WEBHOOK_URL` (veja `.env.example`) na Vercel.
+- Proteções: honeypot, validação/clamp server-side e rate limit em memória por instância.
+- Limitação: o rate limit em memória **não é global** entre todas as instâncias serverless da Vercel. Para proteção mais robusta no futuro, use um serviço externo gratuito (ex.: Upstash).
 
 ## Variáveis de ambiente
 
@@ -91,9 +93,18 @@ cp .env.example .env.local
 
 | Variável | Uso |
 | --- | --- |
+| `NEXT_PUBLIC_SITE_URL` | URL pública (canonical, Open Graph, sitemap, robots) |
 | `RSVP_WEBHOOK_URL` | Webhook que recebe o JSON do RSVP |
 
 Arquivos `.env*` locais estão no `.gitignore` (exceto `.env.example`).
+
+## Testes
+
+```bash
+npm test
+```
+
+Smoke tests leves (Node nativo) para validação de RSVP e descrição da família.
 
 ## Identidade visual
 

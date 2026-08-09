@@ -33,9 +33,12 @@ yarn-error.log*
 # env files
 .env
 .env.local
+.env.development
+.env.production
 .env.development.local
 .env.test.local
 .env.production.local
+.env.*.local
 .env*.local
 !.env.example
 
@@ -49,4 +52,3 @@ next-env.d.ts
 # Local agent guidance (not part of the wedding site)
 AGENTS.md
 CLAUDE.md
-

@@ -1,13 +1,15 @@
 "use client";
 
-import { useEffect, useId, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import { weddingConfig } from "@/config/wedding";
 import { cn } from "@/lib/utils";
+import { lockBodyScroll, unlockBodyScroll } from "@/lib/scroll-lock";
 
 export function Navigation() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const menuId = useId();
+  const toggleRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -17,9 +19,21 @@ export function Navigation() {
   }, []);
 
   useEffect(() => {
-    document.body.style.overflow = open ? "hidden" : "";
+    if (!open) return;
+
+    lockBodyScroll();
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setOpen(false);
+        toggleRef.current?.focus();
+      }
+    };
+
+    window.addEventListener("keydown", onKeyDown);
     return () => {
-      document.body.style.overflow = "";
+      unlockBodyScroll();
+      window.removeEventListener("keydown", onKeyDown);
     };
   }, [open]);
 
@@ -70,6 +84,7 @@ export function Navigation() {
         </ul>
 
         <button
+          ref={toggleRef}
           type="button"
           className={cn(
             "inline-flex h-11 w-11 items-center justify-center rounded-sm md:hidden",
@@ -80,7 +95,6 @@ export function Navigation() {
           aria-label={open ? "Fechar menu" : "Abrir menu"}
           onClick={() => setOpen((value) => !value)}
         >
-          <span className="sr-only">Menu</span>
           <span className="relative block h-3.5 w-5" aria-hidden="true">
             <span
               className={cn(
@@ -108,7 +122,7 @@ export function Navigation() {
         id={menuId}
         className={cn(
           "md:hidden overflow-hidden border-t border-line/70 bg-warm transition-[max-height,opacity] duration-300",
-          open ? "max-h-80 opacity-100" : "max-h-0 opacity-0",
+          open ? "max-h-[min(70vh,24rem)] opacity-100" : "max-h-0 opacity-0",
         )}
       >
         <ul className="section-shell flex flex-col gap-1 py-4">

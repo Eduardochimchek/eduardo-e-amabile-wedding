@@ -1,44 +1,75 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useId, useRef, useState } from "react";
 import type { GiftItem } from "@/types/wedding";
 import { weddingConfig } from "@/config/wedding";
-import { copyToClipboard, formatCurrencyBRL } from "@/lib/utils";
+import { copyToClipboard, formatGiftAmount } from "@/lib/utils";
+import { lockBodyScroll, unlockBodyScroll } from "@/lib/scroll-lock";
 
 type PaymentModalProps = {
   gift: GiftItem | null;
   open: boolean;
   onClose: () => void;
+  returnFocusRef?: React.RefObject<HTMLElement | null>;
 };
 
-export function PaymentModal({ gift, open, onClose }: PaymentModalProps) {
+export function PaymentModal({
+  gift,
+  open,
+  onClose,
+  returnFocusRef,
+}: PaymentModalProps) {
   const titleId = useId();
+  const panelRef = useRef<HTMLDivElement>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
   const [copied, setCopied] = useState(false);
   const { payment } = weddingConfig;
   const pixKey = payment.pix.key?.trim();
+  const qrCodeSrc = payment.pix.qrCodeSrc?.trim();
   const hasPaymentInfo = payment.enabled && Boolean(pixKey);
 
   useEffect(() => {
     if (!open) return;
 
-    const previousOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
+    lockBodyScroll();
     closeRef.current?.focus();
+    const focusReturn = returnFocusRef?.current ?? null;
 
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
+        event.preventDefault();
         setCopied(false);
         onClose();
+        return;
+      }
+
+      if (event.key !== "Tab" || !panelRef.current) return;
+
+      const focusable = panelRef.current.querySelectorAll<HTMLElement>(
+        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])',
+      );
+      if (focusable.length === 0) return;
+
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
       }
     };
 
     window.addEventListener("keydown", onKeyDown);
     return () => {
-      document.body.style.overflow = previousOverflow;
+      unlockBodyScroll();
       window.removeEventListener("keydown", onKeyDown);
+      focusReturn?.focus();
     };
-  }, [open, onClose]);
+  }, [open, onClose, returnFocusRef]);
 
   if (!open || !gift) return null;
 
@@ -67,7 +98,10 @@ export function PaymentModal({ gift, open, onClose }: PaymentModalProps) {
         onClick={handleClose}
       />
 
-      <div className="relative z-10 w-full max-w-md rounded-lg bg-warm p-6 shadow-lift sm:p-8">
+      <div
+        ref={panelRef}
+        className="relative z-10 w-full max-w-md rounded-lg bg-warm p-6 shadow-lift sm:p-8"
+      >
         <button
           ref={closeRef}
           type="button"
@@ -84,14 +118,12 @@ export function PaymentModal({ gift, open, onClose }: PaymentModalProps) {
         <p className="mt-3 body-copy text-sm">{gift.description}</p>
 
         {typeof gift.amount === "number" ? (
-          <p className="mt-5 font-display text-2xl text-royal">
-            {gift.fromPrice
-              ? `A partir de ${formatCurrencyBRL(gift.amount)}`
-              : formatCurrencyBRL(gift.amount)}
+          <p className="mt-5 font-display text-xl text-royal sm:text-2xl">
+            {formatGiftAmount(gift.amount, { fromPrice: gift.fromPrice })}
           </p>
         ) : (
           <p className="mt-5 text-sm text-muted">
-            Valor a combinar / livre — escolha o valor que fizer sentido para você.
+            Contribuição livre — escolha o valor que fizer sentido para você.
           </p>
         )}
 
@@ -104,10 +136,30 @@ export function PaymentModal({ gift, open, onClose }: PaymentModalProps) {
                   ? ` — ${payment.pix.beneficiaryName}`
                   : ""}
               </p>
+
+              {qrCodeSrc ? (
+                <div className="mx-auto flex w-full max-w-[220px] items-center justify-center rounded-sm border border-line bg-white p-3">
+                  <div className="relative aspect-square w-full">
+                    <Image
+                      src={qrCodeSrc}
+                      alt="QR Code PIX para presentear"
+                      fill
+                      className="object-contain"
+                      sizes="220px"
+                    />
+                  </div>
+                </div>
+              ) : null}
+
               <div className="rounded-sm border border-line bg-white px-4 py-3">
                 <p className="break-all text-sm text-deep">{pixKey}</p>
               </div>
-              <button type="button" className="btn-primary w-full" onClick={handleCopy}>
+              <button
+                type="button"
+                className="btn-primary w-full"
+                onClick={handleCopy}
+                aria-live="polite"
+              >
                 {copied ? "Chave copiada" : "Copiar chave PIX"}
               </button>
               {payment.pix.instructions ? (
@@ -117,16 +169,9 @@ export function PaymentModal({ gift, open, onClose }: PaymentModalProps) {
               ) : null}
             </div>
           ) : (
-            <div className="space-y-3 text-sm leading-relaxed text-muted">
-              <p>
-                As informações de pagamento serão disponibilizadas em breve.
-              </p>
-              <p>
-                Quando a chave PIX estiver configurada em{" "}
-                <code className="text-deep">src/config/wedding.ts</code>, este
-                modal exibirá a chave e a opção de copiar automaticamente.
-              </p>
-            </div>
+            <p className="text-sm leading-relaxed text-muted">
+              As informações de pagamento serão disponibilizadas em breve.
+            </p>
           )}
         </div>
       </div>

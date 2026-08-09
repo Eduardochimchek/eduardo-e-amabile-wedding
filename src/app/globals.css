@@ -10,10 +10,12 @@
   --color-sage: #7d8a70;
   --color-champagne: #d8c6a5;
   --color-soft-gold: #c5a66a;
+  /* Alert on dark surfaces — warmer than champagne for WCAG contrast */
+  --color-alert: #f0c9a6;
 
   /* Surfaces */
   --color-ink: #2f485d;
-  --color-muted: color-mix(in srgb, var(--color-deep-blue) 72%, white);
+  --color-muted: color-mix(in srgb, var(--color-deep-blue) 68%, white);
   --color-line: color-mix(in srgb, var(--color-champagne) 55%, white);
 
   /* Spacing scale */
@@ -58,6 +60,7 @@
   --color-sage: var(--color-sage);
   --color-champagne: var(--color-champagne);
   --color-gold: var(--color-soft-gold);
+  --color-alert: var(--color-alert);
   --color-ink: var(--color-ink);
   --color-muted: var(--color-muted);
   --color-line: var(--color-line);
@@ -176,7 +179,7 @@
   }
 
   .btn-primary:hover {
-    background: color-mix(in srgb, var(--color-royal-blue) 88%, black);
+    background: var(--color-deep-blue);
     box-shadow: var(--shadow-lift);
   }
 
@@ -263,4 +266,61 @@
       transparent 55%
     ),
     var(--color-warm-white);
+}
+
+/* Hero full-bleed wash — tokens only */
+.hero-wash {
+  background:
+    radial-gradient(
+      ellipse at 30% 20%,
+      color-mix(in srgb, var(--color-champagne) 18%, transparent),
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse at 80% 70%,
+      color-mix(in srgb, var(--color-sage) 16%, transparent),
+      transparent 45%
+    ),
+    linear-gradient(
+      160deg,
+      var(--color-deep-blue) 0%,
+      var(--color-royal-blue) 42%,
+      var(--color-medium-blue) 72%,
+      var(--color-serenity) 100%
+    );
+}
+
+.section-anchor {
+  scroll-margin-top: 5.5rem;
+}
+
+/* Extra narrative breathing between emotional beats */
+.section-breath {
+  padding-block: calc(var(--section-y) + 1.25rem);
+}
+
+@media (min-width: 768px) {
+  .section-breath {
+    padding-block: calc(var(--section-y) + 2rem);
+  }
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -100%;
+  z-index: 100;
+  border-radius: var(--radius-sm);
+  background: var(--color-royal-blue);
+  color: white;
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: top var(--transition-fast);
+}
+
+.skip-link:focus {
+  top: 1rem;
+  outline: 2px solid var(--color-soft-gold);
+  outline-offset: 2px;
 }

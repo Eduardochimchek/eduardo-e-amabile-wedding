@@ -4,13 +4,31 @@ export function cn(...classes: Array<string | false | null | undefined>): string
   return classes.filter(Boolean).join(" ");
 }
 
-export function formatCurrencyBRL(amount: number): string {
+/** Alias kept for readability — single BRL formatter for the whole site. */
+export function formatCurrency(amount: number): string {
   return new Intl.NumberFormat("pt-BR", {
     style: "currency",
     currency: "BRL",
     minimumFractionDigits: 0,
     maximumFractionDigits: 2,
   }).format(amount);
+}
+
+/** @deprecated Prefer formatCurrency — same implementation. */
+export function formatCurrencyBRL(amount: number): string {
+  return formatCurrency(amount);
+}
+
+/** Gift contribution label — never sounds like a store price by default. */
+export function formatGiftAmount(
+  amount: number,
+  options?: { fromPrice?: boolean },
+): string {
+  const value = formatCurrency(amount);
+  if (options?.fromPrice) {
+    return `Contribuição sugerida a partir de ${value}`;
+  }
+  return `Contribuição sugerida: ${value}`;
 }
 
 export type VisibleWeddingDetail = {
