@@ -1,0 +1,61 @@
+import { weddingConfig } from "@/config/wedding";
+import { storyChapters } from "@/data/story";
+import { Reveal } from "@/components/ui/Reveal";
+import { SectionHeading } from "@/components/ui/SectionHeading";
+
+export function Story() {
+  const [leadOne, leadTwo] = weddingConfig.copy.storyLead;
+
+  return (
+    <section id="historia" className="section-pad botanical-wash" aria-labelledby="historia-title">
+      <div className="section-shell">
+        <Reveal>
+          <SectionHeading
+            id="historia-title"
+            eyebrow="Desde o começo"
+            title="Nossa história"
+          />
+        </Reveal>
+
+        <Reveal className="mx-auto mt-10 max-w-2xl text-center" delayMs={80}>
+          <p className="font-display text-2xl leading-snug text-deep sm:text-3xl">
+            {leadOne}
+          </p>
+          <p className="mt-4 font-display text-2xl leading-snug text-royal sm:text-3xl">
+            {leadTwo}
+          </p>
+        </Reveal>
+
+        <ol className="mx-auto mt-16 max-w-3xl space-y-12 md:mt-20 md:space-y-16">
+          {storyChapters.map((chapter, index) => (
+            <li key={chapter.id}>
+              <Reveal delayMs={Math.min(index * 40, 160)}>
+                <article className="grid gap-4 md:grid-cols-[5.5rem_1fr] md:gap-8">
+                  <div className="flex items-start md:justify-end">
+                    <span className="font-display text-4xl text-gold/70 md:text-5xl">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                  </div>
+                  <div className="border-t border-line pt-4 md:border-t-0 md:border-l md:pl-8 md:pt-0">
+                    {chapter.title ? (
+                      <h3 className="font-display text-2xl text-deep md:text-[1.75rem]">
+                        {chapter.title}
+                      </h3>
+                    ) : null}
+                    <div className="mt-3 space-y-3">
+                      {chapter.paragraphs.map((paragraph) => (
+                        <p key={paragraph} className="body-copy">
+                          {paragraph}
+                        </p>
+                      ))}
+                    </div>
+                  </div>
+                </article>
+              </Reveal>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+  );
+}

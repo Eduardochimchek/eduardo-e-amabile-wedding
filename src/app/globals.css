@@ -1,0 +1,266 @@
+@import "tailwindcss";
+
+:root {
+  /* Brand tokens */
+  --color-royal-blue: #1e3a8a;
+  --color-medium-blue: #4f7dba;
+  --color-serenity: #8fafc5;
+  --color-deep-blue: #2f485d;
+  --color-warm-white: #f7f4ee;
+  --color-sage: #7d8a70;
+  --color-champagne: #d8c6a5;
+  --color-soft-gold: #c5a66a;
+
+  /* Surfaces */
+  --color-ink: #2f485d;
+  --color-muted: color-mix(in srgb, var(--color-deep-blue) 72%, white);
+  --color-line: color-mix(in srgb, var(--color-champagne) 55%, white);
+
+  /* Spacing scale */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+  --space-9: 6rem;
+  --space-10: 8rem;
+
+  /* Radius */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1.25rem;
+  --radius-full: 9999px;
+
+  /* Shadows — soft, never heavy */
+  --shadow-soft: 0 10px 40px rgb(47 72 93 / 0.08);
+  --shadow-lift: 0 16px 48px rgb(30 58 138 / 0.12);
+
+  /* Motion */
+  --transition-fast: 160ms ease;
+  --transition-base: 280ms ease;
+  --transition-slow: 520ms cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Layout */
+  --content-max: 70rem;
+  --section-y: clamp(4.5rem, 10vw, 7.5rem);
+  --gutter: clamp(1.25rem, 4vw, 2rem);
+}
+
+@theme inline {
+  --color-royal: var(--color-royal-blue);
+  --color-medium: var(--color-medium-blue);
+  --color-serenity: var(--color-serenity);
+  --color-deep: var(--color-deep-blue);
+  --color-warm: var(--color-warm-white);
+  --color-sage: var(--color-sage);
+  --color-champagne: var(--color-champagne);
+  --color-gold: var(--color-soft-gold);
+  --color-ink: var(--color-ink);
+  --color-muted: var(--color-muted);
+  --color-line: var(--color-line);
+
+  --font-display: var(--font-cormorant);
+  --font-sans: var(--font-montserrat);
+
+  --shadow-soft: var(--shadow-soft);
+  --shadow-lift: var(--shadow-lift);
+
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  body {
+    background: var(--color-warm-white);
+    color: var(--color-deep-blue);
+    font-family: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: color-mix(in srgb, var(--color-royal-blue) 22%, white);
+    color: var(--color-deep-blue);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-royal-blue);
+    outline-offset: 3px;
+  }
+}
+
+@layer components {
+  .section-shell {
+    width: min(100% - (var(--gutter) * 2), var(--content-max));
+    margin-inline: auto;
+  }
+
+  .section-pad {
+    padding-block: var(--section-y);
+  }
+
+  .eyebrow {
+    font-family: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--color-soft-gold);
+  }
+
+  .display-title {
+    font-family: var(--font-cormorant), ui-serif, Georgia, serif;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    line-height: 1.1;
+    color: var(--color-deep-blue);
+  }
+
+  .body-copy {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: var(--color-muted);
+  }
+
+  .gold-rule {
+    width: 3.5rem;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      var(--color-soft-gold),
+      transparent
+    );
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 3rem;
+    padding: 0.85rem 1.75rem;
+    border-radius: var(--radius-sm);
+    background: var(--color-royal-blue);
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    transition:
+      background var(--transition-base),
+      transform var(--transition-fast),
+      box-shadow var(--transition-base);
+  }
+
+  .btn-primary:hover {
+    background: color-mix(in srgb, var(--color-royal-blue) 88%, black);
+    box-shadow: var(--shadow-lift);
+  }
+
+  .btn-primary:active {
+    transform: translateY(1px);
+  }
+
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 3rem;
+    padding: 0.85rem 1.5rem;
+    border: 1px solid color-mix(in srgb, var(--color-champagne) 70%, white);
+    border-radius: var(--radius-sm);
+    color: var(--color-deep-blue);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    background: transparent;
+    transition:
+      border-color var(--transition-base),
+      background var(--transition-base);
+  }
+
+  .btn-ghost:hover {
+    border-color: var(--color-soft-gold);
+    background: color-mix(in srgb, var(--color-champagne) 18%, transparent);
+  }
+
+  .field {
+    width: 100%;
+    min-height: 3rem;
+    padding: 0.85rem 1rem;
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-sm);
+    background: white;
+    color: var(--color-deep-blue);
+    font-size: 1rem;
+    transition:
+      border-color var(--transition-base),
+      box-shadow var(--transition-base);
+  }
+
+  .field:focus {
+    outline: none;
+    border-color: var(--color-medium-blue);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-serenity) 45%, transparent);
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal {
+      opacity: 0;
+      transform: translateY(1.25rem);
+      transition:
+        opacity var(--transition-slow),
+        transform var(--transition-slow);
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+/* Botanical atmosphere — decorative only */
+.botanical-wash {
+  background:
+    radial-gradient(
+      ellipse 80% 60% at 10% 20%,
+      color-mix(in srgb, var(--color-sage) 12%, transparent),
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse 70% 50% at 90% 80%,
+      color-mix(in srgb, var(--color-serenity) 16%, transparent),
+      transparent 55%
+    ),
+    var(--color-warm-white);
+}
