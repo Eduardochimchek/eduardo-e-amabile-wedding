@@ -23,16 +23,16 @@ export function Gifts() {
         <Reveal>
           <SectionHeading
             id="presentes-title"
-            eyebrow="Com carinho"
+            eyebrow="Com carinho (e humor)"
             title="Presentes"
             description={weddingConfig.copy.giftsIntro}
           />
         </Reveal>
 
-        <ul className="mx-auto mt-14 grid max-w-5xl gap-5 sm:grid-cols-2 lg:grid-cols-2">
+        <ul className="mx-auto mt-14 grid max-w-6xl gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {gifts.map((gift, index) => (
-            <li key={gift.id}>
-              <Reveal delayMs={Math.min(index * 60, 180)}>
+            <li key={gift.id} className="h-full">
+              <Reveal className="h-full" delayMs={Math.min(index * 40, 200)}>
                 <GiftCard gift={gift} onSelect={setSelected} />
               </Reveal>
             </li>

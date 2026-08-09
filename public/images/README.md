@@ -9,7 +9,7 @@ Coloque aqui as fotos reais do casal, da família e do casamento.
 | `couple/` | Fotos de Eduardo e Amábile |
 | `family/` | Fotos de Lili, Mili e família |
 | `wedding/` | Detalhes do casamento, Open Graph, QR Code PIX |
-| `gifts/` | Imagens opcionais da lista de presentes |
+| `gifts/` | Imagens da lista de presentes (humor / itens simbólicos) |
 
 ## Como ativar no site
 

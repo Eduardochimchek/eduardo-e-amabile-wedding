@@ -61,7 +61,10 @@ export type GiftItem = {
   description: string;
   /** Leave undefined until a value is confirmed */
   amount?: number;
+  /** When true, price is shown as "A partir de ..." */
+  fromPrice?: boolean;
   imageSrc?: string;
+  imageAlt?: string;
   enabled: boolean;
   paymentType: PaymentMethod;
 };

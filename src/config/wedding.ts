@@ -106,7 +106,7 @@ export const weddingConfig: WeddingConfig = {
     rsvpTitle: "Você faz parte da nossa história.",
     rsvpSubtitle: "E queremos celebrar esse momento ao seu lado.",
     giftsIntro:
-      "O melhor presente é ter você conosco nesse dia. Mas, se quiser nos presentear, preparamos algumas opções para facilitar.",
+      "O melhor presente é ter você conosco nesse dia. Mas, se quiser contribuir, montamos uma lista mais descontraída — com humor, carinho e zero obrigação.",
     finalMessage:
       "Mal podemos esperar para celebrar esse dia cercados de quem amamos.",
     footerMessage: "Com amor, para sempre.",

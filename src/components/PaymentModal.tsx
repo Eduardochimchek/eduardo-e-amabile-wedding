@@ -85,7 +85,9 @@ export function PaymentModal({ gift, open, onClose }: PaymentModalProps) {
 
         {typeof gift.amount === "number" ? (
           <p className="mt-5 font-display text-2xl text-royal">
-            {formatCurrencyBRL(gift.amount)}
+            {gift.fromPrice
+              ? `A partir de ${formatCurrencyBRL(gift.amount)}`
+              : formatCurrencyBRL(gift.amount)}
           </p>
         ) : (
           <p className="mt-5 text-sm text-muted">
