@@ -40,7 +40,7 @@ export function VenueCarousel({ images, className }: VenueCarouselProps) {
 
   return (
     <div className={cn("w-full", className)}>
-      <div className="relative aspect-[16/10] overflow-hidden bg-line/30 sm:aspect-[21/10]">
+      <div className="relative aspect-[4/3] overflow-hidden bg-champagne/25 md:aspect-[16/10] lg:aspect-[2/1]">
         <Image
           key={current.src}
           src={current.src}
@@ -48,7 +48,7 @@ export function VenueCarousel({ images, className }: VenueCarouselProps) {
           fill
           quality={95}
           priority={index === 0}
-          className="object-cover object-center"
+          className="object-cover object-center md:object-contain md:object-center"
           sizes="(max-width: 896px) 100vw, (max-width: 1280px) 90vw, 1100px"
         />
 
