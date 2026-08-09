@@ -3,7 +3,6 @@ export type RsvpAttendance = "yes" | "no";
 export type RsvpInput = {
   fullName?: unknown;
   attendance?: unknown;
-  guests?: unknown;
   notes?: unknown;
   /** Honeypot - must be empty when present */
   website?: unknown;
@@ -12,14 +11,12 @@ export type RsvpInput = {
 export type ValidRsvp = {
   fullName: string;
   attendance: RsvpAttendance;
-  guests: number;
   notes: string | null;
 };
 
 const MIN_NAME = 2;
 const MAX_NAME = 120;
 const MAX_NOTES = 500;
-const MAX_GUESTS = 10;
 
 export type RsvpValidationResult =
   | { ok: true; data: ValidRsvp }
@@ -74,33 +71,11 @@ export function validateRsvpPayload(body: RsvpInput): RsvpValidationResult {
     notes = trimmed || null;
   }
 
-  let guests = 0;
-  if (body.attendance === "no") {
-    guests = 0;
-  } else {
-    const raw =
-      typeof body.guests === "number"
-        ? body.guests
-        : typeof body.guests === "string"
-          ? Number(body.guests)
-          : NaN;
-
-    if (!Number.isFinite(raw)) {
-      return {
-        ok: false,
-        message: "Quantidade de acompanhantes inválida.",
-      };
-    }
-
-    guests = Math.min(MAX_GUESTS, Math.max(0, Math.floor(raw)));
-  }
-
   return {
     ok: true,
     data: {
       fullName,
       attendance: body.attendance,
-      guests,
       notes,
     },
   };
@@ -110,5 +85,4 @@ export const RSVP_LIMITS = {
   MIN_NAME,
   MAX_NAME,
   MAX_NOTES,
-  MAX_GUESTS,
 } as const;

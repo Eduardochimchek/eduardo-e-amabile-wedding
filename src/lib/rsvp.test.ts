@@ -3,50 +3,35 @@ import { describe, it } from "node:test";
 import { validateRsvpPayload } from "./rsvp.ts";
 
 describe("validateRsvpPayload", () => {
-  it("accepts a valid yes payload and clamps guests", () => {
+  it("accepts a valid yes payload", () => {
     const result = validateRsvpPayload({
       fullName: "  Maria Silva  ",
       attendance: "yes",
-      guests: 3,
       notes: "  Chegamos cedo  ",
     });
 
     assert.equal(result.ok, true);
     if (!result.ok) return;
     assert.equal(result.data.fullName, "Maria Silva");
-    assert.equal(result.data.guests, 3);
+    assert.equal(result.data.attendance, "yes");
     assert.equal(result.data.notes, "Chegamos cedo");
   });
 
-  it("forces guests to 0 when attendance is no", () => {
+  it("accepts a valid no payload", () => {
     const result = validateRsvpPayload({
       fullName: "João",
       attendance: "no",
-      guests: 7,
     });
 
     assert.equal(result.ok, true);
     if (!result.ok) return;
-    assert.equal(result.data.guests, 0);
-  });
-
-  it("clamps guests above 10", () => {
-    const result = validateRsvpPayload({
-      fullName: "Ana Costa",
-      attendance: "yes",
-      guests: 99,
-    });
-
-    assert.equal(result.ok, true);
-    if (!result.ok) return;
-    assert.equal(result.data.guests, 10);
+    assert.equal(result.data.attendance, "no");
   });
 
   it("rejects short names", () => {
     const result = validateRsvpPayload({
       fullName: "A",
       attendance: "yes",
-      guests: 0,
     });
     assert.equal(result.ok, false);
   });
@@ -55,7 +40,6 @@ describe("validateRsvpPayload", () => {
     const result = validateRsvpPayload({
       fullName: "Pedro",
       attendance: "maybe",
-      guests: 0,
     });
     assert.equal(result.ok, false);
   });
@@ -64,7 +48,6 @@ describe("validateRsvpPayload", () => {
     const result = validateRsvpPayload({
       fullName: "Bot User",
       attendance: "yes",
-      guests: 0,
       website: "https://spam.test",
     });
     assert.equal(result.ok, false);
@@ -76,7 +59,6 @@ describe("validateRsvpPayload", () => {
     const result = validateRsvpPayload({
       fullName: "Carla",
       attendance: "yes",
-      guests: 0,
       notes: "x".repeat(501),
     });
     assert.equal(result.ok, false);

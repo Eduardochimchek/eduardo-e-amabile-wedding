@@ -52,7 +52,7 @@ export async function POST(request: Request) {
     );
   }
 
-  const { fullName, attendance, guests, notes } = validated.data;
+  const { fullName, attendance, notes } = validated.data;
   const webhookUrl = process.env.RSVP_WEBHOOK_URL?.trim();
 
   if (!webhookUrl) {
@@ -74,7 +74,6 @@ export async function POST(request: Request) {
       body: JSON.stringify({
         fullName,
         attendance,
-        guests,
         notes,
         submittedAt: new Date().toISOString(),
         source: "eduardo-e-amabile-wedding",
