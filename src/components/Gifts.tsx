@@ -26,7 +26,7 @@ export function Gifts() {
             <SectionHeading
               id="presentes-title"
               eyebrow={weddingConfig.copy.giftsEyebrow}
-              title="Presentes"
+              title="Lista de presentes"
               description={weddingConfig.copy.giftsIntro}
             />
           </div>

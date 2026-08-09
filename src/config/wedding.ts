@@ -116,12 +116,12 @@ export const weddingConfig: WeddingConfig = {
       "A nossa começou muito antes de imaginarmos.",
     ],
     familyEyebrow: "Com amor",
-    giftsEyebrow: "Com carinho",
+    giftsEyebrow: "Lua de mel",
     finalEyebrow: "Até lá",
     rsvpTitle: "Você faz parte da nossa história.",
     rsvpSubtitle: "E queremos celebrar esse momento ao seu lado.",
     giftsIntro:
-      "O melhor presente é ter você conosco nesse dia. Mas, se quiser contribuir, montamos uma lista mais descontraída, com humor, carinho e zero obrigação. Os valores são contribuições sugeridas, não preços de loja.",
+      "O melhor presente é celebrar conosco. Se quiser contribuir, montamos uma lista para a nossa lua de mel: leve, com humor e sem obrigação. Escolha o valor que fizer sentido para você.",
     finalMessage:
       "Mal podemos esperar para celebrar esse dia cercados de quem amamos.",
     footerMessage: "Com amor, para sempre.",
