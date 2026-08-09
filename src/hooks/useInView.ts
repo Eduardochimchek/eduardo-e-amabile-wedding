@@ -33,10 +33,13 @@ export function usePrefersReducedMotion(): boolean {
 /**
  * Lightweight viewport observer. Prefer one observer per section group,
  * not per leaf node.
+ *
+ * Default threshold stays near 0 so tall blocks (e.g. gift grids on mobile)
+ * still reveal: a high ratio can be unreachable when element height >> viewport.
  */
 export function useInView<T extends HTMLElement>({
-  threshold = 0.18,
-  rootMargin = "0px 0px -8% 0px",
+  threshold = 0,
+  rootMargin = "0px 0px -48px 0px",
   once = true,
 }: UseInViewOptions = {}) {
   const ref = useRef<T | null>(null);
@@ -61,7 +64,21 @@ export function useInView<T extends HTMLElement>({
     );
 
     observer.observe(node);
-    return () => observer.disconnect();
+
+    // Tall lists / late layout: check once after paint so first paint isn't stuck hidden.
+    const frame = window.requestAnimationFrame(() => {
+      const rect = node.getBoundingClientRect();
+      const vh = window.innerHeight || 0;
+      if (rect.top < vh - 48 && rect.bottom > 48) {
+        setObserved(true);
+        observer.unobserve(node);
+      }
+    });
+
+    return () => {
+      window.cancelAnimationFrame(frame);
+      observer.disconnect();
+    };
   }, [once, reduced, rootMargin, threshold]);
 
   return { ref, inView, reduced };

@@ -66,7 +66,7 @@ export function MotionGroup({
   children,
   className,
   stagger = false,
-  threshold = 0.16,
+  threshold = 0,
   as: Tag = "div",
 }: MotionGroupProps) {
   const { ref, inView } = useInView<HTMLElement>({ threshold });

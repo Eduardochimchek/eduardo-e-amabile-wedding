@@ -15,7 +15,7 @@ function TimelineItem({
   index: number;
 }) {
   const { ref, inView } = useInView<HTMLLIElement>({
-    threshold: 0.35,
+    threshold: 0.15,
     rootMargin: "0px 0px -10% 0px",
   });
   const isLeft = index % 2 === 0;

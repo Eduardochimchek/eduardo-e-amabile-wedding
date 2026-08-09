@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 
 export function NumberFour() {
   const { numberFourTitle, numberFourBody } = weddingConfig.copy;
-  const { ref, inView } = useInView<HTMLElement>({ threshold: 0.35 });
+  const { ref, inView } = useInView<HTMLElement>({ threshold: 0.2 });
   const reduced = usePrefersReducedMotion();
 
   useEffect(() => {
