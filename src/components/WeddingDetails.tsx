@@ -43,6 +43,36 @@ export function WeddingDetails() {
           <MotionGroup className="mx-auto mt-12 max-w-4xl md:mt-14">
             <div data-m="image">
               <VenueCarousel images={venueImages} />
+              {venue.imageCredit ? (
+                <p className="mt-3 text-center text-[0.7rem] leading-relaxed tracking-wide text-muted">
+                  Parte das fotos:{" "}
+                  {venue.imageCredit.authorUrl ? (
+                    <a
+                      href={venue.imageCredit.authorUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="underline decoration-line underline-offset-2 transition-colors hover:text-royal"
+                    >
+                      {venue.imageCredit.author}
+                    </a>
+                  ) : (
+                    venue.imageCredit.author
+                  )}
+                  {" · "}
+                  {venue.imageCredit.licenseUrl ? (
+                    <a
+                      href={venue.imageCredit.licenseUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="underline decoration-line underline-offset-2 transition-colors hover:text-royal"
+                    >
+                      {venue.imageCredit.license}
+                    </a>
+                  ) : (
+                    venue.imageCredit.license
+                  )}
+                </p>
+              ) : null}
             </div>
           </MotionGroup>
         ) : null}

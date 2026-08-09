@@ -45,14 +45,29 @@ export const weddingConfig: WeddingConfig = {
           alt: "Fachada da Paróquia Nossa Senhora da Salete com torre e telhado vermelho",
         },
         {
+          src: "/images/wedding/venue-exterior.jpg",
+          alt: "Vista da Paróquia Nossa Senhora da Salete em Criciúma",
+        },
+        {
           src: "/images/wedding/venue-02.jpg",
           alt: "Interior da Paróquia Nossa Senhora da Salete",
         },
         {
           src: "/images/wedding/venue-03.jpg",
+          alt: "Fachada e torre da Paróquia Nossa Senhora da Salete",
+        },
+        {
+          src: "/images/wedding/venue-04.jpg",
           alt: "Entrada da Paróquia Nossa Senhora da Salete",
         },
       ],
+      imageCredit: {
+        author: "Alcimar Callegari",
+        authorUrl:
+          "https://commons.wikimedia.org/wiki/File:Crici%C3%BAma_SC_02.06.2014_088.JPG",
+        license: "CC BY-SA 3.0",
+        licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0/",
+      },
     },
   },
 
