@@ -44,7 +44,7 @@ export type FamilyMember = {
   id: string;
   name: string;
   role: "partner" | "child" | "family";
-  /** Path under /public, e.g. "/images/family/lili.jpg" */
+  /** Path under /public, e.g. "/images/family/nina.jpg" */
   imageSrc?: string;
   imageAlt?: string;
 };

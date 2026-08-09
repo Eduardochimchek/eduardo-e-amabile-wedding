@@ -6,15 +6,15 @@ describe("getFamilyDescription", () => {
   it("builds description from configured members", () => {
     const text = getFamilyDescription(
       [
-        { id: "a", name: "Eduardo", role: "partner" },
-        { id: "b", name: "Amábile", role: "partner" },
-        { id: "c", name: "Lili", role: "child" },
+        { id: "a", name: "Amábile", role: "partner" },
+        { id: "b", name: "Eduardo", role: "partner" },
+        { id: "c", name: "Nina", role: "child" },
         { id: "d", name: "Mili", role: "child" },
       ],
-      "Eduardo & Amábile",
+      "Amábile & Eduardo",
     );
 
-    assert.match(text, /Eduardo & Amábile/);
-    assert.match(text, /Lili & Mili/);
+    assert.match(text, /Amábile & Eduardo/);
+    assert.match(text, /Nina & Mili/);
   });
 });

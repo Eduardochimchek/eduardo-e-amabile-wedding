@@ -10,16 +10,16 @@ import type { WeddingConfig } from "@/types/wedding";
 export const weddingConfig: WeddingConfig = {
   couple: {
     partnerOne: {
-      firstName: "Eduardo",
-      fullName: "Eduardo Chimchek Jeronimo",
-    },
-    partnerTwo: {
       firstName: "Amábile",
       fullName: "Amábile Lacombe Borges",
     },
-    shortNames: "Eduardo & Amábile",
+    partnerTwo: {
+      firstName: "Eduardo",
+      fullName: "Eduardo Chimchek Jeronimo",
+    },
+    shortNames: "Amábile & Eduardo",
     imageSrc: "/images/couple/eduardo-amabile.jpg",
-    imageAlt: "Eduardo e Amábile juntos em uma viagem",
+    imageAlt: "Amábile e Eduardo juntos em uma viagem",
   },
 
   date: {
@@ -53,23 +53,23 @@ export const weddingConfig: WeddingConfig = {
 
   family: [
     {
-      id: "eduardo",
-      name: "Eduardo",
-      role: "partner",
-      imageAlt: "Foto de Eduardo",
-    },
-    {
       id: "amabile",
       name: "Amábile",
       role: "partner",
       imageAlt: "Foto de Amábile",
     },
     {
-      id: "lili",
-      name: "Lili",
+      id: "eduardo",
+      name: "Eduardo",
+      role: "partner",
+      imageAlt: "Foto de Eduardo",
+    },
+    {
+      id: "nina",
+      name: "Nina",
       role: "child",
-      imageSrc: "/images/family/lili.jpg",
-      imageAlt: "Foto de Lili",
+      imageSrc: "/images/family/nina.jpg",
+      imageAlt: "Foto de Nina",
     },
     {
       id: "mili",
@@ -93,7 +93,7 @@ export const weddingConfig: WeddingConfig = {
   },
 
   seo: {
-    title: "Eduardo & Amábile | Nosso Casamento",
+    title: "Amábile & Eduardo | Nosso Casamento",
     description:
       "Um pequeno espaço para compartilhar nossa história e celebrar o nosso casamento com quem amamos.",
     // Prefer NEXT_PUBLIC_SITE_URL in Vercel. Optional static fallback:

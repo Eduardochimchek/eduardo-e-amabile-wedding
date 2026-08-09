@@ -9,7 +9,7 @@ export const storyChapters: StoryChapter[] = [
     id: "infancia",
     title: "CIA dos Anjos",
     paragraphs: [
-      "Eduardo e Amábile estudaram juntos na CIA dos Anjos quando ainda eram pequenos. Foi ali que suas histórias começaram a se cruzar, sem que soubessem o que o tempo ainda guardava.",
+      "Amábile e Eduardo estudaram juntos na CIA dos Anjos quando ainda eram pequenos. Foi ali que suas histórias começaram a se cruzar, sem que soubessem o que o tempo ainda guardava.",
     ],
   },
   {
@@ -45,7 +45,7 @@ export const storyChapters: StoryChapter[] = [
     id: "familia",
     title: "Uma vida a dois e a quatro",
     paragraphs: [
-      "Ao longo de mais de seis anos, construíram uma vida juntos e formaram uma família. Lili e Mili fazem parte essencial dessa história, com carinho e presença em cada capítulo.",
+      "Ao longo de mais de seis anos, construíram uma vida juntos e formaram uma família. Nina e Mili fazem parte essencial dessa história, com carinho e presença em cada capítulo.",
     ],
   },
   {
@@ -88,8 +88,8 @@ export const timelineEvents: TimelineEvent[] = [
     description: "Uma vida construída juntos.",
   },
   {
-    id: "lili-mili",
-    label: "Lili & Mili",
+    id: "nina-mili",
+    label: "Nina & Mili",
     description: "Nossa família.",
   },
   {
