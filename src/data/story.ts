@@ -7,52 +7,54 @@ import type { StoryChapter, TimelineEvent } from "@/types/wedding";
 export const storyChapters: StoryChapter[] = [
   {
     id: "infancia",
-    title: "CIA dos Anjos",
+    title: "Cia dos Anjos",
     paragraphs: [
-      "Amábile e Eduardo estudaram juntos na CIA dos Anjos quando ainda eram pequenos. Foi ali que suas histórias começaram a se cruzar, sem que soubessem o que o tempo ainda guardava.",
+      "Amábile e Eduardo se conheciam ainda crianças, na Cia dos Anjos. Naquela época, eram apenas duas crianças dividindo os mesmos dias, sem imaginar que, muitos anos depois, suas histórias voltariam a se encontrar.",
     ],
   },
   {
     id: "caminhos",
     title: "Caminhos que se afastam",
     paragraphs: [
-      "Com o tempo, cada um seguiu sua vida. Anos se passaram. Distâncias se abriram. Até que o destino decidiu que ainda havia um capítulo por escrever.",
+      "O tempo passou e cada um seguiu seu próprio caminho. A infância ficou para trás, os anos passaram e a vida tratou de colocá-los em lugares diferentes. Até que, um dia, o acaso resolveu mudar tudo.",
     ],
   },
   {
     id: "reencontro",
     title: "O reencontro",
     paragraphs: [
-      "Amábile viu Eduardo no ônibus. Em vez de deixar o momento passar, puxou assunto enviando uma foto dos dois na infância, perguntando se ele era a mesma pessoa.",
-      "Era. E a partir daí, começaram a conversar novamente.",
+      "Amábile viu Eduardo no ônibus. Talvez ele nem imaginasse, mas aquele encontro despertou uma lembrança. Ela puxou assunto, enviou uma foto dos dois na infância e perguntou: “é você?”.",
+      "Era. E, a partir dali, uma conversa que parecia simples acabou dando início a uma nova história.",
     ],
   },
   {
     id: "primeiro-encontro",
-    title: "04 de janeiro de 2020",
+    title: "4 de janeiro de 2020",
     paragraphs: [
-      "Eles combinaram de sair. Foi o primeiro encontro, o começo consciente de uma nova história, construída com conversas, presença e escolha.",
+      "Eles combinaram de sair. Foi o primeiro encontro, o começo.",
     ],
   },
   {
     id: "namoro",
-    title: "04 de novembro",
+    title: "O dia em que virou nós dois",
     paragraphs: [
-      "Eduardo pediu Amábile em namoro. Desde então, o dia 04 passou a ter um significado especial para os dois: um lembrete discreto de que algumas datas carregam mais do que números.",
+      "04 de novembro de 2020. Eduardo pediu Amábile em namoro. E, desde então, o dia 04 passou a carregar um significado especial para os dois: a união oficial de uma história que já vinha sendo escrita pelo acaso.",
     ],
   },
   {
     id: "familia",
     title: "Uma vida a dois e a quatro",
     paragraphs: [
-      "Ao longo de mais de seis anos, construíram uma vida juntos e formaram uma família. Mili e Nina fazem parte essencial dessa história, com carinho e presença em cada capítulo.",
+      "Ao longo de mais de seis anos, construíram uma vida juntos, cheia de planos, mudanças, aprendizados e pequenos momentos que se tornaram grandes memórias.",
+      "E, no caminho, a família cresceu. Mili e Nina chegaram para completar a história, ocupando um lugar especial em cada capítulo dessa vida que construímos juntos.",
     ],
   },
   {
     id: "casamento",
-    title: "O sim",
+    title: "O nosso sim",
     paragraphs: [
-      "Agora chega o momento do casamento: 13/03. Um novo capítulo, celebrado com quem os acompanha.",
+      "Depois de tantos encontros, desencontros, reencontros, conversas, escolhas e uma vida construída juntos, chegou o momento de dizer “sim”.",
+      "13 de março de 2024. Um novo capítulo começa, dessa vez, para ser vivido para sempre.",
     ],
   },
 ];
@@ -64,23 +66,29 @@ export const timelineEvents: TimelineEvent[] = [
   {
     id: "infancia",
     label: "Infância",
-    description: "Quando nossas histórias começaram a se cruzar.",
+    description: "Cia dos Anjos. Quando nossas histórias começaram a se cruzar.",
+  },
+  {
+    id: "caminhos",
+    label: "Caminhos",
+    description: "Cada um seguiu seu caminho, até o acaso mudar tudo.",
   },
   {
     id: "reencontro",
     label: "Reencontro",
-    description: "O destino resolveu nos colocar no mesmo caminho novamente.",
+    description: "Amábile viu Eduardo no ônibus e perguntou: “é você?”.",
   },
   {
     id: "primeiro-encontro",
     label: "04/01/2020",
-    description: "Nosso primeiro encontro.",
+    description: "O primeiro encontro. O começo.",
     date: "2020-01-04",
   },
   {
     id: "namoro",
-    label: "04/11",
-    description: "O dia em que começamos oficialmente nossa história de amor.",
+    label: "04/11/2020",
+    description: "O dia em que virou nós dois.",
+    date: "2020-11-04",
   },
   {
     id: "anos",
@@ -90,11 +98,12 @@ export const timelineEvents: TimelineEvent[] = [
   {
     id: "mili-nina",
     label: "Mili & Nina",
-    description: "Nossa família.",
+    description: "Chegaram para completar a nossa história.",
   },
   {
     id: "casamento",
-    label: "13/03",
-    description: "O dia em que diremos sim.",
+    label: "13/03/2024",
+    description: "O nosso sim. Um novo capítulo para sempre.",
+    date: "2024-03-13",
   },
 ];

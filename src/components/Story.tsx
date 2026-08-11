@@ -55,7 +55,10 @@ export function Story() {
                   ) : null}
                   <div className="mt-3 space-y-3">
                     {chapter.paragraphs.map((paragraph, pIndex) => (
-                      <p key={`${chapter.id}-${pIndex}`} className="body-copy">
+                      <p
+                        key={`${chapter.id}-${pIndex}`}
+                        className="body-copy font-medium text-deep"
+                      >
                         {paragraph}
                       </p>
                     ))}

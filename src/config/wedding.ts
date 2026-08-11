@@ -25,9 +25,9 @@ export const weddingConfig: WeddingConfig = {
   date: {
     day: 13,
     month: 3,
-    // year: undefined until confirmed
-    display: "13/03",
-    displayCompact: "13 • 03",
+    year: 2024,
+    display: "13/03/2024",
+    displayCompact: "13 • 03 • 2024",
   },
 
   details: {
