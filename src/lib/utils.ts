@@ -24,7 +24,12 @@ export function formatGiftAmount(
   amount: number,
   options?: { fromPrice?: boolean },
 ): string {
-  const value = formatCurrency(amount);
+  const value = new Intl.NumberFormat("pt-BR", {
+    style: "currency",
+    currency: "BRL",
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  }).format(amount);
   if (options?.fromPrice) {
     return `Contribuição sugerida a partir de ${value}`;
   }
