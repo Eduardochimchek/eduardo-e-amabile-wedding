@@ -7,7 +7,7 @@ export function Footer() {
         <p className="font-display text-2xl text-deep sm:text-3xl">
           {weddingConfig.couple.shortNames}
         </p>
-        <p className="mt-3 tracking-[0.28em] text-muted">
+        <p className="mt-3 font-serif tracking-[0.28em] text-muted">
           {weddingConfig.date.displayCompact}
         </p>
         <p className="mt-5 text-sm italic text-muted">

@@ -74,7 +74,8 @@
   --color-muted: var(--color-muted);
   --color-line: var(--color-line);
 
-  --font-display: var(--font-cormorant);
+  --font-display: var(--font-great-vibes);
+  --font-serif: var(--font-cormorant);
   --font-sans: var(--font-montserrat);
 
   --shadow-soft: var(--shadow-soft);
@@ -143,10 +144,10 @@
   }
 
   .display-title {
-    font-family: var(--font-cormorant), ui-serif, Georgia, serif;
-    font-weight: 500;
+    font-family: var(--font-great-vibes), cursive;
+    font-weight: 400;
     letter-spacing: 0.01em;
-    line-height: 1.1;
+    line-height: 1.15;
     color: var(--color-deep-blue);
   }
 

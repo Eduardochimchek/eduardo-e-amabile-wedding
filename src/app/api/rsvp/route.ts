@@ -1,15 +1,13 @@
 import { NextResponse } from "next/server";
+import { invitations } from "@/data/guests";
 import { checkRateLimit, getClientKey } from "@/lib/rate-limit";
 import { validateRsvpPayload, type RsvpInput } from "@/lib/rsvp";
 
 /**
- * RSVP endpoint prepared for future integration.
+ * RSVP endpoint for invitation-based confirmations.
  *
- * Set RSVP_WEBHOOK_URL in the environment to forward submissions.
- * Never put secrets in client-side code.
- *
- * Protections: honeypot, field validation/clamp, best-effort in-memory rate limit.
- * Rate limit is per serverless instance - see src/lib/rate-limit.ts.
+ * Set RSVP_WEBHOOK_URL to forward submissions.
+ * Guest list lives in src/data/guests.ts until a backend is wired.
  */
 export async function POST(request: Request) {
   const clientKey = getClientKey(request);
@@ -37,10 +35,9 @@ export async function POST(request: Request) {
     );
   }
 
-  const validated = validateRsvpPayload(body);
+  const validated = validateRsvpPayload(body, invitations);
   if (!validated.ok) {
     if (validated.code === "HONEYPOT") {
-      // Silent success-shaped response to avoid teaching bots.
       return NextResponse.json({
         ok: true,
         message: "Presença registrada. Obrigado por celebrar conosco!",
@@ -52,7 +49,7 @@ export async function POST(request: Request) {
     );
   }
 
-  const { fullName, attendance, notes } = validated.data;
+  const payload = validated.data;
   const webhookUrl = process.env.RSVP_WEBHOOK_URL?.trim();
 
   if (!webhookUrl) {
@@ -72,9 +69,12 @@ export async function POST(request: Request) {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        fullName,
-        attendance,
-        notes,
+        invitationId: payload.invitationId,
+        searchedName: payload.searchedName,
+        responses: payload.responses,
+        attendingCount: payload.attendingCount,
+        decliningCount: payload.decliningCount,
+        notes: payload.notes,
         submittedAt: new Date().toISOString(),
         source: "eduardo-e-amabile-wedding",
       }),

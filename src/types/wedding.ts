@@ -64,6 +64,11 @@ export type TimelineEvent = {
   description: string;
   /** Optional ISO-like or display date string */
   date?: string;
+  /** Year or short caption under the polaroid */
+  year?: string;
+  /** Path under /public, e.g. "/images/timeline/infancia.jpg" */
+  imageSrc?: string;
+  imageAlt?: string;
 };
 
 export type StoryChapter = {
@@ -86,6 +91,8 @@ export type GiftItem = {
   imageAlt?: string;
   enabled: boolean;
   paymentType: PaymentMethod;
+  /** honeymoon = main list; special = cotas especiais */
+  group?: "honeymoon" | "special";
 };
 
 export type PixConfig = {
@@ -134,14 +141,21 @@ export type WeddingConfig = {
   copy: {
     heroTagline: string;
     heroCtaStory: string;
+    detailsEyebrow: string;
+    detailsLead: string;
+    detailsCarouselCaption: string;
+    detailsClosing: string;
+    detailsCtaMap: string;
     storyEyebrow: string;
     storyLead: [string, string];
     familyEyebrow: string;
     giftsEyebrow: string;
+    giftsSpecialEyebrow: string;
+    giftsIntro: string;
+    giftsClosing: string;
     finalEyebrow: string;
     rsvpTitle: string;
     rsvpSubtitle: string;
-    giftsIntro: string;
     finalMessage: string;
     footerMessage: string;
     numberFourTitle: string;

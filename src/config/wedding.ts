@@ -34,28 +34,30 @@ export const weddingConfig: WeddingConfig = {
   details: {
     // time: "16:00",
     // dressCode: "Traje a definir",
+    // time: leave undefined until confirmed (UI shows XXhXX placeholder)
     venue: {
       name: "Paróquia Nossa Senhora da Salete",
       address: "R. Gen. Osvaldo Pinto da Veiga, 1810",
-      city: "Próspera, Criciúma/SC, 88811-700",
+      city: "Próspera • Criciúma/SC",
       mapUrl:
         "https://www.google.com/maps/search/?api=1&query=Par%C3%B3quia%20Nossa%20Senhora%20da%20Salete%2C%20R.%20Gen.%20Osvaldo%20Pinto%20da%20Veiga%2C%201810%20-%20Pr%C3%B3spera%2C%20Crici%C3%BAma%20-%20SC%2C%2088811-700",
+      // Ordem: fachada → entrada → altar/interior → detalhe
       images: [
         {
           src: "/images/wedding/venue-01.jpg",
           alt: "Fachada da Paróquia Nossa Senhora da Salete com torre e telhado vermelho",
         },
         {
-          src: "/images/wedding/venue-exterior.jpg",
-          alt: "Vista da Paróquia Nossa Senhora da Salete em Criciúma",
+          src: "/images/wedding/venue-04.jpg",
+          alt: "Entrada da Paróquia Nossa Senhora da Salete",
         },
         {
           src: "/images/wedding/venue-02.jpg",
-          alt: "Interior da Paróquia Nossa Senhora da Salete",
+          alt: "Interior e altar da Paróquia Nossa Senhora da Salete",
         },
         {
-          src: "/images/wedding/venue-04.jpg",
-          alt: "Entrada da Paróquia Nossa Senhora da Salete",
+          src: "/images/wedding/venue-detail.jpg",
+          alt: "Detalhe da fachada da Paróquia Nossa Senhora da Salete",
         },
       ],
       imageCredit: {
@@ -134,15 +136,27 @@ export const weddingConfig: WeddingConfig = {
       "A nossa começou muito antes disso.",
     ],
     heroCtaStory: "Conheça nossa história ↓",
+    detailsEyebrow: "O grande dia",
+    detailsLead:
+      "É aqui que daremos um dos passos mais importantes da nossa história.",
+    detailsCarouselCaption:
+      "É aqui que nossa história ganhará um novo capítulo.",
+    detailsClosing:
+      "Será uma alegria ter vocês conosco para celebrar esse momento tão especial!",
+    detailsCtaMap: "Como chegar",
     familyEyebrow: "Com amor",
-    giftsEyebrow: "Lua de mel",
-    finalEyebrow: "Até lá",
-    rsvpTitle: "Você faz parte da nossa história.",
-    rsvpSubtitle: "E queremos celebrar esse momento ao seu lado.",
+    giftsEyebrow: "Presentes",
+    giftsSpecialEyebrow: "Cotas especiais",
     giftsIntro:
-      "O melhor presente é celebrar conosco. Se quiser contribuir, montamos uma lista para a nossa lua de mel: leve, com humor e sem obrigação. Escolha o valor que fizer sentido para você.",
+      "Escolha a contribuição que fizer sentido para você. Sem obrigação, com carinho.",
+    giftsClosing:
+      "Mais do que qualquer presente, ter vocês celebrando esse momento com a gente já é um presente enorme.",
+    finalEyebrow: "Até lá",
+    rsvpTitle: "Você vem celebrar com a gente?",
+    rsvpSubtitle:
+      "Sua presença é o presente que mais queremos receber. Mas precisamos saber se podemos contar com você nesse dia tão especial.",
     finalMessage:
-      "Mal podemos esperar para celebrar esse dia cercados de quem amamos.",
+      "Depois de tantos capítulos,\nchegou a hora de escrever o nosso próximo.",
     footerMessage: "Com amor, para sempre.",
     numberFourTitle: "04",
     numberFourBody: [

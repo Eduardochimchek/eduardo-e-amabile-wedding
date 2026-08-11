@@ -60,50 +60,73 @@ export const storyChapters: StoryChapter[] = [
 ];
 
 /**
- * Timeline events - labels and copy stay configurable here.
+ * Timeline / Memory Lane - photos optional until files land in /public/images/timeline.
+ * Leave imageSrc undefined to show an elegant placeholder.
  */
 export const timelineEvents: TimelineEvent[] = [
   {
     id: "infancia",
     label: "Infância",
-    description: "Cia dos Anjos. Quando nossas histórias começaram a se cruzar.",
+    year: "Cia dos Anjos",
+    description: "Quando nossas histórias começaram a se cruzar.",
+    // imageSrc: "/images/timeline/infancia.jpg",
+    imageAlt: "Amábile e Eduardo na infância",
   },
   {
     id: "caminhos",
     label: "Caminhos",
     description: "Cada um seguiu seu caminho, até o acaso mudar tudo.",
+    // imageSrc: "/images/timeline/caminhos.jpg",
+    imageAlt: "Caminhos que se afastaram",
   },
   {
     id: "reencontro",
     label: "Reencontro",
     description: "Amábile viu Eduardo no ônibus e perguntou: “é você?”.",
+    // imageSrc: "/images/timeline/reencontro.jpg",
+    imageAlt: "O reencontro",
   },
   {
     id: "primeiro-encontro",
-    label: "04/01/2020",
+    label: "Primeiro encontro",
+    year: "2020",
     description: "O primeiro encontro. O começo.",
     date: "2020-01-04",
+    // imageSrc: "/images/timeline/primeiro-encontro.jpg",
+    imageAlt: "Primeiro encontro de Amábile e Eduardo",
   },
   {
     id: "namoro",
-    label: "04/11/2020",
+    label: "Namoro",
+    year: "2020",
     description: "O dia em que virou nós dois.",
     date: "2020-11-04",
+    // imageSrc: "/images/timeline/namoro.jpg",
+    imageAlt: "Pedido de namoro",
   },
   {
     id: "anos",
-    label: "+6 anos",
+    label: "Juntos",
+    year: "+6 anos",
     description: "Uma vida construída juntos.",
+    // imageSrc: "/images/timeline/juntos.jpg",
+    imageAlt: "Anos construindo a vida juntos",
   },
   {
     id: "mili-nina",
-    label: "Mili & Nina",
+    label: "Família",
+    year: "Mili & Nina",
     description: "Chegaram para completar a nossa história.",
+    // imageSrc: "/images/timeline/familia.jpg",
+    imageAlt: "Mili e Nina",
   },
   {
     id: "casamento",
-    label: "13/03/2027",
-    description: "O nosso sim. Um novo capítulo para sempre.",
+    label: "O nosso sim",
+    year: "2027",
+    description: "Um novo capítulo para sempre.",
     date: "2027-03-13",
+    // imageSrc: "/images/timeline/casamento.jpg",
+    imageAlt: "O casamento",
   },
 ];

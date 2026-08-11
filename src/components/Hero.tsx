@@ -97,13 +97,13 @@ export function Hero() {
             Nosso casamento
           </p>
 
-          <h1 className="font-display text-[clamp(3.4rem,12vw,6.5rem)] font-medium leading-[0.95] tracking-wide">
+          <h1 className="font-display text-[clamp(3.6rem,13vw,7rem)] font-normal leading-[1.05]">
             <span data-hero="name-1" className="block">
               {couple.partnerOne.firstName}
             </span>
             <span
               data-hero="amp"
-              className="my-2 block font-display text-[clamp(2rem,6vw,3rem)] font-normal text-gold"
+              className="my-1 block font-display text-[clamp(2.2rem,7vw,3.4rem)] font-normal text-gold"
             >
               &
             </span>
@@ -114,7 +114,7 @@ export function Hero() {
 
           <p
             data-hero="date"
-            className="mt-8 font-display text-xl tracking-wide text-warm sm:text-2xl md:text-[1.75rem]"
+            className="mt-8 font-serif text-xl tracking-wide text-warm sm:text-2xl md:text-[1.75rem]"
           >
             {date.displayLong ?? date.display}
           </p>

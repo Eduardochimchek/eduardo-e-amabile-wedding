@@ -18,7 +18,7 @@ export function FinalMessage() {
           <h2
             id="mensagem-title"
             data-m="soft"
-            className="mt-5 font-display text-3xl leading-snug text-deep sm:text-4xl md:text-5xl"
+            className="mt-5 whitespace-pre-line font-display text-3xl leading-snug text-deep sm:text-4xl md:text-5xl"
           >
             {weddingConfig.copy.finalMessage}
           </h2>
@@ -36,10 +36,17 @@ export function FinalMessage() {
           </p>
           <p
             data-m="fade"
-            className="mt-3 tracking-[0.28em] text-muted"
+            className="mt-3 font-serif tracking-[0.28em] text-muted"
             style={{ "--m-delay": "320ms" } as React.CSSProperties}
           >
             {weddingConfig.date.displayCompact}
+          </p>
+          <p
+            data-m="fade"
+            className="mt-5 text-sm italic text-muted sm:text-base"
+            style={{ "--m-delay": "400ms" } as React.CSSProperties}
+          >
+            {weddingConfig.copy.footerMessage}
           </p>
         </MotionGroup>
       </div>

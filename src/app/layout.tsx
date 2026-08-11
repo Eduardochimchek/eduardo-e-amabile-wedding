@@ -1,10 +1,18 @@
 import type { Metadata, Viewport } from "next";
-import { Cormorant_Garamond, Montserrat } from "next/font/google";
+import { Cormorant_Garamond, Great_Vibes, Montserrat } from "next/font/google";
 import { weddingConfig } from "@/config/wedding";
 import { getSiteUrl } from "@/lib/site";
 import { JsonLd } from "@/components/JsonLd";
 import { SkipLink } from "@/components/SkipLink";
 import "./globals.css";
+
+/** Closest free match to Brittany Signature */
+const greatVibes = Great_Vibes({
+  variable: "--font-great-vibes",
+  subsets: ["latin"],
+  weight: "400",
+  display: "swap",
+});
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant",
@@ -61,7 +69,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR" className={`${cormorant.variable} ${montserrat.variable}`}>
+    <html
+      lang="pt-BR"
+      className={`${greatVibes.variable} ${cormorant.variable} ${montserrat.variable}`}
+    >
       <body className="min-h-dvh font-sans antialiased">
         <SkipLink />
         <JsonLd />

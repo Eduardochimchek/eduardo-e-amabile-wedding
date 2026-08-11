@@ -1,6 +1,7 @@
 import { Navigation } from "@/components/Navigation";
 import { ScrollProgress } from "@/components/ScrollProgress";
 import { Hero } from "@/components/Hero";
+import { Countdown } from "@/components/Countdown";
 import { Story } from "@/components/Story";
 import { Timeline } from "@/components/Timeline";
 import { NumberFour } from "@/components/NumberFour";
@@ -18,6 +19,7 @@ export default function HomePage() {
       <Navigation />
       <main id="conteudo">
         <Hero />
+        <Countdown />
         <Story />
         <Timeline />
         <NumberFour />
