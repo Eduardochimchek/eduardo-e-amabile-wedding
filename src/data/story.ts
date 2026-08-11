@@ -54,7 +54,7 @@ export const storyChapters: StoryChapter[] = [
     title: "O nosso sim",
     paragraphs: [
       "Depois de tantos encontros, desencontros, reencontros, conversas, escolhas e uma vida construída juntos, chegou o momento de dizer “sim”.",
-      "13 de março de 2024. Um novo capítulo começa, dessa vez, para ser vivido para sempre.",
+      "13 de março de 2027. Um novo capítulo começa, dessa vez, para ser vivido para sempre.",
     ],
   },
 ];
@@ -102,8 +102,8 @@ export const timelineEvents: TimelineEvent[] = [
   },
   {
     id: "casamento",
-    label: "13/03/2024",
+    label: "13/03/2027",
     description: "O nosso sim. Um novo capítulo para sempre.",
-    date: "2024-03-13",
+    date: "2027-03-13",
   },
 ];
