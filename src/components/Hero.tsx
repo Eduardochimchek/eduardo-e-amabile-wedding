@@ -127,7 +127,7 @@ export function Hero() {
 
           <p
             data-hero="tagline"
-            className="mx-auto mt-8 max-w-lg text-sm leading-relaxed text-warm/90 sm:text-base"
+            className="mx-auto mt-8 max-w-lg whitespace-pre-line text-sm leading-relaxed text-warm/90 sm:text-base"
           >
             {copy.heroTagline}
           </p>

@@ -127,7 +127,7 @@ export const weddingConfig: WeddingConfig = {
 
   copy: {
     heroTagline:
-      "Algumas histórias começam quando duas pessoas se encontram. A nossa começou muito antes disso.",
+      "Algumas histórias começam quando duas pessoas se encontram.\nA nossa começou muito antes disso.",
     storyEyebrow: "Desde o começo",
     storyLead: [
       "Algumas histórias começam quando duas pessoas se encontram.",
