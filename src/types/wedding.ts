@@ -12,8 +12,10 @@ export type WeddingDate = {
   year?: number;
   /** Display label, e.g. "13/03" */
   display: string;
-  /** Compact hero label, e.g. "13 • 03" */
+  /** Compact hero label, e.g. "13 • 03 • 2027" */
   displayCompact: string;
+  /** Long form for hero, e.g. "13 de março de 2027" */
+  displayLong?: string;
 };
 
 export type VenueImage = {
@@ -131,6 +133,7 @@ export type WeddingConfig = {
   navigation: NavItem[];
   copy: {
     heroTagline: string;
+    heroCtaStory: string;
     storyEyebrow: string;
     storyLead: [string, string];
     familyEyebrow: string;

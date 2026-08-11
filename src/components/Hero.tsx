@@ -114,9 +114,9 @@ export function Hero() {
 
           <p
             data-hero="date"
-            className="mt-8 font-display text-2xl tracking-[0.35em] text-warm sm:text-3xl"
+            className="mt-8 font-display text-xl tracking-wide text-warm sm:text-2xl md:text-[1.75rem]"
           >
-            {date.displayCompact}
+            {date.displayLong ?? date.display}
           </p>
 
           <div
@@ -127,7 +127,7 @@ export function Hero() {
 
           <p
             data-hero="tagline"
-            className="mx-auto mt-8 max-w-md text-sm leading-relaxed text-warm/90 sm:text-base"
+            className="mx-auto mt-8 max-w-lg text-sm leading-relaxed text-warm/90 sm:text-base"
           >
             {copy.heroTagline}
           </p>
@@ -143,7 +143,7 @@ export function Hero() {
               href="#historia"
               className="btn-ghost min-w-[12rem] border-warm/35 text-warm hover:border-gold hover:bg-warm/10"
             >
-              Nossa história
+              {copy.heroCtaStory}
             </a>
           </div>
         </div>

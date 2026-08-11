@@ -28,6 +28,7 @@ export const weddingConfig: WeddingConfig = {
     year: 2027,
     display: "13/03/2027",
     displayCompact: "13 • 03 • 2027",
+    displayLong: "13 de março de 2027",
   },
 
   details: {
@@ -125,12 +126,14 @@ export const weddingConfig: WeddingConfig = {
   ],
 
   copy: {
-    heroTagline: "Uma história que começou muito antes de imaginarmos.",
+    heroTagline:
+      "Algumas histórias começam quando duas pessoas se encontram. A nossa começou muito antes disso.",
     storyEyebrow: "Desde o começo",
     storyLead: [
-      "Algumas histórias começam quando duas pessoas se conhecem.",
-      "A nossa começou muito antes de imaginarmos.",
+      "Algumas histórias começam quando duas pessoas se encontram.",
+      "A nossa começou muito antes disso.",
     ],
+    heroCtaStory: "Conheça nossa história ↓",
     familyEyebrow: "Com amor",
     giftsEyebrow: "Lua de mel",
     finalEyebrow: "Até lá",
