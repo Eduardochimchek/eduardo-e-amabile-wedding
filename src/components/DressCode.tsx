@@ -189,7 +189,7 @@ function DressCodeHerArt({ className }: { className?: string }) {
       {/* face — simple expressive */}
       <ellipse cx="94" cy="64" rx="2.1" ry="2.7" fill={navyDeep} />
       <ellipse cx="116" cy="64" rx="2.1" ry="2.7" fill={navyDeep} />
-      <path d="M104 72c2 2 4 3 4 0" stroke="#B8957E" strokeWidth="1.3" strokeLinecap="round" />
+      <path d="M106 72v4" stroke="#B8957E" strokeWidth="1.3" strokeLinecap="round" />
       <path
         d="M98 82c4 3.5 12 3.5 16 0"
         stroke={navyDeep}
