@@ -60,8 +60,7 @@ export const storyChapters: StoryChapter[] = [
 ];
 
 /**
- * Timeline / Memory Lane - photos optional until files land in /public/images/timeline.
- * Leave imageSrc undefined to show an elegant placeholder.
+ * Timeline / Memory Lane - photos in /public/images/timeline.
  */
 export const timelineEvents: TimelineEvent[] = [
   {
@@ -69,22 +68,22 @@ export const timelineEvents: TimelineEvent[] = [
     label: "Infância",
     year: "Cia dos Anjos",
     description: "Quando nossas histórias começaram a se cruzar.",
-    // imageSrc: "/images/timeline/infancia.jpg",
-    imageAlt: "Amábile e Eduardo na infância",
+    imageSrc: "/images/timeline/infancia.jpg",
+    imageAlt: "Amábile e Eduardo na infância, Cia dos Anjos",
   },
   {
     id: "caminhos",
     label: "Caminhos",
     description: "Cada um seguiu seu caminho, até o acaso mudar tudo.",
-    // imageSrc: "/images/timeline/caminhos.jpg",
-    imageAlt: "Caminhos que se afastaram",
+    imageSrc: "/images/timeline/caminhos.jpg",
+    imageAlt: "Eduardo e Amábile cada um no seu caminho",
   },
   {
     id: "reencontro",
     label: "Reencontro",
     description: "Amábile viu Eduardo no ônibus e perguntou: “é você?”.",
-    // imageSrc: "/images/timeline/reencontro.jpg",
-    imageAlt: "O reencontro",
+    imageSrc: "/images/timeline/reencontro.jpg",
+    imageAlt: "Conversa do reencontro",
   },
   {
     id: "primeiro-encontro",
@@ -92,7 +91,7 @@ export const timelineEvents: TimelineEvent[] = [
     year: "2020",
     description: "O primeiro encontro. O começo.",
     date: "2020-01-04",
-    // imageSrc: "/images/timeline/primeiro-encontro.jpg",
+    imageSrc: "/images/timeline/primeiro-encontro.jpg",
     imageAlt: "Primeiro encontro de Amábile e Eduardo",
   },
   {
@@ -101,32 +100,23 @@ export const timelineEvents: TimelineEvent[] = [
     year: "2020",
     description: "O dia em que virou nós dois.",
     date: "2020-11-04",
-    // imageSrc: "/images/timeline/namoro.jpg",
-    imageAlt: "Pedido de namoro",
-  },
-  {
-    id: "anos",
-    label: "Juntos",
-    year: "+6 anos",
-    description: "Uma vida construída juntos.",
-    // imageSrc: "/images/timeline/juntos.jpg",
-    imageAlt: "Anos construindo a vida juntos",
+    imageSrc: "/images/timeline/namoro.jpg",
+    imageAlt: "Amábile e Eduardo no namoro",
   },
   {
     id: "mili-nina",
     label: "Família",
     year: "Mili & Nina",
     description: "Chegaram para completar a nossa história.",
-    // imageSrc: "/images/timeline/familia.jpg",
-    imageAlt: "Mili e Nina",
+    imageSrc: "/images/timeline/familia.jpg",
+    imageAlt: "Família Amábile e Eduardo",
   },
   {
     id: "casamento",
     label: "O nosso sim",
-    year: "2027",
     description: "Um novo capítulo para sempre.",
     date: "2027-03-13",
-    // imageSrc: "/images/timeline/casamento.jpg",
-    imageAlt: "O casamento",
+    imageSrc: "/images/timeline/casamento.jpg",
+    imageAlt: "O nosso sim",
   },
 ];
