@@ -3,42 +3,44 @@ import { describe, it } from "node:test";
 import {
   findInvitationByName,
   normalizeGuestName,
-  type Invitation,
+  searchGuests,
+  invitations,
 } from "../data/guests.ts";
-
-const sampleList: Invitation[] = [
-  {
-    id: "familia-silva",
-    guests: [
-      { id: "maria-silva", name: "Maria da Silva" },
-      {
-        id: "joao-silva",
-        name: "João da Silva",
-        aliases: ["Joao da Silva"],
-      },
-      { id: "pedro-silva", name: "Pedro da Silva" },
-    ],
-  },
-];
 
 describe("guest lookup", () => {
   it("normalizes accents and spaces", () => {
-    assert.equal(normalizeGuestName("  João   da   Silva "), "joao da silva");
+    assert.equal(normalizeGuestName("  João   Paulo "), "joao paulo");
+  });
+
+  it("finds invitation by partial first name when unique", () => {
+    const matches = searchGuests("Nicolas", invitations);
+    assert.equal(matches.length, 1);
+    assert.equal(matches[0].guest.name, "Nicolas Jeronimo de Matos");
+    assert.equal(matches[0].invitation.id, "regiane-matos");
   });
 
   it("finds invitation by exact name", () => {
-    const found = findInvitationByName("Maria da Silva", sampleList);
+    const found = findInvitationByName("Sirlene Chimchek", invitations);
     assert.ok(found);
-    assert.equal(found?.id, "familia-silva");
+    assert.equal(found?.id, "chimchek-jeronimo");
+    assert.equal(found?.guests.length, 3);
   });
 
-  it("finds invitation by alias without accent", () => {
-    const found = findInvitationByName("Joao da Silva", sampleList);
-    assert.ok(found);
-    assert.equal(found?.id, "familia-silva");
+  it("returns multiple matches when first name is shared", () => {
+    // "Jeronimo" alone would match many; use a shared first pattern carefully
+    const matches = searchGuests("Chimchek", invitations);
+    assert.ok(matches.length >= 2);
   });
 
-  it("returns null for unknown names", () => {
-    assert.equal(findInvitationByName("Fulano de Tal", sampleList), null);
+  it("returns empty for unknown names", () => {
+    assert.equal(searchGuests("Fulano de Tal", invitations).length, 0);
+    assert.equal(findInvitationByName("Fulano de Tal", invitations), null);
+  });
+
+  it("groups Regiane family together", () => {
+    const found = findInvitationByName("Cauã", invitations);
+    assert.ok(found);
+    assert.equal(found?.id, "regiane-matos");
+    assert.equal(found?.guests.length, 4);
   });
 });

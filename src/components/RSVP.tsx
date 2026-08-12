@@ -3,8 +3,9 @@
 import { FormEvent, useMemo, useState } from "react";
 import { weddingConfig } from "@/config/wedding";
 import {
-  findInvitationByName,
   isGuestListReady,
+  searchGuests,
+  type GuestMatch,
   type Invitation,
 } from "@/data/guests";
 import { MotionGroup } from "@/components/motion/Motion";
@@ -12,7 +13,7 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { cn } from "@/lib/utils";
 import { RSVP_LIMITS } from "@/lib/rsvp";
 
-type Step = "search" | "invite" | "success";
+type Step = "search" | "pick" | "invite" | "success";
 type Status = "idle" | "submitting" | "error" | "not_configured";
 
 function GoldHeart({ className }: { className?: string }) {
@@ -36,6 +37,7 @@ export function RSVP() {
   const [searchName, setSearchName] = useState("");
   const [website, setWebsite] = useState("");
   const [notes, setNotes] = useState("");
+  const [matches, setMatches] = useState<GuestMatch[]>([]);
   const [invitation, setInvitation] = useState<Invitation | null>(null);
   const [attending, setAttending] = useState<Record<string, boolean>>({});
   const [selecting, setSelecting] = useState(false);
@@ -49,11 +51,29 @@ export function RSVP() {
 
   function resetToSearch() {
     setStep("search");
+    setMatches([]);
     setInvitation(null);
     setAttending({});
     setSelecting(false);
     setReadyToSubmit(false);
     setNotes("");
+    setStatus("idle");
+    setMessage("");
+  }
+
+  function openInvitation(found: Invitation, typedName: string) {
+    const nextAttending: Record<string, boolean> = {};
+    for (const guest of found.guests) {
+      nextAttending[guest.id] = true;
+    }
+
+    setInvitation(found);
+    setAttending(nextAttending);
+    setSelecting(false);
+    setReadyToSubmit(false);
+    setMatches([]);
+    setStep("invite");
+    setSearchName(typedName);
     setStatus("idle");
     setMessage("");
   }
@@ -74,12 +94,12 @@ export function RSVP() {
     const name = searchName.trim().replace(/\s+/g, " ");
     if (name.length < RSVP_LIMITS.MIN_NAME) {
       setStatus("error");
-      setMessage("Digite seu nome completo para encontrarmos o convite.");
+      setMessage("Digite pelo menos parte do seu nome para buscarmos o convite.");
       return;
     }
 
-    const found = findInvitationByName(name);
-    if (!found) {
+    const found = searchGuests(name);
+    if (found.length === 0) {
       setStatus("error");
       setMessage(
         "Não encontramos esse nome na lista. Confira a grafia ou fale conosco.",
@@ -87,16 +107,14 @@ export function RSVP() {
       return;
     }
 
-    const nextAttending: Record<string, boolean> = {};
-    for (const guest of found.guests) {
-      nextAttending[guest.id] = true;
+    if (found.length === 1) {
+      openInvitation(found[0].invitation, name);
+      return;
     }
 
-    setInvitation(found);
-    setAttending(nextAttending);
-    setSelecting(false);
-    setReadyToSubmit(false);
-    setStep("invite");
+    // Vários nomes parecidos: deixa a pessoa escolher quem é ela
+    setMatches(found);
+    setStep("pick");
     setSearchName(name);
   }
 
@@ -202,11 +220,7 @@ export function RSVP() {
         <MotionGroup>
           <div data-m="up" className="mx-auto mt-12 max-w-xl">
             {step === "search" ? (
-              <form
-                onSubmit={handleSearch}
-                className="space-y-5"
-                noValidate
-              >
+              <form onSubmit={handleSearch} className="space-y-5" noValidate>
                 <div
                   className="pointer-events-none absolute left-0 top-0 -z-10 h-0 w-0 overflow-hidden opacity-0"
                   aria-hidden="true"
@@ -239,12 +253,13 @@ export function RSVP() {
                     maxLength={RSVP_LIMITS.MAX_NAME}
                     disabled={isBusy}
                     value={searchName}
-                    placeholder="Ex.: Maria da Silva"
+                    placeholder="Ex.: Nicolas ou Julia Chimchek"
                     onChange={(e) => setSearchName(e.target.value)}
                     className="field border-warm/15 bg-warm text-deep"
                   />
                   <p className="mt-2 text-xs leading-relaxed text-warm/60">
-                    Use o nome como está no convite para encontrarmos sua lista.
+                    Pode ser só o primeiro nome. Se aparecer mais de um, você
+                    escolhe qual é o seu.
                   </p>
                 </div>
 
@@ -252,6 +267,53 @@ export function RSVP() {
                   Buscar convite
                 </button>
               </form>
+            ) : null}
+
+            {step === "pick" ? (
+              <div className="space-y-5">
+                <div className="text-center">
+                  <p className="font-display text-2xl text-warm sm:text-3xl">
+                    Encontramos mais de um nome
+                  </p>
+                  <p className="mt-2 text-sm text-warm/70">
+                    Busca por “{searchName}”. Selecione quem é você:
+                  </p>
+                </div>
+
+                <ul className="space-y-2">
+                  {matches.map((match) => (
+                    <li key={`${match.invitation.id}-${match.guest.id}`}>
+                      <button
+                        type="button"
+                        onClick={() =>
+                          openInvitation(match.invitation, match.guest.name)
+                        }
+                        className="w-full rounded-sm border border-warm/25 bg-warm/5 px-4 py-3 text-left text-sm text-warm transition hover:border-gold hover:bg-warm/10"
+                      >
+                        <span className="block font-medium">
+                          {match.guest.name}
+                        </span>
+                        {match.invitation.guests.length > 1 ? (
+                          <span className="mt-1 block text-xs text-warm/60">
+                            Convite com{" "}
+                            {match.invitation.guests
+                              .map((guest) => guest.name.split(" ")[0])
+                              .join(", ")}
+                          </span>
+                        ) : null}
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+
+                <button
+                  type="button"
+                  onClick={resetToSearch}
+                  className="mx-auto block text-sm text-warm/65 underline decoration-warm/30 underline-offset-4 transition hover:text-warm"
+                >
+                  Buscar outro nome
+                </button>
+              </div>
             ) : null}
 
             {step === "invite" && invitation ? (
