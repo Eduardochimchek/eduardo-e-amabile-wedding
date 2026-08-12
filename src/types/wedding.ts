@@ -49,15 +49,6 @@ export type WeddingDetailsConfig = {
   venue: VenueInfo;
 };
 
-export type FamilyMember = {
-  id: string;
-  name: string;
-  role: "partner" | "child" | "family";
-  /** Path under /public, e.g. "/images/family/nina.jpg" */
-  imageSrc?: string;
-  imageAlt?: string;
-};
-
 export type TimelineEvent = {
   id: string;
   label: string;
@@ -154,7 +145,6 @@ export type WeddingConfig = {
   date: WeddingDate;
   details: WeddingDetailsConfig;
   dressCode: DressCodeConfig;
-  family: FamilyMember[];
   payment: PaymentConfig;
   seo: SeoConfig;
   navigation: NavItem[];
@@ -168,7 +158,6 @@ export type WeddingConfig = {
     detailsCtaMap: string;
     storyEyebrow: string;
     storyLead: [string, string];
-    familyEyebrow: string;
     giftsEyebrow: string;
     giftsSpecialEyebrow: string;
     giftsIntro: string;

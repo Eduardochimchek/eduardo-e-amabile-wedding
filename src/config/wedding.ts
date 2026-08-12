@@ -90,35 +90,6 @@ export const weddingConfig: WeddingConfig = {
     closing: "Agradecemos desde já!",
   },
 
-  family: [
-    {
-      id: "amabile",
-      name: "Amábile",
-      role: "partner",
-      imageAlt: "Foto de Amábile",
-    },
-    {
-      id: "eduardo",
-      name: "Eduardo",
-      role: "partner",
-      imageAlt: "Foto de Eduardo",
-    },
-    {
-      id: "mili",
-      name: "Mili",
-      role: "child",
-      imageSrc: "/images/family/mili.jpg",
-      imageAlt: "Foto de Mili",
-    },
-    {
-      id: "nina",
-      name: "Nina",
-      role: "child",
-      imageSrc: "/images/family/nina.jpg",
-      imageAlt: "Foto de Nina",
-    },
-  ],
-
   payment: {
     enabled: true,
     pix: {
@@ -164,7 +135,6 @@ export const weddingConfig: WeddingConfig = {
     detailsClosing:
       "Será uma alegria ter vocês conosco para celebrar esse momento tão especial!",
     detailsCtaMap: "Como chegar",
-    familyEyebrow: "Com amor",
     giftsEyebrow: "Presentes",
     giftsSpecialEyebrow: "Cotas especiais",
     giftsIntro:

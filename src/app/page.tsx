@@ -5,7 +5,6 @@ import { Countdown } from "@/components/Countdown";
 import { Story } from "@/components/Story";
 import { Timeline } from "@/components/Timeline";
 import { NumberFour } from "@/components/NumberFour";
-import { Family } from "@/components/Family";
 import { WeddingDetails } from "@/components/WeddingDetails";
 import { DressCode } from "@/components/DressCode";
 import { RSVP } from "@/components/RSVP";
@@ -24,7 +23,6 @@ export default function HomePage() {
         <Story />
         <Timeline />
         <NumberFour />
-        <Family />
         <WeddingDetails />
         <DressCode />
         <RSVP />
