@@ -1,32 +1,26 @@
 import type { Metadata, Viewport } from "next";
-import { Cormorant_Garamond, Great_Vibes, Montserrat } from "next/font/google";
 import { weddingConfig } from "@/config/wedding";
 import { getSiteUrl } from "@/lib/site";
 import { JsonLd } from "@/components/JsonLd";
 import { SkipLink } from "@/components/SkipLink";
+
+/* Self-hosted fonts — avoid next/font Google CDN fetch failures on Vercel */
+import "@fontsource/great-vibes/latin-400.css";
+import "@fontsource/great-vibes/latin-ext-400.css";
+import "@fontsource/cormorant-garamond/latin-400.css";
+import "@fontsource/cormorant-garamond/latin-500.css";
+import "@fontsource/cormorant-garamond/latin-600.css";
+import "@fontsource/cormorant-garamond/latin-ext-400.css";
+import "@fontsource/cormorant-garamond/latin-ext-500.css";
+import "@fontsource/cormorant-garamond/latin-ext-600.css";
+import "@fontsource/montserrat/latin-400.css";
+import "@fontsource/montserrat/latin-500.css";
+import "@fontsource/montserrat/latin-600.css";
+import "@fontsource/montserrat/latin-ext-400.css";
+import "@fontsource/montserrat/latin-ext-500.css";
+import "@fontsource/montserrat/latin-ext-600.css";
+
 import "./globals.css";
-
-/** Closest free match to Brittany Signature */
-const greatVibes = Great_Vibes({
-  variable: "--font-great-vibes",
-  subsets: ["latin"],
-  weight: "400",
-  display: "swap",
-});
-
-const cormorant = Cormorant_Garamond({
-  variable: "--font-cormorant",
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  display: "swap",
-});
-
-const montserrat = Montserrat({
-  variable: "--font-montserrat",
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  display: "swap",
-});
 
 const siteUrl = getSiteUrl() ?? weddingConfig.seo.siteUrl;
 const ogImagePath = weddingConfig.seo.ogImage;
@@ -69,10 +63,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="pt-BR"
-      className={`${greatVibes.variable} ${cormorant.variable} ${montserrat.variable}`}
-    >
+    <html lang="pt-BR">
       <body className="min-h-dvh font-sans antialiased">
         <SkipLink />
         <JsonLd />
