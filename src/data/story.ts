@@ -91,7 +91,7 @@ export const timelineEvents: TimelineEvent[] = [
     year: "2020",
     description: "O primeiro encontro. O começo.",
     date: "2020-01-04",
-    imageSrc: "/images/timeline/primeiro-encontro.jpg",
+    imageSrc: "/images/timeline/familia.jpg",
     imageAlt: "Primeiro encontro de Amábile e Eduardo",
   },
   {
@@ -108,8 +108,6 @@ export const timelineEvents: TimelineEvent[] = [
     label: "Família",
     year: "Mili & Nina",
     description: "Chegaram para completar a nossa história.",
-    imageSrc: "/images/timeline/familia.jpg",
-    imageAlt: "Família Amábile e Eduardo",
   },
   {
     id: "casamento",
