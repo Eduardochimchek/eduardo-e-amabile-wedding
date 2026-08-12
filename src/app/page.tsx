@@ -7,6 +7,7 @@ import { Timeline } from "@/components/Timeline";
 import { NumberFour } from "@/components/NumberFour";
 import { Family } from "@/components/Family";
 import { WeddingDetails } from "@/components/WeddingDetails";
+import { DressCode } from "@/components/DressCode";
 import { RSVP } from "@/components/RSVP";
 import { Gifts } from "@/components/Gifts";
 import { FinalMessage } from "@/components/FinalMessage";
@@ -25,6 +26,7 @@ export default function HomePage() {
         <NumberFour />
         <Family />
         <WeddingDetails />
+        <DressCode />
         <RSVP />
         <Gifts />
         <FinalMessage />

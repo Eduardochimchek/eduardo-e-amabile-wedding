@@ -123,6 +123,22 @@ export type SeoConfig = {
   ogImage?: string;
 };
 
+export type DressCodeNote = {
+  label: string;
+  text: string;
+};
+
+export type DressCodeConfig = {
+  /** When false, the section is hidden */
+  enabled: boolean;
+  eyebrow: string;
+  title: string;
+  suggestion: string;
+  lead: string;
+  notes: DressCodeNote[];
+  closing?: string;
+};
+
 export type WeddingConfig = {
   couple: {
     partnerOne: CouplePerson;
@@ -134,6 +150,7 @@ export type WeddingConfig = {
   };
   date: WeddingDate;
   details: WeddingDetailsConfig;
+  dressCode: DressCodeConfig;
   family: FamilyMember[];
   payment: PaymentConfig;
   seo: SeoConfig;

@@ -70,6 +70,33 @@ export const weddingConfig: WeddingConfig = {
     },
   },
 
+  /**
+   * Draft dress code - edit freely in one place.
+   * Set enabled: false to hide the section.
+   */
+  dressCode: {
+    enabled: true,
+    eyebrow: "Traje",
+    title: "Dress code",
+    suggestion: "Esporte fino",
+    lead: "Queremos celebrar com elegância e conforto. Uma sugestão simples para o grande dia:",
+    notes: [
+      {
+        label: "Para elas",
+        text: "Vestido midi ou longo, em tons suaves ou clássicos. Evite branco, off-white e muito próximo do tom da noiva.",
+      },
+      {
+        label: "Para eles",
+        text: "Calça social, camisa e sapato fechado. Blazer é bem-vindo, gravata opcional.",
+      },
+      {
+        label: "Lembrete",
+        text: "O mais importante é estarem confortáveis e felizes conosco. O resto a gente ajusta com carinho.",
+      },
+    ],
+    closing: "Qualquer dúvida sobre o traje, é só falar conosco.",
+  },
+
   family: [
     {
       id: "amabile",
