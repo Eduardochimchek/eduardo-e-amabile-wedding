@@ -41,11 +41,11 @@ export const weddingConfig: WeddingConfig = {
       city: "Próspera • Criciúma/SC",
       mapUrl:
         "https://www.google.com/maps/search/?api=1&query=Par%C3%B3quia%20Nossa%20Senhora%20da%20Salete%2C%20R.%20Gen.%20Osvaldo%20Pinto%20da%20Veiga%2C%201810%20-%20Pr%C3%B3spera%2C%20Crici%C3%BAma%20-%20SC%2C%2088811-700",
-      // Ordem: fachada → entrada → altar/interior → detalhe
+      // Ordem: fachada (noite) → entrada → interior
       images: [
         {
           src: "/images/wedding/venue-01.jpg",
-          alt: "Fachada da Paróquia Nossa Senhora da Salete com torre e telhado vermelho",
+          alt: "Fachada da Paróquia Nossa Senhora da Salete ao entardecer",
         },
         {
           src: "/images/wedding/venue-04.jpg",
@@ -54,10 +54,6 @@ export const weddingConfig: WeddingConfig = {
         {
           src: "/images/wedding/venue-02.jpg",
           alt: "Interior e altar da Paróquia Nossa Senhora da Salete",
-        },
-        {
-          src: "/images/wedding/venue-detail.jpg",
-          alt: "Detalhe da fachada da Paróquia Nossa Senhora da Salete",
         },
       ],
       imageCredit: {
