@@ -75,22 +75,19 @@ export const weddingConfig: WeddingConfig = {
     eyebrow: "Traje",
     title: "Dress code",
     suggestion: "Esporte fino",
-    lead: "Queremos celebrar com elegância e conforto. Uma sugestão simples para o grande dia:",
-    notes: [
-      {
-        label: "Para elas",
-        text: "Vestido midi ou longo, em tons suaves ou clássicos. Evite branco, off-white e muito próximo do tom da noiva.",
-      },
-      {
-        label: "Para eles",
-        text: "Calça social, camisa e sapato fechado. Blazer é bem-vindo, gravata opcional.",
-      },
-      {
-        label: "Lembrete",
-        text: "O mais importante é estarem confortáveis e felizes conosco. O resto a gente ajusta com carinho.",
-      },
-    ],
-    closing: "Qualquer dúvida sobre o traje, é só falar conosco.",
+    lead: "Para celebrar esse dia tão especial, pedimos que sigam a sugestão de traje abaixo.",
+    forHim: {
+      label: "Para eles",
+      style: "Esporte fino",
+      text: "Calça social, camisa e sapato fechado. Blazer é bem-vindo; gravata opcional. Prefira tons sóbrios.",
+    },
+    forHer: {
+      label: "Para elas",
+      style: "Esporte fino",
+      text: "Vestido midi ou longo, em estilo social. Tons clássicos ou suaves, com elegância e conforto.",
+    },
+    avoid: "Evitem cores claras como branco, off-white e tons muito próximos ao da noiva.",
+    closing: "Agradecemos desde já!",
   },
 
   family: [

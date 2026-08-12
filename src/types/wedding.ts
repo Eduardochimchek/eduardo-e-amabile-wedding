@@ -123,8 +123,9 @@ export type SeoConfig = {
   ogImage?: string;
 };
 
-export type DressCodeNote = {
+export type DressCodeSide = {
   label: string;
+  style: string;
   text: string;
 };
 
@@ -135,7 +136,9 @@ export type DressCodeConfig = {
   title: string;
   suggestion: string;
   lead: string;
-  notes: DressCodeNote[];
+  forHim: DressCodeSide;
+  forHer: DressCodeSide;
+  avoid?: string;
   closing?: string;
 };
 
