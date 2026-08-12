@@ -29,7 +29,7 @@ export function GiftCard({ gift, onSelect }: GiftCardProps) {
       </div>
 
       <div className="flex flex-1 flex-col px-5 pb-6 pt-5 text-center sm:px-6">
-        <h3 className="font-display text-2xl leading-snug text-deep sm:text-[1.7rem]">
+        <h3 className="font-serif text-[1.35rem] font-medium leading-snug tracking-wide text-deep sm:text-[1.5rem]">
           {gift.title}
         </h3>
         <p className="mt-3 flex-1 font-sans text-sm leading-relaxed text-muted sm:text-[0.95rem]">
