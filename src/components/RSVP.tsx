@@ -253,7 +253,7 @@ export function RSVP() {
                     maxLength={RSVP_LIMITS.MAX_NAME}
                     disabled={isBusy}
                     value={searchName}
-                    placeholder="Ex.: Nicolas ou Julia Chimchek"
+                    placeholder=""
                     onChange={(e) => setSearchName(e.target.value)}
                     className="field border-warm/15 bg-warm text-deep"
                   />
