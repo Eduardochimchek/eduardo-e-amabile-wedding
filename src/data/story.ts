@@ -97,11 +97,9 @@ export const timelineEvents: TimelineEvent[] = [
   {
     id: "namoro",
     label: "Namoro",
-    year: "2020",
-    description: "O dia em que virou nós dois.",
-    date: "2020-11-04",
+    description: "Passeios, planos e uma vida sendo construída a dois.",
     imageSrc: "/images/timeline/namoro.jpg",
-    imageAlt: "Amábile e Eduardo no namoro",
+    imageAlt: "Amábile e Eduardo durante o namoro",
   },
   {
     id: "mili-nina",
