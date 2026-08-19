@@ -32,9 +32,8 @@ export const weddingConfig: WeddingConfig = {
   },
 
   details: {
-    // time: "16:00",
+    time: "20:00",
     // dressCode: "Traje a definir",
-    // time: leave undefined until confirmed (UI shows XXhXX placeholder)
     venue: {
       name: "Paróquia Nossa Senhora da Salete",
       address: "R. Gen. Osvaldo Pinto da Veiga, 1810",
