@@ -5,201 +5,117 @@ import { BotanicalAccent } from "@/components/ui/BotanicalAccent";
 import { MotionGroup } from "@/components/motion/Motion";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 
-/** Guest attire — flat modern vector (navy / neutrals). */
+/** Guest attire — refined faceless silhouette, couture proportions (navy / gold). */
 function DressCodeHimArt({ className }: { className?: string }) {
-  const skin = "#D4B8A0";
-  const navy = "#2C3E50";
-  const navyDeep = "#1F2D3A";
-  const navyMid = "#34495E";
-  const white = "#F7F4EE";
-  const accent = "#C5A66A";
+  const skin = "#E8CDB0";
+  const hair = "#1C2B38";
+  const blazer = "#2F485D";
+  const shirt = "#F7F4EE";
+  const gold = "#C5A66A";
 
   return (
     <svg
-      viewBox="0 0 200 380"
+      viewBox="0 0 160 420"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={className}
       aria-hidden="true"
     >
       {/* shoes */}
-      <path d="M62 352h36c4 0 6 3 5 6l-3 8H60c-3 0-5-3-4-6l6-8Z" fill={navyDeep} />
-      <path d="M102 352h36c4 0 7 3 6 6l-4 8H100c-3 0-5-3-4-6l6-8Z" fill={navyDeep} />
+      <path d="M56 404h20l6 10H50l6-10Z" fill={hair} />
+      <path d="M84 404h20l6 10H90l-6-10Z" fill={hair} />
 
       {/* trousers */}
-      <path d="M70 236h28v116H70z" fill={navy} />
-      <path d="M102 236h28v116h-28z" fill={navyMid} />
-      <path d="M98 236h4v116" fill={navyDeep} opacity="0.5" />
-
-      {/* jacket */}
-      <path
-        d="M48 108c12-16 30-24 52-24s40 8 52 24l16 22v120c0 10-6 16-16 18l-20 4H68l-20-4c-10-2-16-8-16-18V130l16-22Z"
-        fill={navy}
-      />
-      {/* structured lapels */}
-      <path d="M100 96L68 112l-10 108 26 10L100 96Z" fill={navyDeep} />
-      <path d="M100 96l32 16 10 108-26 10L100 96Z" fill={navyMid} />
-      {/* pocket */}
-      <rect x="122" y="168" width="24" height="14" rx="1" fill={navyDeep} />
-      <path d="M124 168h20v3H124z" fill={accent} opacity="0.85" />
-      {/* buttons */}
-      <circle cx="106" cy="178" r="2.5" fill={accent} />
-      <circle cx="106" cy="196" r="2.5" fill={accent} />
-
-      {/* shirt */}
-      <path d="M84 100h32l5 48H79l5-48Z" fill={white} />
-      <path d="M88 100l12 18 12-18" fill={white} stroke="#D8C6A5" strokeWidth="1" />
-      {/* tie */}
-      <path d="M100 118l-6 8 6 7 6-7-6-8Z" fill={navyDeep} />
-      <path d="M96 132h8l3 58-7 10-7-10 3-58Z" fill={navyMid} />
+      <path d="M58 196h18l-6 208H62l-4-208Z" fill={blazer} />
+      <path d="M84 196h18l4 208H90l-6-208Z" fill={blazer} />
+      <path d="M67 206v190" stroke={gold} strokeWidth="1" opacity="0.35" strokeLinecap="round" />
+      <path d="M93 206v190" stroke={gold} strokeWidth="1" opacity="0.35" strokeLinecap="round" />
+      <path d="M58 187h44" stroke={gold} strokeWidth="1.1" opacity="0.6" strokeLinecap="round" />
 
       {/* arms */}
       <path
-        d="M48 130c-12 22-16 48-12 74 2 10 10 14 18 10l4-6c-6-20-4-44 4-64L48 130Z"
-        fill={navy}
+        d="M52 82C42 100 38 130 40 158C41 174 42 186 46 195L51 195C47 186 45 174 45 158C43 130 47 100 58 84Z"
+        fill={blazer}
       />
+      <ellipse cx="46" cy="199" rx="4.5" ry="5.5" fill={skin} />
       <path
-        d="M152 130c12 22 16 48 12 74-2 10-10 14-18 10l-4-6c6-20 4-44-4-64L152 130Z"
-        fill={navyMid}
+        d="M108 82C118 100 122 130 120 158C119 174 118 186 114 195L109 195C113 186 115 174 115 158C117 130 113 100 102 84Z"
+        fill={blazer}
       />
-      {/* cuff links */}
-      <circle cx="46" cy="208" r="3" fill={accent} />
-      <circle cx="154" cy="208" r="3" fill={accent} />
+      <ellipse cx="114" cy="199" rx="4.5" ry="5.5" fill={skin} />
+
+      {/* blazer */}
+      <path
+        d="M56 78C46 96 44 122 50 148C46 166 48 180 58 190L102 190C112 180 114 166 110 148C116 122 114 96 104 78C96 70 64 70 56 78Z"
+        fill={blazer}
+      />
+      <path d="M80 84v90" stroke={gold} strokeWidth="1.1" opacity="0.55" strokeLinecap="round" />
+      <path d="M68 78l9 11" stroke={gold} strokeWidth="1.2" strokeLinecap="round" opacity="0.7" />
+      <path d="M92 78l-9 11" stroke={gold} strokeWidth="1.2" strokeLinecap="round" opacity="0.7" />
+      <circle cx="80" cy="146" r="1.8" fill={gold} />
+      <path d="M96 150l9 7" stroke={gold} strokeWidth="1.1" strokeLinecap="round" opacity="0.6" />
+
+      {/* open-collar shirt */}
+      <path d="M80 68 67 72 76 94Z" fill={shirt} />
+      <path d="M80 68 93 72 84 94Z" fill={shirt} />
 
       {/* neck */}
-      <path d="M90 88c2 10 6 14 10 16 4-2 8-6 10-16H90Z" fill={skin} />
+      <path d="M73 58h14l-2 10h-10l-2-10Z" fill={skin} />
 
-      {/* head */}
-      <ellipse cx="100" cy="56" rx="28" ry="32" fill={skin} />
-
-      {/* hair — slicked back */}
+      {/* head + hair */}
+      <ellipse cx="80" cy="40" rx="18" ry="22" fill={skin} />
       <path
-        d="M72 52c3-26 22-42 42-40 14 1 28 10 32 26-12-12-28-16-44-10-10 4-18 12-24 22-2-2-4-2-6 2Z"
-        fill={navyDeep}
-      />
-      <path
-        d="M74 56c10-18 28-28 46-24 4 8 4 20-6 28-12-10-28-12-40-4Z"
-        fill={navy}
-        opacity="0.55"
-      />
-
-      {/* face — simple expressive */}
-      <ellipse cx="88" cy="58" rx="2.2" ry="2.8" fill={navyDeep} />
-      <ellipse cx="112" cy="58" rx="2.2" ry="2.8" fill={navyDeep} />
-      <path d="M98 66c2 3 4 4 4 4" stroke="#B8957E" strokeWidth="1.4" strokeLinecap="round" />
-      <path
-        d="M92 78c4 4 12 4 16 0"
-        stroke={navyDeep}
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        fill="none"
+        d="M62 34c2-14 12-22 26-21 12 1 20 10 20 22-6-8-16-12-26-11-9 1-16 5-20 12-1-1 0-1 0-2Z"
+        fill={hair}
       />
     </svg>
   );
 }
 
-/** Guest attire — flat modern vector (navy midi, not bridal white). */
+/** Guest attire — refined faceless silhouette, one-shoulder gown (navy / gold). */
 function DressCodeHerArt({ className }: { className?: string }) {
-  const skin = "#D4B8A0";
-  const navy = "#2C3E50";
-  const navyDeep = "#1F2D3A";
-  const navySoft = "#3D566E";
-  const accent = "#C5A66A";
+  const skin = "#E8CDB0";
+  const hair = "#1C2B38";
+  const gown = "#2F485D";
+  const gold = "#C5A66A";
   const clutch = "#D8C6A5";
 
   return (
     <svg
-      viewBox="0 0 200 380"
+      viewBox="0 0 160 420"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={className}
       aria-hidden="true"
     >
-      {/* heels */}
-      <path d="M68 350h26c3 0 5 2 4 5l-2 7H66c-3 0-4-3-3-5l5-7Z" fill={navyDeep} />
-      <path d="M68 360h7v8c-8 2-14 0-16-4 2-2 5-4 9-4Z" fill={navy} />
-      <path d="M108 348h28c3 0 5 2 4 5l-3 7h-26c-3 0-4-3-3-5l4-7Z" fill={navyDeep} />
-      <path d="M128 360h8c5 0 10 2 8 5-5 2-12 2-18-1 1-2 2-4 2-4Z" fill={navy} />
-
-      {/* midi skirt — defined waist, soft A-line */}
+      {/* gown */}
       <path
-        d="M66 176c-4 36-10 90-6 164h80c8-72 2-128-6-164H66Z"
-        fill={navy}
+        d="M62 78C50 110 52 150 68 168C58 190 50 205 52 230C40 300 24 350 26 402Q82 420 138 402C140 350 124 300 112 230C114 205 106 190 96 168C112 150 114 110 108 92C100 80 80 68 62 78Z"
+        fill={gown}
       />
-      <path
-        d="M100 176c4 40 8 96 6 164h26c4-68-2-124-10-164H100Z"
-        fill={navySoft}
-        opacity="0.55"
-      />
-      <path
-        d="M112 220c1 30 2 64 1 100"
-        stroke="#F7F4EE"
-        strokeWidth="1"
-        opacity="0.25"
-        strokeLinecap="round"
-      />
+      <path d="M68 168c8 4 16 4 24 0" stroke={gold} strokeWidth="1.3" fill="none" strokeLinecap="round" opacity="0.85" />
+      <path d="M100 240c-4 50-8 100-6 158" stroke={gold} strokeWidth="1.1" fill="none" opacity="0.45" strokeLinecap="round" />
+      <path d="M62 78c14-10 34-11 46 2" stroke={gold} strokeWidth="1.2" fill="none" strokeLinecap="round" opacity="0.7" />
 
-      {/* bodice + marked waist */}
+      {/* arm + clutch */}
       <path
-        d="M72 118c10-12 22-16 34-16s24 4 34 16c5 12 6 28 2 42H70c-4-14-3-30 2-42Z"
-        fill={navy}
-      />
-      <path d="M70 156h72c1 6 1 12 0 18H70c-1-6-1-12 0-18Z" fill={navyDeep} />
-      <circle cx="106" cy="165" r="2" fill={accent} />
-
-      {/* straps */}
-      <path d="M80 116c-2 12-4 24-4 36" stroke={navySoft} strokeWidth="2.6" strokeLinecap="round" />
-      <path d="M132 116c2 12 4 24 4 36" stroke={navySoft} strokeWidth="2.6" strokeLinecap="round" />
-
-      {/* arm holding clutch */}
-      <path
-        d="M142 136c10 18 12 40 6 58-2 6-8 8-12 4l-4-8c6-16 6-34 0-50l10-4Z"
+        d="M108 92c10 16 12 40 4 62-3 8-9 12-15 10l-3-6c8-14 8-34 2-52 4-6 8-11 12-14Z"
         fill={skin}
       />
-      <rect x="140" y="188" width="32" height="16" rx="3" fill={clutch} />
-      <rect x="144" y="193" width="24" height="2" rx="1" fill={accent} />
+      <rect x="88" y="176" width="26" height="16" rx="3" fill={clutch} />
+      <rect x="92" y="182" width="18" height="2" rx="1" fill={gold} />
 
-      {/* neck + necklace */}
-      <path d="M96 100c1 8 5 12 8 14 3-2 7-6 8-14H96Z" fill={skin} />
+      {/* neck + pendant */}
+      <path d="M75 58h14l-2 10h-10l-2-10Z" fill={skin} />
+      <circle cx="82" cy="66" r="1.6" fill={gold} />
+
+      {/* head + hair (low bun) */}
+      <ellipse cx="82" cy="40" rx="18" ry="22" fill={skin} />
       <path
-        d="M94 112c6 6 18 6 24 0"
-        stroke={accent}
-        strokeWidth="1.2"
-        fill="none"
-        strokeLinecap="round"
+        d="M65 28c3-12 14-19 27-16 9 2 15 9 16 18-8-8-19-11-30-8-6 2-11 6-13 12-1-2-1-4 0-6Z"
+        fill={hair}
       />
-      <circle cx="106" cy="118" r="2" fill={accent} />
-
-      {/* head */}
-      <ellipse cx="106" cy="62" rx="26" ry="30" fill={skin} />
-
-      {/* hair — elegant low bun */}
-      <circle cx="124" cy="38" r="14" fill={navyDeep} />
-      <circle cx="128" cy="34" r="7" fill={navy} opacity="0.4" />
-      <path
-        d="M80 62c5-24 24-36 44-32 10 2 18 10 22 18-14-8-30-8-44 0-6 4-12 10-16 16-2-2-4-4-6-2Z"
-        fill={navyDeep}
-      />
-      <path
-        d="M84 66c10-14 26-20 40-14 2 10 0 22-4 30-12-8-26-10-36-2Z"
-        fill={navy}
-        opacity="0.4"
-      />
-
-      {/* face — simple expressive */}
-      <ellipse cx="94" cy="64" rx="2.1" ry="2.7" fill={navyDeep} />
-      <ellipse cx="116" cy="64" rx="2.1" ry="2.7" fill={navyDeep} />
-      <path d="M106 72v4" stroke="#B8957E" strokeWidth="1.3" strokeLinecap="round" />
-      <path
-        d="M98 82c4 3.5 12 3.5 16 0"
-        stroke={navyDeep}
-        strokeWidth="1.4"
-        strokeLinecap="round"
-        fill="none"
-      />
-
-      {/* earring */}
-      <circle cx="82" cy="70" r="2.2" fill={accent} />
+      <circle cx="103" cy="32" r="9" fill={hair} />
     </svg>
   );
 }

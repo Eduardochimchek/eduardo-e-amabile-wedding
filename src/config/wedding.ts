@@ -85,7 +85,7 @@ export const weddingConfig: WeddingConfig = {
       style: "Esporte fino",
       text: "Vestido midi ou longo, em estilo social. Tons clássicos ou suaves, com elegância e conforto.",
     },
-    avoid: "Evitem cores claras como branco, off-white e tons muito próximos ao da noiva.",
+    avoid: "Não há restrição de cores — só pedimos para evitar o branco, reservado à noiva.",
     closing: "Agradecemos desde já!",
   },
 
