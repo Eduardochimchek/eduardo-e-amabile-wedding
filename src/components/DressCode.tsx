@@ -8,8 +8,8 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 /** Guest attire — refined faceless silhouette, couture proportions (navy / gold). */
 function DressCodeHimArt({ className }: { className?: string }) {
   const skin = "#E8CDB0";
-  const hair = "#1C2B38";
-  const blazer = "#2F485D";
+  const hair = "#161F29";
+  const blazer = "#1C2733";
   const shirt = "#F7F4EE";
   const gold = "#C5A66A";
 
@@ -62,8 +62,15 @@ function DressCodeHimArt({ className }: { className?: string }) {
       {/* neck */}
       <path d="M73 58h14l-2 10h-10l-2-10Z" fill={skin} />
 
-      {/* head + hair */}
+      {/* head */}
       <ellipse cx="80" cy="40" rx="18" ry="22" fill={skin} />
+
+      {/* face */}
+      <path d="M71 41c1.5 1 3 1 4.5 0" stroke={hair} strokeWidth="1.1" strokeLinecap="round" opacity="0.7" fill="none" />
+      <path d="M85 41c1.5 1 3 1 4.5 0" stroke={hair} strokeWidth="1.1" strokeLinecap="round" opacity="0.7" fill="none" />
+      <path d="M80 44v4.5" stroke="#C9A184" strokeWidth="1" strokeLinecap="round" opacity="0.6" />
+
+      {/* hair */}
       <path
         d="M62 34c2-14 12-22 26-21 12 1 20 10 20 22-6-8-16-12-26-11-9 1-16 5-20 12-1-1 0-1 0-2Z"
         fill={hair}
@@ -75,8 +82,8 @@ function DressCodeHimArt({ className }: { className?: string }) {
 /** Guest attire — refined faceless silhouette, one-shoulder gown (navy / gold). */
 function DressCodeHerArt({ className }: { className?: string }) {
   const skin = "#E8CDB0";
-  const hair = "#1C2B38";
-  const gown = "#2F485D";
+  const hair = "#161F29";
+  const gown = "#1C2733";
   const gold = "#C5A66A";
   const clutch = "#D8C6A5";
 
@@ -109,8 +116,15 @@ function DressCodeHerArt({ className }: { className?: string }) {
       <path d="M75 58h14l-2 10h-10l-2-10Z" fill={skin} />
       <circle cx="82" cy="66" r="1.6" fill={gold} />
 
-      {/* head + hair (low bun) */}
+      {/* head */}
       <ellipse cx="82" cy="40" rx="18" ry="22" fill={skin} />
+
+      {/* face */}
+      <path d="M73 41c1.5 1 3 1 4.5 0" stroke={hair} strokeWidth="1.1" strokeLinecap="round" opacity="0.7" fill="none" />
+      <path d="M87 41c1.5 1 3 1 4.5 0" stroke={hair} strokeWidth="1.1" strokeLinecap="round" opacity="0.7" fill="none" />
+      <path d="M82 44v4.5" stroke="#C9A184" strokeWidth="1" strokeLinecap="round" opacity="0.6" />
+
+      {/* hair — low bun */}
       <path
         d="M65 28c3-12 14-19 27-16 9 2 15 9 16 18-8-8-19-11-30-8-6 2-11 6-13 12-1-2-1-4 0-6Z"
         fill={hair}
