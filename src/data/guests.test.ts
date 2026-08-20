@@ -38,7 +38,8 @@ describe("guest lookup", () => {
   });
 
   it("groups Regiane family together", () => {
-    const found = findInvitationByName("Cauã", invitations);
+    // "Cauã" alone is now shared with Cauã Freitas Borges, so disambiguate.
+    const found = findInvitationByName("Cauã Jeronimo", invitations);
     assert.ok(found);
     assert.equal(found?.id, "regiane-matos");
     assert.equal(found?.guests.length, 4);

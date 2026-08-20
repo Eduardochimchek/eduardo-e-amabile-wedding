@@ -75,6 +75,35 @@ export const invitations: Invitation[] = [
   ]),
   invite("marcos-goudinho", ["Marcos Goudinho Da Silva"]),
   invite("joao-vitoria", ["João Paulo Wessler", "Vitória Speck"]),
+  invite("alecxandra-alexandre-borges", [
+    "Alecxandra Barcellos Lacombe Borges",
+    "Alexandre Da Soler Borges",
+  ]),
+  invite("elisabeta-soler-borges", ["Elisabeta Da Soler Borges"]),
+  invite("rodrigo-katiane", ["Rodrigo Da Soler Borges", "Katiane Búrigo"]),
+  invite("rafael-viviane-caua", [
+    "Rafael Da Soler Borges",
+    "Viviane Freitas Borges",
+    "Cauã Freitas Borges",
+  ]),
+  invite("elisabete-dilson-goncalves", [
+    "Elisabete Borges Gonçalves",
+    "Dilson Gonçalves",
+  ]),
+  invite("simone-sophia-carlos-dario", [
+    "Simone Da Soler Dario",
+    "Sophia Dario",
+    "Carlos Dario",
+  ]),
+  invite("maria-carmen-soler", ["Maria Carmen Da Soler"]),
+  invite("eduardo-gross", ["Eduardo Gross"]),
+  invite("emanoel-da-silva", ["Emanoel Da Silva"]),
+  invite("alice-pizzolotto", ["Alice Pizzolotto"]),
+  invite("denise-jaison", ["Denise Lacombe", "Jaison Justi"]),
+  invite("maria-eduarda-lacombe", ["Maria Eduarda Lacombe"]),
+  invite("guilhermy-pereira-velho", ["Guilhermy Pereira Velho"]),
+  invite("maria-clara-taufembach", ["Maria Clara Taufembach"]),
+  invite("zaida-barcellos", ["Zaida Barcellos"]),
 ];
 
 export function normalizeGuestName(value: string): string {
