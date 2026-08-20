@@ -104,9 +104,9 @@ export function DressCode() {
           <div data-m="right" className="text-center">
             <Image
               src="/images/wedding/dresscode-mulheres-transparent.png"
-              alt="Sugestões de traje esporte fino para convidadas: vestido azul-marinho ou vinho"
-              width={516}
-              height={737}
+              alt="Sugestões de traje esporte fino para convidadas: vestido verde ou terracota"
+              width={518}
+              height={739}
               className="mx-auto h-64 w-auto object-contain sm:h-72 md:h-80"
             />
             <p className="eyebrow mt-6 text-gold">{dressCode.forHer.label}</p>
