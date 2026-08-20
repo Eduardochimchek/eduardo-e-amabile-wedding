@@ -126,7 +126,7 @@ export function WeddingDetails() {
           <MotionGroup className="mx-auto mt-12 w-[90%] max-w-5xl md:mt-14">
             <div data-m="image">
               <VenueCarousel images={venueImages} />
-              <p className="mt-6 text-center font-display text-lg italic leading-relaxed text-deep sm:text-xl">
+              <p className="mt-6 text-center font-serif text-lg italic leading-relaxed text-deep sm:text-xl">
                 {copy.detailsCarouselCaption}{" "}
                 <GoldHeart className="mb-0.5 inline-block h-3.5 w-3.5 align-middle text-gold" />
               </p>
@@ -224,7 +224,7 @@ export function WeddingDetails() {
           </div>
           <p
             data-m="up"
-            className="mt-4 font-display text-lg italic leading-relaxed text-deep sm:text-xl"
+            className="mt-4 font-serif text-lg italic leading-relaxed text-deep sm:text-xl"
           >
             {copy.detailsClosing}
           </p>

@@ -272,7 +272,7 @@ export function RSVP() {
             {step === "pick" ? (
               <div className="space-y-5">
                 <div className="text-center">
-                  <p className="font-display text-2xl text-warm sm:text-3xl">
+                  <p className="font-serif text-2xl text-warm sm:text-3xl">
                     Encontramos mais de um nome
                   </p>
                   <p className="mt-2 text-sm text-warm/70">
@@ -319,7 +319,7 @@ export function RSVP() {
             {step === "invite" && invitation ? (
               <form onSubmit={handleSubmit} className="space-y-6" noValidate>
                 <div className="text-center">
-                  <p className="inline-flex items-center gap-2 font-display text-2xl text-warm sm:text-3xl">
+                  <p className="inline-flex items-center gap-2 font-serif text-2xl text-warm sm:text-3xl">
                     Encontramos seu convite
                     <GoldHeart className="h-4 w-4 text-gold" />
                   </p>
@@ -452,7 +452,7 @@ export function RSVP() {
                 <GoldHeart className="mx-auto h-5 w-5 text-gold" />
                 <p
                   role="status"
-                  className="rsvp-feedback rsvp-feedback--ok font-display text-2xl text-serenity"
+                  className="rsvp-feedback rsvp-feedback--ok font-serif text-2xl text-serenity"
                 >
                   {message || "Presença registrada. Obrigado!"}
                 </p>

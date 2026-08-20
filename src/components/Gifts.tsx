@@ -80,7 +80,7 @@ export function Gifts() {
         <MotionGroup className="mx-auto mt-16 max-w-2xl text-center md:mt-20">
           <p
             data-m="up"
-            className="font-display text-2xl leading-snug text-deep sm:text-3xl"
+            className="font-sans text-lg font-medium leading-snug text-deep sm:text-xl"
           >
             {weddingConfig.copy.giftsClosing}
           </p>

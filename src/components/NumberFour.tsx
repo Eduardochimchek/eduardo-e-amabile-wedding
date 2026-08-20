@@ -75,7 +75,7 @@ export function NumberFour() {
             {numberFourBody.map((line, index) => (
               <p
                 key={line}
-                className={cn("m-item m-soft font-display text-xl leading-relaxed text-deep sm:text-2xl", inView && "is-inview")}
+                className={cn("m-item m-soft font-serif text-xl leading-relaxed text-deep sm:text-2xl", inView && "is-inview")}
                 style={{ "--m-delay": `${160 + index * 70}ms` } as CSSProperties}
               >
                 {line}

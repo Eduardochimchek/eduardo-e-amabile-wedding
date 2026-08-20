@@ -5,8 +5,8 @@ import { JsonLd } from "@/components/JsonLd";
 import { SkipLink } from "@/components/SkipLink";
 
 /* Self-hosted fonts — avoid next/font Google CDN fetch failures on Vercel */
-import "@fontsource/great-vibes/latin-400.css";
-import "@fontsource/great-vibes/latin-ext-400.css";
+import "@fontsource/pinyon-script/latin-400.css";
+import "@fontsource/pinyon-script/latin-ext-400.css";
 import "@fontsource/cormorant-garamond/latin-400.css";
 import "@fontsource/cormorant-garamond/latin-500.css";
 import "@fontsource/cormorant-garamond/latin-600.css";
