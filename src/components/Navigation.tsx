@@ -67,7 +67,7 @@ export function Navigation() {
           onClick={close}
         >
           {weddingConfig.couple.partnerOne.firstName}
-          <span className="mx-1.5 text-gold">&</span>
+          <span className="mx-1.5 font-serif italic text-gold">&</span>
           {weddingConfig.couple.partnerTwo.firstName}
         </a>
 

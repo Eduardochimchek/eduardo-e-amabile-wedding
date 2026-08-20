@@ -69,7 +69,7 @@ export function Hero() {
               sizes="100vw"
               className="object-cover object-[50%_28%] sm:object-[50%_32%]"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-deep/75 via-deep/30 to-deep/15" />
+            <div className="absolute inset-0 bg-gradient-to-t from-deep/75 via-deep/35 to-deep/30" />
             <div className="absolute inset-0 bg-gradient-to-r from-deep/20 via-transparent to-deep/15" />
           </>
         ) : (
@@ -89,7 +89,7 @@ export function Hero() {
       />
 
       <div className="section-shell relative z-10 w-full pb-16 pt-28 md:pb-24 md:pt-32">
-        <div className="hero-parallax-content mx-auto max-w-3xl text-center text-warm">
+        <div className="hero-parallax-content mx-auto max-w-3xl text-center text-warm [text-shadow:0_2px_14px_rgba(0,0,0,0.6),0_1px_3px_rgba(0,0,0,0.5)]">
           <p
             data-hero="eyebrow"
             className="mb-8 text-[0.7rem] font-medium uppercase tracking-[0.28em] text-champagne"
@@ -103,7 +103,7 @@ export function Hero() {
             </span>
             <span
               data-hero="amp"
-              className="my-1 block font-display text-[clamp(2.2rem,7vw,3.4rem)] font-normal text-gold"
+              className="my-1 block font-serif text-[clamp(1.8rem,5.5vw,2.6rem)] italic font-normal text-gold"
             >
               &
             </span>
