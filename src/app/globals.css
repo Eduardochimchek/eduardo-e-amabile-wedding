@@ -153,6 +153,7 @@
   }
 
   .body-copy {
+    font-family: var(--font-sans);
     font-size: 1rem;
     line-height: 1.75;
     color: var(--color-muted);
@@ -238,6 +239,7 @@
     border-radius: var(--radius-sm);
     background: white;
     color: var(--color-deep-blue);
+    font-family: var(--font-sans);
     font-size: 1rem;
     transition:
       border-color var(--transition-base),
