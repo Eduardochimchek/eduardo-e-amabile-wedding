@@ -45,10 +45,16 @@ export function Timeline() {
           {collagePhotos.map((photo, index) => (
             <figure
               key={photo.src}
-              data-m="scale"
-              className={`mb-5 break-inside-avoid bg-warm p-2 pb-4 shadow-soft ${TILTS[index % TILTS.length]} ${OFFSETS[index % OFFSETS.length]}`}
+              data-m="fade"
+              className={`mb-5 break-inside-avoid bg-warm p-2 pb-4 shadow-soft ${OFFSETS[index % OFFSETS.length]}`}
             >
-              <div className="relative overflow-hidden bg-champagne/20">
+              {/* Tilt lives on an inner wrapper, not the multi-column child
+                  itself — Safari mis-renders `columns` when a direct child
+                  has an active `transform` (the reveal animation uses fade
+                  only here, on purpose, to keep this element transform-free). */}
+              <div
+                className={`relative overflow-hidden bg-champagne/20 ${TILTS[index % TILTS.length]}`}
+              >
                 <Image
                   src={photo.src}
                   alt="Amábile e Eduardo"
