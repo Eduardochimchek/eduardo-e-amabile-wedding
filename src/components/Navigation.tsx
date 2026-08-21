@@ -136,7 +136,7 @@ export function Navigation() {
             <li key={item.href}>
               <a
                 href={item.href}
-                className="block py-3 font-sans text-2xl text-deep transition-colors hover:text-royal"
+                className="block py-3 font-sans text-lg uppercase tracking-[0.12em] text-deep transition-colors hover:text-royal"
                 onClick={close}
               >
                 {item.label}
