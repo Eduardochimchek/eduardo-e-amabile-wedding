@@ -60,6 +60,29 @@ export const storyChapters: StoryChapter[] = [
 ];
 
 /**
+ * Photo collage - a mixed, unordered mosaic (no captions, no chronology).
+ * Photos live in /public/images/couple. Width/height are the source
+ * image's intrinsic size, used by next/image to avoid layout shift.
+ */
+export const collagePhotos: { src: string; width: number; height: number }[] = [
+  { src: "/images/couple/couple-01.jpg", width: 1280, height: 960 },
+  { src: "/images/couple/couple-02.jpg", width: 1280, height: 960 },
+  { src: "/images/couple/couple-03.jpg", width: 960, height: 1280 },
+  { src: "/images/couple/couple-04.jpg", width: 960, height: 1280 },
+  { src: "/images/couple/couple-05.jpg", width: 960, height: 1280 },
+  { src: "/images/couple/couple-06.jpg", width: 1280, height: 960 },
+  { src: "/images/couple/couple-07.jpg", width: 1066, height: 1600 },
+  { src: "/images/couple/couple-08.jpg", width: 1080, height: 1160 },
+  { src: "/images/couple/couple-09.jpg", width: 960, height: 1280 },
+  { src: "/images/couple/couple-10.jpg", width: 1080, height: 1290 },
+  { src: "/images/couple/couple-11.jpg", width: 960, height: 1280 },
+  { src: "/images/couple/couple-12.jpg", width: 1200, height: 1600 },
+  { src: "/images/couple/couple-13.jpg", width: 1280, height: 960 },
+  { src: "/images/couple/couple-14.jpg", width: 960, height: 1280 },
+  { src: "/images/couple/couple-15.jpg", width: 790, height: 1600 },
+];
+
+/**
  * Timeline / Memory Lane - photos in /public/images/timeline.
  */
 export const timelineEvents: TimelineEvent[] = [
