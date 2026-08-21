@@ -103,7 +103,7 @@ export function Hero() {
             </span>
             <span
               data-hero="amp"
-              className="my-1 block font-sans text-[clamp(1.8rem,5.5vw,2.6rem)] italic font-normal text-gold"
+              className="my-1 block text-[clamp(2.2rem,7vw,3.4rem)] font-normal text-gold"
             >
               &
             </span>

@@ -5,8 +5,8 @@ import { JsonLd } from "@/components/JsonLd";
 import { SkipLink } from "@/components/SkipLink";
 
 /* Self-hosted fonts — avoid next/font Google CDN fetch failures on Vercel */
-import "@fontsource/pinyon-script/latin-400.css";
-import "@fontsource/pinyon-script/latin-ext-400.css";
+import "@fontsource/allura/latin-400.css";
+import "@fontsource/allura/latin-ext-400.css";
 import "@fontsource/montserrat/latin-400.css";
 import "@fontsource/montserrat/latin-500.css";
 import "@fontsource/montserrat/latin-600.css";

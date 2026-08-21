@@ -33,7 +33,7 @@ export function FinalMessage() {
             style={{ "--m-delay": "220ms" } as React.CSSProperties}
           >
             {weddingConfig.couple.partnerOne.firstName}
-            <span className="mx-1.5 font-sans italic">&amp;</span>
+            <span className="mx-1.5">&amp;</span>
             {weddingConfig.couple.partnerTwo.firstName}
           </p>
           <p
