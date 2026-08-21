@@ -139,7 +139,7 @@ export function Countdown() {
           {remaining?.done ? (
             <p
               data-m="fade"
-              className="mt-10 text-center font-display text-xl italic text-gold sm:text-2xl"
+              className="mt-10 text-center font-display text-xl text-gold sm:text-2xl"
             >
               Chegou o nosso dia.
             </p>

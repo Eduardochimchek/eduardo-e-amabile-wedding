@@ -134,7 +134,7 @@ export function DressCode() {
           <MotionGroup className="mx-auto mt-10 max-w-xl text-center">
             <div data-m="fade" className="flex items-center justify-center gap-3">
               <GoldHeart className="h-3 w-3 text-gold" />
-              <p className="font-display text-xl italic text-deep sm:text-2xl">
+              <p className="font-display text-xl text-deep sm:text-2xl">
                 {dressCode.closing}
               </p>
               <GoldHeart className="h-3 w-3 text-gold" />
