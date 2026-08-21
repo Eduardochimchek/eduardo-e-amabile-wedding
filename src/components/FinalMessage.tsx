@@ -18,7 +18,7 @@ export function FinalMessage() {
           <h2
             id="mensagem-title"
             data-m="soft"
-            className="mt-5 whitespace-pre-line font-display text-3xl leading-snug text-deep sm:text-4xl md:text-5xl"
+            className="mt-5 whitespace-pre-line font-display normal-case text-3xl leading-snug text-deep sm:text-4xl md:text-5xl"
           >
             {weddingConfig.copy.finalMessage}
           </h2>
@@ -29,7 +29,7 @@ export function FinalMessage() {
           />
           <p
             data-m="up"
-            className="mt-8 font-display text-2xl text-royal"
+            className="mt-8 font-display normal-case text-2xl text-royal"
             style={{ "--m-delay": "220ms" } as React.CSSProperties}
           >
             {weddingConfig.couple.partnerOne.firstName}

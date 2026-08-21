@@ -43,13 +43,13 @@ export function Story() {
             <Motion as="li" key={chapter.id} variant="up" delay={Math.min(index * 40, 160)}>
               <article className="grid gap-4 md:grid-cols-[5.5rem_1fr] md:gap-8">
                 <div className="flex items-start md:justify-end">
-                  <span className="font-display text-4xl text-gold/70 md:text-5xl">
+                  <span className="font-display normal-case text-4xl text-gold/70 md:text-5xl">
                     {String(index + 1).padStart(2, "0")}
                   </span>
                 </div>
                 <div className="border-t border-line pt-4 md:border-t-0 md:border-l md:pl-8 md:pt-0">
                   {chapter.title ? (
-                    <h3 className="font-display text-2xl text-deep md:text-[1.75rem]">
+                    <h3 className="font-display normal-case text-2xl text-deep md:text-[1.75rem]">
                       {chapter.title}
                     </h3>
                   ) : null}

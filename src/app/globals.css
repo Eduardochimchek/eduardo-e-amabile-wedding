@@ -109,6 +109,7 @@
     background: var(--color-warm-white);
     color: var(--color-deep-blue);
     font-family: var(--font-sans);
+    text-transform: uppercase;
     text-rendering: optimizeLegibility;
   }
 
@@ -148,6 +149,7 @@
     letter-spacing: 0.01em;
     line-height: 1.15;
     color: var(--color-deep-blue);
+    text-transform: none;
   }
 
   .body-copy {

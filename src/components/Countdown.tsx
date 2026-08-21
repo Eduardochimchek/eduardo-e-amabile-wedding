@@ -88,7 +88,7 @@ export function Countdown() {
             </p>
             <h2
               id="contagem-title"
-              className="mt-4 font-display text-4xl font-normal text-warm sm:text-5xl"
+              className="mt-4 font-display normal-case text-4xl font-normal text-warm sm:text-5xl"
             >
               Até o nosso dia
             </h2>
@@ -139,7 +139,7 @@ export function Countdown() {
           {remaining?.done ? (
             <p
               data-m="fade"
-              className="mt-10 text-center font-display text-xl text-gold sm:text-2xl"
+              className="mt-10 text-center font-display normal-case text-xl text-gold sm:text-2xl"
             >
               Chegou o nosso dia.
             </p>

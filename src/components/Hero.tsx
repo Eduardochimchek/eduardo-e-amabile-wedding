@@ -97,7 +97,7 @@ export function Hero() {
             Nosso casamento
           </p>
 
-          <h1 className="font-display text-[clamp(3.6rem,13vw,7rem)] font-normal leading-[1.05]">
+          <h1 className="font-display normal-case text-[clamp(3.6rem,13vw,7rem)] font-normal leading-[1.05]">
             <span data-hero="name-1" className="block">
               {couple.partnerOne.firstName}
             </span>

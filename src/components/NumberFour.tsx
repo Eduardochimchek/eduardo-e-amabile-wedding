@@ -54,7 +54,7 @@ export function NumberFour() {
         className="pointer-events-none absolute inset-0 flex items-center justify-center"
         aria-hidden="true"
       >
-        <span className="number-four-mark select-none font-display text-[min(70vw,22rem)] font-medium leading-none text-gold">
+        <span className="number-four-mark select-none font-display normal-case text-[min(70vw,22rem)] font-medium leading-none text-gold">
           {numberFourTitle}
         </span>
       </div>
@@ -63,7 +63,7 @@ export function NumberFour() {
         <div className="mx-auto max-w-xl text-center">
           <h2
             id="numero-04-title"
-            className={cn("m-item m-scale font-display text-7xl text-gold sm:text-8xl", inView && "is-inview")}
+            className={cn("m-item m-scale font-display normal-case text-7xl text-gold sm:text-8xl", inView && "is-inview")}
           >
             {numberFourTitle}
           </h2>

@@ -58,7 +58,7 @@ export function DressCode() {
           </div>
           <p
             data-m="soft"
-            className="mt-5 font-display text-4xl text-deep sm:text-5xl"
+            className="mt-5 font-display normal-case text-4xl text-deep sm:text-5xl"
           >
             {dressCode.suggestion}
           </p>
@@ -77,7 +77,7 @@ export function DressCode() {
               className="mx-auto h-64 w-auto object-contain sm:h-72 md:h-80"
             />
             <p className="eyebrow mt-6 text-gold">{dressCode.forHim.label}</p>
-            <p className="mt-3 font-display text-3xl text-royal sm:text-[2rem]">
+            <p className="mt-3 font-display normal-case text-3xl text-royal sm:text-[2rem]">
               {dressCode.forHim.style}
             </p>
             <p className="mx-auto mt-3 max-w-xs font-sans text-sm leading-relaxed text-muted">
@@ -110,7 +110,7 @@ export function DressCode() {
               className="mx-auto h-64 w-auto object-contain sm:h-72 md:h-80"
             />
             <p className="eyebrow mt-6 text-gold">{dressCode.forHer.label}</p>
-            <p className="mt-3 font-display text-3xl text-royal sm:text-[2rem]">
+            <p className="mt-3 font-display normal-case text-3xl text-royal sm:text-[2rem]">
               {dressCode.forHer.style}
             </p>
             <p className="mx-auto mt-3 max-w-xs font-sans text-sm leading-relaxed text-muted">
@@ -134,7 +134,7 @@ export function DressCode() {
           <MotionGroup className="mx-auto mt-10 max-w-xl text-center">
             <div data-m="fade" className="flex items-center justify-center gap-3">
               <GoldHeart className="h-3 w-3 text-gold" />
-              <p className="font-display text-xl text-deep sm:text-2xl">
+              <p className="font-display normal-case text-xl text-deep sm:text-2xl">
                 {dressCode.closing}
               </p>
               <GoldHeart className="h-3 w-3 text-gold" />

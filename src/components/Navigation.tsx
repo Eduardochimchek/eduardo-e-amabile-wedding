@@ -61,7 +61,7 @@ export function Navigation() {
         <a
           href="#topo"
           className={cn(
-            "font-display text-2xl transition-colors md:text-[1.6rem]",
+            "font-display normal-case text-2xl transition-colors md:text-[1.6rem]",
             scrolled || open ? "text-deep" : "text-warm",
           )}
           onClick={close}
