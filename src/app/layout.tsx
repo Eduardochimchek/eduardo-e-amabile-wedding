@@ -7,18 +7,14 @@ import { SkipLink } from "@/components/SkipLink";
 /* Self-hosted fonts — avoid next/font Google CDN fetch failures on Vercel */
 import "@fontsource/pinyon-script/latin-400.css";
 import "@fontsource/pinyon-script/latin-ext-400.css";
-import "@fontsource/cormorant-garamond/latin-400.css";
-import "@fontsource/cormorant-garamond/latin-500.css";
-import "@fontsource/cormorant-garamond/latin-600.css";
-import "@fontsource/cormorant-garamond/latin-ext-400.css";
-import "@fontsource/cormorant-garamond/latin-ext-500.css";
-import "@fontsource/cormorant-garamond/latin-ext-600.css";
 import "@fontsource/montserrat/latin-400.css";
 import "@fontsource/montserrat/latin-500.css";
 import "@fontsource/montserrat/latin-600.css";
 import "@fontsource/montserrat/latin-ext-400.css";
 import "@fontsource/montserrat/latin-ext-500.css";
 import "@fontsource/montserrat/latin-ext-600.css";
+import "@fontsource/montserrat/latin-400-italic.css";
+import "@fontsource/montserrat/latin-ext-400-italic.css";
 
 import "./globals.css";
 

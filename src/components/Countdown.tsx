@@ -92,7 +92,7 @@ export function Countdown() {
             >
               Até o nosso dia
             </h2>
-            <p className="mt-3 font-serif text-sm tracking-wide text-warm/70">
+            <p className="mt-3 font-sans text-sm tracking-wide text-warm/70">
               {weddingConfig.date.displayLong ?? weddingConfig.date.display}
             </p>
           </header>
@@ -117,14 +117,14 @@ export function Countdown() {
                 >
                   {i > 0 ? (
                     <span
-                      className="mt-1 hidden font-serif text-2xl text-gold/55 sm:mt-2 sm:block sm:text-3xl"
+                      className="mt-1 hidden font-sans text-2xl text-gold/55 sm:mt-2 sm:block sm:text-3xl"
                       aria-hidden="true"
                     >
                       :
                     </span>
                   ) : null}
                   <div className="min-w-[3.5rem] text-center sm:min-w-[4.5rem]">
-                    <p className="font-serif text-[clamp(2rem,8vw,3.75rem)] font-medium leading-none tracking-wide text-warm tabular-nums">
+                    <p className="font-sans text-[clamp(2rem,8vw,3.75rem)] font-medium leading-none tracking-wide text-warm tabular-nums">
                       {value}
                     </p>
                     <p className="mt-3 text-[0.62rem] uppercase tracking-[0.2em] text-champagne sm:text-[0.7rem]">

@@ -36,7 +36,7 @@ export function FinalMessage() {
           </p>
           <p
             data-m="fade"
-            className="mt-3 font-serif tracking-[0.28em] text-muted"
+            className="mt-3 font-sans tracking-[0.28em] text-muted"
             style={{ "--m-delay": "320ms" } as React.CSSProperties}
           >
             {weddingConfig.date.displayCompact}

@@ -26,13 +26,13 @@ export function Story() {
 
           <p
             data-m="up"
-            className="mx-auto mt-10 max-w-2xl text-center font-serif text-2xl italic leading-snug text-deep sm:text-3xl"
+            className="mx-auto mt-10 max-w-2xl text-center font-sans text-2xl italic leading-snug text-deep sm:text-3xl"
           >
             {leadOne}
           </p>
           <p
             data-m="up"
-            className="mx-auto mt-4 max-w-2xl text-center font-serif text-2xl italic leading-snug text-royal sm:text-3xl"
+            className="mx-auto mt-4 max-w-2xl text-center font-sans text-2xl italic leading-snug text-royal sm:text-3xl"
           >
             {leadTwo}
           </p>

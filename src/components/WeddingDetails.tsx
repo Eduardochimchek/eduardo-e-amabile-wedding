@@ -112,7 +112,7 @@ export function WeddingDetails() {
             <GoldHeart className="mx-auto mt-4 h-4 w-4 text-gold" />
             <h2
               id="casamento-title"
-              className="mt-5 font-serif text-[clamp(2.4rem,8vw,3.75rem)] font-medium tracking-wide text-deep"
+              className="mt-5 font-sans text-[clamp(2.4rem,8vw,3.75rem)] font-medium tracking-wide text-deep"
             >
               {date.displayCompact}
             </h2>
@@ -126,7 +126,7 @@ export function WeddingDetails() {
           <MotionGroup className="mx-auto mt-12 w-[90%] max-w-5xl md:mt-14">
             <div data-m="image">
               <VenueCarousel images={venueImages} />
-              <p className="mt-6 text-center font-serif text-lg italic leading-relaxed text-deep sm:text-xl">
+              <p className="mt-6 text-center font-sans text-lg italic leading-relaxed text-deep sm:text-xl">
                 {copy.detailsCarouselCaption}{" "}
                 <GoldHeart className="mb-0.5 inline-block h-3.5 w-3.5 align-middle text-gold" />
               </p>
@@ -175,7 +175,7 @@ export function WeddingDetails() {
               </div>
 
               {venue.name ? (
-                <h3 className="mt-6 font-serif text-xl uppercase tracking-[0.12em] text-deep sm:text-2xl">
+                <h3 className="mt-6 font-sans text-xl uppercase tracking-[0.12em] text-deep sm:text-2xl">
                   {venue.name}
                 </h3>
               ) : null}
@@ -224,7 +224,7 @@ export function WeddingDetails() {
           </div>
           <p
             data-m="up"
-            className="mt-4 font-serif text-lg italic leading-relaxed text-deep sm:text-xl"
+            className="mt-4 font-sans text-lg italic leading-relaxed text-deep sm:text-xl"
           >
             {copy.detailsClosing}
           </p>

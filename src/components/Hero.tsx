@@ -103,7 +103,7 @@ export function Hero() {
             </span>
             <span
               data-hero="amp"
-              className="my-1 block font-serif text-[clamp(1.8rem,5.5vw,2.6rem)] italic font-normal text-gold"
+              className="my-1 block font-sans text-[clamp(1.8rem,5.5vw,2.6rem)] italic font-normal text-gold"
             >
               &
             </span>
@@ -114,7 +114,7 @@ export function Hero() {
 
           <p
             data-hero="date"
-            className="mt-8 font-serif text-xl tracking-wide text-warm sm:text-2xl md:text-[1.75rem]"
+            className="mt-8 font-sans text-xl tracking-wide text-warm sm:text-2xl md:text-[1.75rem]"
           >
             {date.displayLong ?? date.display}
           </p>

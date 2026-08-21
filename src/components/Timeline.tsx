@@ -72,7 +72,7 @@ function TimelineMemoryItem({
       style={{ transitionDelay: "70ms" } as CSSProperties}
     >
       <p className="eyebrow text-sage">{event.label}</p>
-      <p className="mt-3 font-serif text-xl leading-snug text-deep sm:text-2xl md:text-[1.65rem]">
+      <p className="mt-3 font-sans text-xl leading-snug text-deep sm:text-2xl md:text-[1.65rem]">
         {event.description}
       </p>
     </div>

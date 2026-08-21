@@ -143,13 +143,13 @@ export function PaymentModal({
         </button>
 
         <p className="eyebrow">Presentear</p>
-        <h3 id={titleId} className="mt-3 font-serif text-3xl text-deep">
+        <h3 id={titleId} className="mt-3 font-sans text-3xl text-deep">
           {current.title}
         </h3>
         <p className="mt-3 body-copy text-sm">{current.description}</p>
 
         {typeof current.amount === "number" ? (
-          <p className="mt-5 font-serif text-xl font-medium text-royal sm:text-2xl">
+          <p className="mt-5 font-sans text-xl font-medium text-royal sm:text-2xl">
             {formatGiftAmount(current.amount, { fromPrice: current.fromPrice })}
           </p>
         ) : (
