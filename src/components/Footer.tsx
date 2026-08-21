@@ -5,7 +5,9 @@ export function Footer() {
     <footer className="border-t border-line bg-warm py-12">
       <div className="section-shell text-center">
         <p className="font-display text-2xl text-deep sm:text-3xl">
-          {weddingConfig.couple.shortNames}
+          {weddingConfig.couple.partnerOne.firstName}
+          <span className="mx-1.5 font-sans italic">&amp;</span>
+          {weddingConfig.couple.partnerTwo.firstName}
         </p>
         <p className="mt-3 font-sans tracking-[0.28em] text-muted">
           {weddingConfig.date.displayCompact}

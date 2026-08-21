@@ -32,7 +32,9 @@ export function FinalMessage() {
             className="mt-8 font-display text-2xl text-royal"
             style={{ "--m-delay": "220ms" } as React.CSSProperties}
           >
-            {weddingConfig.couple.shortNames}
+            {weddingConfig.couple.partnerOne.firstName}
+            <span className="mx-1.5 font-sans italic">&amp;</span>
+            {weddingConfig.couple.partnerTwo.firstName}
           </p>
           <p
             data-m="fade"
