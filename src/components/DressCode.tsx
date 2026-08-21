@@ -123,7 +123,7 @@ export function DressCode() {
           <MotionGroup className="mx-auto mt-12 max-w-2xl md:mt-14">
             <p
               data-m="up"
-              className="rounded-sm border border-gold/40 bg-champagne/20 px-5 py-4 text-center text-sm font-medium uppercase tracking-[0.14em] text-deep sm:text-[0.8rem]"
+              className="rounded-sm border border-gold/40 bg-champagne/20 px-5 py-4 text-center text-sm leading-relaxed text-deep sm:text-base"
             >
               {dressCode.avoid}
             </p>
