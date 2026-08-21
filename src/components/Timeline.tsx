@@ -8,7 +8,8 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 
 /** Deterministic per-photo tilt/offset so the mosaic reads as casual, not aligned. */
 const TILTS = ["-rotate-3", "rotate-2", "-rotate-1", "rotate-3", "-rotate-2", "rotate-1"];
-const OFFSETS = ["md:translate-y-0", "md:translate-y-6", "md:-translate-y-3", "md:translate-y-3"];
+/** Real margin-top (not transform) so columns never overlap, staggered on every breakpoint. */
+const OFFSETS = ["mt-0", "mt-8", "mt-3", "mt-10", "mt-1", "mt-6"];
 
 export function Timeline() {
   return (
