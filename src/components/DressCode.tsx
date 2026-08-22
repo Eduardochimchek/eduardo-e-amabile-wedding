@@ -77,9 +77,6 @@ export function DressCode() {
               className="mx-auto h-64 w-auto object-contain sm:h-72 md:h-80"
             />
             <p className="eyebrow mt-6 text-gold">{dressCode.forHim.label}</p>
-            <p className="mt-3 font-display normal-case text-4xl text-royal sm:text-[2.5rem]">
-              {dressCode.forHim.style}
-            </p>
             <p className="mx-auto mt-3 max-w-xs font-sans text-sm leading-relaxed text-muted">
               {dressCode.forHim.text}
             </p>
@@ -110,9 +107,6 @@ export function DressCode() {
               className="mx-auto h-64 w-auto object-contain sm:h-72 md:h-80"
             />
             <p className="eyebrow mt-6 text-gold">{dressCode.forHer.label}</p>
-            <p className="mt-3 font-display normal-case text-4xl text-royal sm:text-[2.5rem]">
-              {dressCode.forHer.style}
-            </p>
             <p className="mx-auto mt-3 max-w-xs font-sans text-sm leading-relaxed text-muted">
               {dressCode.forHer.text}
             </p>
