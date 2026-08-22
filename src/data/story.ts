@@ -66,7 +66,7 @@ export const storyChapters: StoryChapter[] = [
  */
 export const collagePhotos: { src: string; width: number; height: number }[] = [
   { src: "/images/couple/couple-08.jpg", width: 1080, height: 1160 },
-  { src: "/images/couple/couple-16.jpg", width: 900, height: 1200 },
+  { src: "/images/couple/couple-16.jpg", width: 968, height: 806 },
   { src: "/images/couple/couple-01.jpg", width: 1280, height: 960 },
   { src: "/images/couple/couple-02.jpg", width: 1280, height: 960 },
   { src: "/images/couple/couple-03.jpg", width: 960, height: 1280 },
