@@ -8,8 +8,8 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 
 /** Deterministic per-photo tilt/offset so the mosaic reads as casual, not aligned. */
 const TILTS = ["-rotate-3", "rotate-2", "-rotate-1", "rotate-3", "-rotate-2", "rotate-1"];
-/** Real margin-top (not transform) so columns never overlap, staggered on every breakpoint. */
-const OFFSETS = ["mt-0", "mt-8", "mt-3", "mt-10", "mt-1", "mt-6"];
+/** Real margin-top (not transform) so rows never overlap, staggered on every breakpoint. */
+const OFFSETS = ["mt-0", "mt-6", "mt-2", "mt-8", "mt-1", "mt-5"];
 
 export function Timeline() {
   return (
@@ -38,30 +38,28 @@ export function Timeline() {
           </div>
         </MotionGroup>
 
+        {/* Plain CSS grid, not `columns` — Safari has long-standing bugs
+            balancing multi-column layouts (confirmed broken on iOS here),
+            while grid-template-columns has no such history on any browser. */}
         <MotionGroup
           stagger
-          className="mx-auto mt-12 max-w-5xl columns-2 gap-5 sm:columns-3 md:mt-16 lg:columns-4"
+          className="mx-auto mt-12 grid max-w-5xl grid-cols-2 gap-5 sm:grid-cols-3 md:mt-16 lg:grid-cols-4"
         >
           {collagePhotos.map((photo, index) => (
             <figure
               key={photo.src}
               data-m="fade"
-              className={`mb-5 break-inside-avoid bg-warm p-2 pb-4 shadow-soft ${OFFSETS[index % OFFSETS.length]}`}
+              className={`self-start bg-warm p-2 pb-4 shadow-soft ${OFFSETS[index % OFFSETS.length]}`}
             >
-              {/* Tilt lives on an inner wrapper, not the multi-column child
-                  itself — Safari mis-renders `columns` when a direct child
-                  has an active `transform` (the reveal animation uses fade
-                  only here, on purpose, to keep this element transform-free). */}
               <div
-                className={`relative overflow-hidden bg-champagne/20 ${TILTS[index % TILTS.length]}`}
+                className={`relative aspect-[3/4] overflow-hidden bg-champagne/20 ${TILTS[index % TILTS.length]}`}
               >
                 <Image
                   src={photo.src}
                   alt="Amábile e Eduardo"
-                  width={photo.width}
-                  height={photo.height}
+                  fill
                   sizes="(min-width: 1024px) 22vw, (min-width: 640px) 30vw, 45vw"
-                  className="h-auto w-full object-cover"
+                  className="object-cover"
                 />
               </div>
             </figure>
