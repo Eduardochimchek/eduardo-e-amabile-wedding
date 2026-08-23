@@ -47,6 +47,8 @@ export type WeddingDetailsConfig = {
   dressCode?: string;
   additionalNotes?: string;
   venue: VenueInfo;
+  /** Where the party continues after the ceremony, if different from `venue` */
+  reception?: VenueInfo;
 };
 
 export type TimelineEvent = {
@@ -156,6 +158,9 @@ export type WeddingConfig = {
     detailsCarouselCaption: string;
     detailsClosing: string;
     detailsCtaMap: string;
+    receptionEyebrow: string;
+    receptionTitle: string;
+    receptionLead: string;
     storyEyebrow: string;
     storyLead: [string, string];
     giftsEyebrow: string;

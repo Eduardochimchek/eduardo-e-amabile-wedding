@@ -75,6 +75,25 @@ function ClockIcon({ className }: { className?: string }) {
   );
 }
 
+function PartyIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      aria-hidden="true"
+      className={className}
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M9 18V5l12-2v13" />
+      <circle cx="6" cy="18" r="3" />
+      <circle cx="18" cy="16" r="3" />
+    </svg>
+  );
+}
+
 export function WeddingDetails() {
   const { date, details, copy } = weddingConfig;
   const { venue } = details;
@@ -89,6 +108,22 @@ export function WeddingDetails() {
   const ceremonyLabel = details.time?.trim()
     ? `Cerimônia • ${details.time.trim()}`
     : "Cerimônia • XXhXX";
+
+  const reception = details.reception;
+  const hasReceptionDetails = Boolean(
+    reception && (reception.name || reception.address || reception.city),
+  );
+  const receptionImages =
+    reception?.images && reception.images.length > 0
+      ? reception.images
+      : reception?.imageSrc
+        ? [
+            {
+              src: reception.imageSrc,
+              alt: reception.imageAlt ?? reception.name ?? "Local da festa",
+            },
+          ]
+        : [];
 
   return (
     <section
@@ -217,6 +252,81 @@ export function WeddingDetails() {
             </p>
           </MotionGroup>
         )}
+
+        {hasReceptionDetails ? (
+          <>
+            <MotionGroup className="mx-auto mt-16 max-w-2xl text-center md:mt-20">
+              <div data-m="fade" className="flex items-center justify-center gap-3">
+                <span className="h-px w-10 bg-gold/50" aria-hidden="true" />
+                <PartyIcon className="h-4 w-4 text-gold" />
+                <span className="h-px w-10 bg-gold/50" aria-hidden="true" />
+              </div>
+              <p data-m="fade" className="eyebrow mt-4 text-gold">
+                {copy.receptionEyebrow}
+              </p>
+              <h3
+                data-m="soft"
+                className="mt-3 font-display normal-case text-4xl text-deep sm:text-5xl"
+              >
+                {copy.receptionTitle}
+              </h3>
+              <p className="mx-auto mt-4 max-w-xl text-base italic leading-relaxed text-muted sm:text-lg">
+                {copy.receptionLead}
+              </p>
+            </MotionGroup>
+
+            {receptionImages.length > 0 ? (
+              <MotionGroup className="mx-auto mt-10 w-[90%] max-w-5xl md:mt-12">
+                <div data-m="image">
+                  <VenueCarousel images={receptionImages} />
+                </div>
+              </MotionGroup>
+            ) : null}
+
+            <MotionGroup className="mx-auto mt-10 max-w-xl md:mt-12">
+              <div
+                data-m="up"
+                className="rounded-lg border border-gold/45 bg-warm/70 px-6 py-10 text-center shadow-soft sm:px-10 sm:py-12"
+              >
+                <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full border border-gold/50 text-gold">
+                  <PartyIcon className="h-7 w-7" />
+                </div>
+
+                {reception?.name ? (
+                  <h3 className="mt-6 font-sans text-xl uppercase tracking-[0.12em] text-deep sm:text-2xl">
+                    {reception.name}
+                  </h3>
+                ) : null}
+
+                {(reception?.address || reception?.city) && (
+                  <div className="mt-5 flex items-start justify-center gap-2 text-sm leading-relaxed text-muted sm:text-base">
+                    <PinIcon className="mt-0.5 h-4 w-4 shrink-0 text-gold" />
+                    <p>
+                      {reception?.address ? (
+                        <span className="block">{reception.address}</span>
+                      ) : null}
+                      {reception?.city ? (
+                        <span className="block">{reception.city}</span>
+                      ) : null}
+                    </p>
+                  </div>
+                )}
+
+                {reception?.mapUrl ? (
+                  <a
+                    href={reception.mapUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-primary mt-8 inline-flex min-w-[11rem] items-center justify-center gap-2"
+                  >
+                    <PinIcon className="h-4 w-4 text-gold" />
+                    {copy.detailsCtaMap}
+                  </a>
+                ) : null}
+              </div>
+            </MotionGroup>
+          </>
+        ) : null}
 
         <MotionGroup className="mx-auto mt-12 max-w-xl text-center md:mt-14">
           <div data-m="fade">
