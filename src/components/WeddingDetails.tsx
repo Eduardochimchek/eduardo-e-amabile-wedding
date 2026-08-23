@@ -113,17 +113,6 @@ export function WeddingDetails() {
   const hasReceptionDetails = Boolean(
     reception && (reception.name || reception.address || reception.city),
   );
-  const receptionImages =
-    reception?.images && reception.images.length > 0
-      ? reception.images
-      : reception?.imageSrc
-        ? [
-            {
-              src: reception.imageSrc,
-              alt: reception.imageAlt ?? reception.name ?? "Local da festa",
-            },
-          ]
-        : [];
 
   return (
     <section
@@ -275,10 +264,21 @@ export function WeddingDetails() {
               </p>
             </MotionGroup>
 
-            {receptionImages.length > 0 ? (
-              <MotionGroup className="mx-auto mt-10 w-[90%] max-w-5xl md:mt-12">
-                <div data-m="image">
-                  <VenueCarousel images={receptionImages} />
+            {reception?.mapEmbedUrl ? (
+              <MotionGroup className="mx-auto mt-10 w-[90%] max-w-3xl md:mt-12">
+                <div
+                  data-m="image"
+                  className="overflow-hidden rounded-md border border-line shadow-soft"
+                >
+                  <iframe
+                    title="Rota da igreja até a Associação da Imbralit"
+                    src={reception.mapEmbedUrl}
+                    width="100%"
+                    height="360"
+                    style={{ border: 0, display: "block" }}
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                  />
                 </div>
               </MotionGroup>
             ) : null}

@@ -67,26 +67,11 @@ export const weddingConfig: WeddingConfig = {
       name: "Associação da Imbralit",
       address: "R. Antônio Daré, 788",
       city: "Brasília, Criciúma/SC, 88813-610",
+      // Directions from the ceremony (Paróquia Nossa Senhora da Salete) to the reception.
       mapUrl:
-        "https://www.google.com/maps/search/?api=1&query=Associa%C3%A7%C3%A3o%20da%20Imbralit%2C%20R.%20Ant%C3%B4nio%20Dar%C3%A9%2C%20788%20-%20Bras%C3%ADlia%2C%20Crici%C3%BAma%20-%20SC%2C%2088813-610",
-      images: [
-        {
-          src: "/images/wedding/reception-01.webp",
-          alt: "Vista aérea da quadra e área de lazer da Associação da Imbralit",
-        },
-        {
-          src: "/images/wedding/reception-02.webp",
-          alt: "Vista aérea do salão de festas da Associação da Imbralit durante o dia",
-        },
-        {
-          src: "/images/wedding/reception-03.webp",
-          alt: "Área verde e lago da Associação da Imbralit",
-        },
-        {
-          src: "/images/wedding/reception-04.webp",
-          alt: "Salão de festas da Associação da Imbralit iluminado à noite",
-        },
-      ],
+        "https://www.google.com/maps/dir/?api=1&origin=Par%C3%B3quia%20Nossa%20Senhora%20da%20Salete%2C%20R.%20Gen.%20Osvaldo%20Pinto%20da%20Veiga%2C%201810%20-%20Pr%C3%B3spera%2C%20Crici%C3%BAma%20-%20SC%2C%2088811-700&destination=Associa%C3%A7%C3%A3o%20da%20Imbralit%2C%20R.%20Ant%C3%B4nio%20Dar%C3%A9%2C%20788%20-%20Bras%C3%ADlia%2C%20Crici%C3%BAma%20-%20SC%2C%2088813-610&travelmode=driving",
+      mapEmbedUrl:
+        "https://www.google.com/maps?saddr=Par%C3%B3quia%20Nossa%20Senhora%20da%20Salete%2C%20R.%20Gen.%20Osvaldo%20Pinto%20da%20Veiga%2C%201810%20-%20Pr%C3%B3spera%2C%20Crici%C3%BAma%20-%20SC%2C%2088811-700&daddr=Associa%C3%A7%C3%A3o%20da%20Imbralit%2C%20R.%20Ant%C3%B4nio%20Dar%C3%A9%2C%20788%20-%20Bras%C3%ADlia%2C%20Crici%C3%BAma%20-%20SC%2C%2088813-610&output=embed",
     },
   },
 
@@ -163,7 +148,7 @@ export const weddingConfig: WeddingConfig = {
     receptionEyebrow: "Depois da cerimônia",
     receptionTitle: "A festa continua",
     receptionLead:
-      "Na Associação da Imbralit, para brindarmos juntos até o fim da noite.",
+      "Na Associação da Imbralit, para brindarmos juntos até o fim da noite. Veja abaixo o caminho saindo da igreja.",
     giftsEyebrow: "Presentes",
     giftsSpecialEyebrow: "Cotas especiais",
     giftsIntro:

@@ -28,6 +28,8 @@ export type VenueInfo = {
   address?: string;
   city?: string;
   mapUrl?: string;
+  /** Keyless Google Maps "output=embed" URL for an inline iframe (e.g. a route between two points) */
+  mapEmbedUrl?: string;
   /** Gallery for the venue carousel (order is display order) */
   images?: VenueImage[];
   /** @deprecated Prefer `images` */
