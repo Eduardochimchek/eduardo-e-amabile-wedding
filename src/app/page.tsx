@@ -1,5 +1,6 @@
 import { Navigation } from "@/components/Navigation";
 import { ScrollProgress } from "@/components/ScrollProgress";
+import { MusicPlayer } from "@/components/MusicPlayer";
 import { Hero } from "@/components/Hero";
 import { Countdown } from "@/components/Countdown";
 import { Story } from "@/components/Story";
@@ -30,6 +31,7 @@ export default function HomePage() {
         <FinalMessage />
       </main>
       <Footer />
+      <MusicPlayer />
     </>
   );
 }
