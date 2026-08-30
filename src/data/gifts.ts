@@ -183,9 +183,9 @@ export const gifts: GiftItem[] = [
   },
   {
     id: "extra-enjoy-honeymoon",
-    title: "Cota “VAI! APROVEITEM, É LUA DE MEL!”",
+    title: "Cota “Aproveitem, é lua de mel!”",
     description:
-      "Essa é a que a gente espera receber e é de propósito: nosso número.",
+      "Se quiser dar uma força com esse valor, o número não é coincidência.",
     amount: 444.44,
     imageSrc: "/images/gifts/day-04.jpg",
     imageAlt: "Cota especial da lua de mel com valor 444,44",

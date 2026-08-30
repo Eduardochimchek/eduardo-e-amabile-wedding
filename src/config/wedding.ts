@@ -152,7 +152,7 @@ export const weddingConfig: WeddingConfig = {
     giftsEyebrow: "Presentes",
     giftsSpecialEyebrow: "Cotas especiais",
     giftsIntro:
-      "Escolha a contribuição que fizer sentido para você. Sem obrigação, com carinho.",
+      "Sua presença já é o nosso maior presente. Mas se você quiser nos ajudar a começar essa nova fase, deixamos aqui algumas sugestões, com muito carinho.",
     giftsClosing:
       "Mais do que qualquer presente, ter vocês celebrando esse momento com a gente já é um presente enorme.",
     finalEyebrow: "Até lá",
