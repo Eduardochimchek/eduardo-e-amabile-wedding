@@ -66,7 +66,7 @@ export function Timeline() {
             a varied-size mosaic instead of a flat uniform grid. */}
         <MotionGroup
           stagger
-          className="mx-auto mt-12 grid max-w-6xl grid-cols-3 gap-3 sm:grid-cols-4 sm:gap-5 md:mt-16 md:grid-cols-5 lg:grid-cols-6"
+          className="mx-auto mt-12 grid max-w-6xl grid-cols-3 gap-3 sm:grid-cols-4 sm:gap-5 md:mt-16 md:grid-cols-5 lg:grid-cols-6 grid-flow-row-dense"
         >
           {cells.map(({ photo, index, wide }) => (
             <figure
