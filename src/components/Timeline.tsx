@@ -11,7 +11,28 @@ const TILTS = ["-rotate-3", "rotate-2", "-rotate-1", "rotate-3", "-rotate-2", "r
 /** Real margin-top (not transform) so rows never overlap, staggered on every breakpoint. */
 const OFFSETS = ["mt-0", "mt-6", "mt-2", "mt-8", "mt-1", "mt-5"];
 
+/**
+ * Mix in occasional two-column "featured" tiles for landscape photos, like
+ * the varied-size mosaics common on wedding photo pages — still plain CSS
+ * Grid (col-span), never `columns`, which is confirmed broken on iOS Safari
+ * for this project (see Timeline history).
+ */
+function layoutCells() {
+  let landscapeSeen = 0;
+  return collagePhotos.map((photo, index) => {
+    const isLandscape = photo.width > photo.height;
+    let wide = false;
+    if (isLandscape) {
+      landscapeSeen += 1;
+      wide = landscapeSeen % 2 === 1;
+    }
+    return { photo, index, wide };
+  });
+}
+
 export function Timeline() {
+  const cells = layoutCells();
+
   return (
     <section
       id="timeline"
@@ -40,25 +61,27 @@ export function Timeline() {
 
         {/* Plain CSS grid, not `columns` — Safari has long-standing bugs
             balancing multi-column layouts (confirmed broken on iOS here),
-            while grid-template-columns has no such history on any browser. */}
+            while grid-template-columns (incl. col-span) has no such history
+            on any browser. Landscape photos occasionally span 2 columns for
+            a varied-size mosaic instead of a flat uniform grid. */}
         <MotionGroup
           stagger
-          className="mx-auto mt-12 grid max-w-6xl grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-5 md:mt-16 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6"
+          className="mx-auto mt-12 grid max-w-6xl grid-cols-3 gap-3 sm:grid-cols-4 sm:gap-5 md:mt-16 md:grid-cols-5 lg:grid-cols-6"
         >
-          {collagePhotos.map((photo, index) => (
+          {cells.map(({ photo, index, wide }) => (
             <figure
               key={photo.src}
               data-m="fade"
-              className={`self-start bg-warm p-2 pb-4 shadow-soft ${OFFSETS[index % OFFSETS.length]}`}
+              className={`self-start bg-warm p-1.5 pb-3 shadow-soft sm:p-2 sm:pb-4 ${wide ? "col-span-2" : ""} ${OFFSETS[index % OFFSETS.length]}`}
             >
               <div
-                className={`relative aspect-[3/4] overflow-hidden bg-champagne/20 ${TILTS[index % TILTS.length]}`}
+                className={`relative overflow-hidden bg-champagne/20 ${wide ? "aspect-[3/2]" : "aspect-[3/4]"} ${wide ? "" : TILTS[index % TILTS.length]}`}
               >
                 <Image
                   src={photo.src}
                   alt="Amábile e Eduardo"
                   fill
-                  sizes="(min-width: 1280px) 16vw, (min-width: 1024px) 19vw, (min-width: 640px) 30vw, 45vw"
+                  sizes="(min-width: 1024px) 16vw, (min-width: 640px) 22vw, 30vw"
                   className="object-cover"
                 />
               </div>
