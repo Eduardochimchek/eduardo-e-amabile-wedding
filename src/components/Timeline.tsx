@@ -43,7 +43,7 @@ export function Timeline() {
             while grid-template-columns has no such history on any browser. */}
         <MotionGroup
           stagger
-          className="mx-auto mt-12 grid max-w-5xl grid-cols-2 gap-5 sm:grid-cols-3 md:mt-16 lg:grid-cols-4"
+          className="mx-auto mt-12 grid max-w-6xl grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-5 md:mt-16 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6"
         >
           {collagePhotos.map((photo, index) => (
             <figure
@@ -58,7 +58,7 @@ export function Timeline() {
                   src={photo.src}
                   alt="Amábile e Eduardo"
                   fill
-                  sizes="(min-width: 1024px) 22vw, (min-width: 640px) 30vw, 45vw"
+                  sizes="(min-width: 1280px) 16vw, (min-width: 1024px) 19vw, (min-width: 640px) 30vw, 45vw"
                   className="object-cover"
                 />
               </div>
