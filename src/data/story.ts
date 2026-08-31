@@ -46,8 +46,10 @@ export const storyChapters: StoryChapter[] = [
     title: "Uma vida a dois e a quatro",
     paragraphs: [
       "Ao longo de mais de seis anos, construíram uma vida juntos, cheia de planos, mudanças, aprendizados e pequenos momentos que se tornaram grandes memórias.",
-      "E, no caminho, a família cresceu. Mili e Nina chegaram para completar a história, ocupando um lugar especial em cada capítulo dessa vida que construímos juntos.",
+      "E, no caminho, a família cresceu. Mili e Nina chegaram para completar a história, e hoje somos nós quatro em cada capítulo dessa vida que construímos juntos.",
     ],
+    imageSrc: "/images/couple/familia-mili-nina.jpg",
+    imageAlt: "Amábile e Eduardo com as gatinhas Mili e Nina",
   },
   {
     id: "casamento",

@@ -70,6 +70,9 @@ export type StoryChapter = {
   id: string;
   title?: string;
   paragraphs: string[];
+  /** Optional photo shown alongside this chapter's text */
+  imageSrc?: string;
+  imageAlt?: string;
 };
 
 export type PaymentMethod = "pix" | "other";

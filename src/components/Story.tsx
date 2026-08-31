@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { weddingConfig } from "@/config/wedding";
 import { storyChapters } from "@/data/story";
 import { Motion, MotionGroup } from "@/components/motion/Motion";
@@ -63,6 +64,17 @@ export function Story() {
                       </p>
                     ))}
                   </div>
+                  {chapter.imageSrc ? (
+                    <div className="relative mt-5 aspect-[3/4] w-full max-w-xs overflow-hidden rounded-md shadow-soft ring-1 ring-line/70">
+                      <Image
+                        src={chapter.imageSrc}
+                        alt={chapter.imageAlt ?? chapter.title ?? ""}
+                        fill
+                        sizes="(min-width: 768px) 20rem, 80vw"
+                        className="object-cover"
+                      />
+                    </div>
+                  ) : null}
                 </div>
               </article>
             </Motion>
