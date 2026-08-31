@@ -111,6 +111,8 @@ export const collagePhotos: { src: string; width: number; height: number }[] = [
   { src: "/images/couple/couple-42.jpg", width: 1080, height: 1500 },
   { src: "/images/couple/couple-43.jpg", width: 1500, height: 998 },
   { src: "/images/couple/couple-44.jpg", width: 999, height: 1500 },
+  { src: "/images/couple/couple-45.png", width: 1600, height: 1200 },
+  { src: "/images/couple/couple-46.png", width: 1600, height: 1200 },
 ];
 
 /**
