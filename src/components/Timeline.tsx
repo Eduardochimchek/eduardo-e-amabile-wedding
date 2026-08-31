@@ -26,6 +26,7 @@ function layoutCells() {
       landscapeSeen += 1;
       wide = landscapeSeen % 2 === 1;
     }
+    if (photo.wide !== undefined) wide = photo.wide;
     return { photo, index, wide };
   });
 }

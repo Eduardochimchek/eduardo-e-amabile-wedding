@@ -66,7 +66,13 @@ export const storyChapters: StoryChapter[] = [
  * Photos live in /public/images/couple. Width/height are the source
  * image's intrinsic size, used by next/image to avoid layout shift.
  */
-export const collagePhotos: { src: string; width: number; height: number }[] = [
+export const collagePhotos: {
+  src: string;
+  width: number;
+  height: number;
+  /** Force a tile to span 2 columns (or stay single-column) instead of the automatic alternating rule */
+  wide?: boolean;
+}[] = [
   { src: "/images/couple/couple-08.jpg", width: 1080, height: 1160 },
   { src: "/images/couple/couple-16.jpg", width: 637, height: 806 },
   { src: "/images/couple/couple-01.jpg", width: 1280, height: 960 },
@@ -86,8 +92,8 @@ export const collagePhotos: { src: string; width: number; height: number }[] = [
   { src: "/images/couple/couple-17.jpg", width: 1125, height: 1500 },
   { src: "/images/couple/couple-18.jpg", width: 1125, height: 1500 },
   { src: "/images/couple/couple-19.jpg", width: 1500, height: 1125 },
-  { src: "/images/couple/couple-20.jpg", width: 1125, height: 1500 },
-  { src: "/images/couple/couple-21.jpg", width: 1500, height: 1125 },
+  { src: "/images/couple/couple-20.jpg", width: 1125, height: 1500, wide: false },
+  { src: "/images/couple/couple-21.jpg", width: 1500, height: 1125, wide: true },
   { src: "/images/couple/couple-22.jpg", width: 1125, height: 1500 },
   { src: "/images/couple/couple-23.jpg", width: 1125, height: 1500 },
   { src: "/images/couple/couple-24.jpg", width: 1125, height: 1500 },
