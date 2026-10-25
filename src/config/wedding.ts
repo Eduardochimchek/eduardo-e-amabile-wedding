@@ -32,7 +32,7 @@ export const weddingConfig: WeddingConfig = {
   },
 
   details: {
-    time: "20:00",
+    time: "19:30",
     // dressCode: "Traje a definir",
     venue: {
       name: "Paróquia Nossa Senhora da Salete",
