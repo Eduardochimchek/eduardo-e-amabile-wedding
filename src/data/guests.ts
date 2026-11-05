@@ -103,7 +103,6 @@ export const invitations: Invitation[] = [
   invite("maria-eduarda-lacombe", ["Maria Eduarda Lacombe"]),
   invite("guilhermy-pereira-velho", ["Guilhermy Pereira Velho"]),
   invite("maria-clara-taufembach", ["Maria Clara Taufembach"]),
-  invite("zaida-barcellos", ["Zaida Barcellos"]),
 ];
 
 export function normalizeGuestName(value: string): string {
