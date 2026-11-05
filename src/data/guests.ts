@@ -75,7 +75,7 @@ export const invitations: Invitation[] = [
   ]),
   invite("marcos-goudinho", [
     "Marcos Vinícius Godinho",
-    "Acompanhante Marcos",
+    "Laiz Michels Cavaler",
   ]),
   invite("joao-vitoria", ["João Paulo Wessler", "Vitória Speck"]),
   invite("alecxandra-alexandre-borges", [
