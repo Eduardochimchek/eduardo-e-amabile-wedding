@@ -98,7 +98,7 @@ export const invitations: Invitation[] = [
     "Sophia Dario",
   ]),
   invite("maria-carmen-soler", ["Maria Carmen Da Soler"]),
-  invite("eduardo-gross", ["Eduardo Gross"]),
+  invite("eduardo-gross", ["Eduardo Gross", "Eloah"]),
   invite("emanoel-da-silva", ["Emanoel Da Silva"]),
   invite("alice-pizzolotto", ["Alice Pizzolotto"]),
   invite("denise-jaison", ["Denise Lacombe", "Jaison Justi"]),
