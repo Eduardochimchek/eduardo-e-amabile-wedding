@@ -31,14 +31,14 @@ function guestId(name: string): string {
 
 function invite(
   id: string,
-  names: string[],
+  names: (string | Omit<Guest, "id">)[],
 ): Invitation {
   return {
     id,
-    guests: names.map((name) => ({
-      id: guestId(name),
-      name,
-    })),
+    guests: names.map((entry) => {
+      const guest = typeof entry === "string" ? { name: entry } : entry;
+      return { id: guestId(guest.name), ...guest };
+    }),
   };
 }
 
@@ -83,7 +83,16 @@ export const invitations: Invitation[] = [
     "Alexandre Da Soler Borges",
   ]),
   invite("elisabeta-soler-borges", ["Elisabeta Da Soler Borges"]),
+  invite("lurdete-mario", [
+    { name: "Lurdete Borges", aliases: ["Dete"] },
+    "Mário Dagostim",
+  ]),
+  invite("alex-barcellos", ["Alex Barcellos"]),
   invite("rodrigo-katiane", ["Rodrigo Da Soler Borges", "Katiane Búrigo"]),
+  invite("delaina-artur-burigo", [
+    { name: "Delaina Búrigo", aliases: ["Guega"] },
+    "Artur Búrigo",
+  ]),
   invite("rafael-viviane-caua", [
     "Rafael Da Soler Borges",
     "Viviane Freitas Borges",
@@ -105,6 +114,7 @@ export const invitations: Invitation[] = [
   invite("maria-eduarda-lacombe", ["Maria Eduarda Lacombe"]),
   invite("guilhermy-pereira-velho", ["Guilhermy Pereira Velho"]),
   invite("maria-clara-taufembach", ["Maria Clara Taufembach"]),
+  invite("tatiane-souza", [{ name: "Tatiane Souza", aliases: ["Taty"] }]),
 ];
 
 export function normalizeGuestName(value: string): string {
