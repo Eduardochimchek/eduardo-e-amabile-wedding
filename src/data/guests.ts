@@ -88,7 +88,11 @@ export const invitations: Invitation[] = [
     "Mário Dagostim",
   ]),
   invite("alex-barcellos", ["Alex Barcellos"]),
-  invite("rodrigo-katiane", ["Rodrigo Da Soler Borges", "Katiane Búrigo"]),
+  invite("rodrigo-katiane", [
+    "Rodrigo Da Soler Borges",
+    "Katiane Búrigo",
+    { name: "Aninha", aliases: ["Ana"] },
+  ]),
   invite("delaina-artur-burigo", [
     { name: "Delaina Búrigo", aliases: ["Guega"] },
     "Artur Búrigo",
