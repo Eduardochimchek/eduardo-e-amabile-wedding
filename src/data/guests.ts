@@ -60,14 +60,14 @@ export const invitations: Invitation[] = [
   ]),
   invite("idalcio", ["Idalcio"]),
   invite("lizmeier-sobczak", [
-    "Robson Junior Lizmeier",
+    "Robson Junior Linzmeier",
     "Vanessa Sobczak",
   ]),
   invite("tais-gabriel", [
-    "Tais Lizmeier David De Lima",
+    "Tais Linzmeier David De Lima",
     "Gabriel David De Lima",
   ]),
-  invite("sueli-cristiano", ["Sueli Lizmeier", "Cristiano Lizmeier"]),
+  invite("sueli-cristiano", ["Sueli Linzmeier", "Cristiano Linzmeier"]),
   invite("simone-chimchek", [
     "Simone Chimchek",
     "Alexsandro De Jesus Rosa",
